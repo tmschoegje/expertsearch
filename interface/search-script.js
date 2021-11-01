@@ -54,6 +54,11 @@ function Search(term, engine, direction)
  //   url = "http://hahndorf/ws/dummy.aspx?q=" + escape(term) + "&start=" + startIndex + "&callback=?";
 		_engine = "g"
 	}
+	else if(engine == "expert"){
+		console.log("Before the expert call")
+		_engine = "expert"
+		var url = "http://localhost:8000/queryme/search/" + "?query=" + escape(term) + "&start=" + (startIndex - 1)
+	}
 	else if(engine == "poc"){
 		console.log("Before the PoC call")
 		_engine = "poc"
@@ -215,6 +220,93 @@ function SearchCompleted(response)
 			//html += item.link + "<br>"// + " - <a href='http://www.google.com/search?q=cache:"+	item.cacheId+":"+item.displayLink+"'>Cached</a>";
 			html += "</p><p>";
 		}
+	}
+	// CODE FOR EXPERT SEARCH RESULTS
+	else if (_engine=="expert"){
+		console.log('interpreting expert search results')
+		html = ""
+		results = response.results
+		
+		if (results.numresults === 0)
+		{
+			$("#searchResult").html("No matching pages found");
+			return;
+		}
+		
+		$("#searchResult").html(results.numresults + " results found for <b>" + _keywords.join(" ") + "</b><br><br>");
+		
+		//$("#output").html(html)
+		
+		//store the number of results 
+		logNumResults(results.numresults, results.numresults)
+
+		//TODO not working, because &from is not parsed as a thing different from a query
+		//-> do we ever need it for our usecase?
+		//	 supposed to skip ahead if we do indeed skip the first x if we do ?from=x
+		//console.log(from)
+		console.log('milestone')
+		if (results.numresults > _resultsPerPage)
+		{
+			_nextIndex = _curIndex + _resultsPerPage;
+			$("#lnkNext").show();
+		}
+		else
+		{
+			$("#lnkNext").hide();
+		}
+		
+		if (_pageNumber > 1)
+		{
+
+
+	//		TODO
+			_prevIndex = _curIndex - _resultsPerPage;//response.queries.previousPage[0].startIndex;
+			$("#lnkPrev").show();
+		}
+		else
+		{
+			$("#lnkPrev").hide();
+		}
+		
+		if (_pageNumber > 1){
+			$("#lblPageNumber").show().html(_pageNumber);
+		}
+		else{
+			$("#lblPageNumber").hide();
+		}
+		
+		//console.log(results.hits)
+		//console.log(results.numresults)
+		for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
+			var item = results.hits[i];
+			console.log(item)
+			//if(item == undefined)
+			//	alert(i)
+			
+			// HACKY: sometimes there's an 'undefined' result (e.g. for 'wistudata.nl') - what causes this? for now we skip
+			if(item !== undefined){
+				
+				var title = item.title;
+        
+				//temp fix
+				itemloc = 'C:/Users/tmsch/Desktop/werk/erfgoed/erfgoed docs/' + title
+				
+				//background-color: #edf4ff;
+				//create document panel of search result
+				html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 70%; min-height: 70px; float:left; background-color:#f5f9ff; border-style: none dotted none none; border-width: 1px;'><p style=' '><a class='searchLink' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br>";
+			
+				html += item.preview;
+				
+				//Add expert panel
+				html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: Dick Dickinson<br>&nbsp;<b>Portefeuilles</b>: Zaken doen<br>&nbsp;<b>Contact</b>: 066-1234</p></div>"
+							 
+				html += "</div>"
+				
+				html += "<hr>";
+			}
+		}
+		
+		
 	}
 	else if (_engine=="poc"){
 //		results = parsePoC(response.events, _keywords)

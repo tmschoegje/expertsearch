@@ -19,7 +19,7 @@
 		<form id="searchForm" action="" autocomplete="off">
 			<div class="row">
 				<div class="col-md-10 col-sm-12">
-					<input id="engine" name="se" value="poc" type="hidden"></input>
+					<input id="engine" name="se" value="expert" type="hidden"></input>
 					<input id="txtSearchTerm" name="q" class="search-page-search" placeholder="What are you looking for?" value="">
 				</div>
 				<div class="col-md-2 col-sm-12">
@@ -28,7 +28,7 @@
 			</div>
 		</form>
 		<div id="searchResult"></div>
-		<div id="output"></div>
+		<div id="output" style="overflow:auto;"></div>
 		<div class="pager_controls">
 			<br><br><p>
 				<a onclick="documentTrack('#');" href="#prev" + _pageNumber id="lnkPrev" title="Display previous result page" style="display:none;">Previous Page</a> &nbsp; <a onclick="documentTrack('#');" href="#next" id="lnkNext" title="Display next result page" style="display:none;">Next Page</a>
@@ -46,7 +46,7 @@
 		<script type="text/javascript">
 			var searchParams = new URLSearchParams(window.location.search)
 			//what search engine to call - check value of the button as well when you want to change it
-			se = "poc"
+			se = "expert"
 
 			if(searchParams.has('se')){
 				se = searchParams.get('se')
