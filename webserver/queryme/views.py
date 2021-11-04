@@ -11,12 +11,18 @@ def index(request):
 	return search(request)
 	#HttpResponse("Hello, world. Queryme speaking.")
 	
+#default search wills earch documents
 def search(request):
 	query = request.GET.get('query', '')
 	start = request.GET.get('start', '')
 #	if(not start):
 #		start = 1
-	return JsonResponse({'results': qry(query, start)})
+	return JsonResponse({'results': qry(query, 'doc', start)})
+    
+def search_exp(request):
+	query = request.GET.get('query', '')
+	start = request.GET.get('start', '')
+	return JsonResponse({'results': qry(query, 'exp', start)})
 
 def recommend(request):
 	query = request.GET.get('query', '')

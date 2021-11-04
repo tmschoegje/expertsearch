@@ -8,14 +8,16 @@ var _curIndex = 0;
 
 $(function ()
 {
-    $('#btnSearch').show().click(function () { console.log('btnsearch'); Search($("#txtSearchTerm").val(), $("#engine").val(), 0);});
-    $('#lnkPrev').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), -1); });
-    $('#lnkNext').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), 1);  });
+    $('#btnSearch').show().click(function () { console.log('btnsearch'); Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 0);});
+    $('#lnkPrev').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), -1); });
+    $('#lnkNext').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 1);  });
 });
 
 
 var _engine = "se"
-function Search(term, engine, direction)
+var _retrievalunit = "ru"
+
+function Search(term, engine, ru, direction)
 {
 	var startIndex = 1; //might have to be 1 for google, 0 for elastic?
 
@@ -57,7 +59,20 @@ function Search(term, engine, direction)
 	else if(engine == "expert"){
 		console.log("Before the expert call")
 		_engine = "expert"
-		var url = "http://localhost:8000/queryme/search/" + "?query=" + escape(term) + "&start=" + (startIndex - 1)
+        _ru = ru
+		// cannot CORS... don't want to depend on Spnique also, so instead I'll make change plans
+		// Two Elastic indices - one is candidate based, the other is document based. will require some more work
+
+		//var url = "https://rest.spinque.com/2.5/gemeenteutrecht/api/experts/q/doc_based_docsearch/p/q/" + escape(term) +"de/results?config=uflix&count=10&offset=" + (startIndex - 1)
+        
+        if(ru == "exp")
+            var url = "http://localhost:8000/queryme/search_exp/" + "?query=" + escape(term) + "&start=" + (startIndex - 1)
+
+        //else: document search
+        else
+            var url = "http://localhost:8000/queryme/search/" + "?query=" + escape(term) + "&start=" + (startIndex - 1)
+        console.log('here')
+        console.log(url)
 	}
 	else if(engine == "poc"){
 		console.log("Before the PoC call")
@@ -74,6 +89,7 @@ function Search(term, engine, direction)
 	console.log('test2')
 	_keywords = term.split(" ")
 	$.getJSON(url, '', SearchCompleted);
+
 }
 
 function getPreview(str, keywords){
@@ -226,7 +242,7 @@ function SearchCompleted(response)
 		console.log('interpreting expert search results')
 		html = ""
 		results = response.results
-		
+        
 		if (results.numresults === 0)
 		{
 			$("#searchResult").html("No matching pages found");
@@ -245,6 +261,10 @@ function SearchCompleted(response)
 		//	 supposed to skip ahead if we do indeed skip the first x if we do ?from=x
 		//console.log(from)
 		console.log('milestone')
+        
+        
+        
+        
 		if (results.numresults > _resultsPerPage)
 		{
 			_nextIndex = _curIndex + _resultsPerPage;
@@ -274,37 +294,76 @@ function SearchCompleted(response)
 		else{
 			$("#lblPageNumber").hide();
 		}
-		
-		//console.log(results.hits)
-		//console.log(results.numresults)
-		for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
-			var item = results.hits[i];
-			console.log(item)
-			//if(item == undefined)
-			//	alert(i)
-			
-			// HACKY: sometimes there's an 'undefined' result (e.g. for 'wistudata.nl') - what causes this? for now we skip
-			if(item !== undefined){
-				
-				var title = item.title;
         
-				//temp fix
-				itemloc = 'C:/Users/tmsch/Desktop/werk/erfgoed/erfgoed docs/' + title
-				
-				//background-color: #edf4ff;
-				//create document panel of search result
-				html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 70%; min-height: 70px; float:left; background-color:#f5f9ff; border-style: none dotted none none; border-width: 1px;'><p style=' '><a class='searchLink' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br>";
-			
-				html += item.preview;
-				
-				//Add expert panel
-				html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: Dick Dickinson<br>&nbsp;<b>Portefeuilles</b>: Zaken doen<br>&nbsp;<b>Contact</b>: 066-1234</p></div>"
-							 
-				html += "</div>"
-				
-				html += "<hr>";
-			}
-		}
+        
+        //Now choose what type of interface we show / what is hte retrieval unit: author or document?
+        if(ru == "exp")
+            //$("#searchResult").html("About to go down");
+            
+            for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
+                //This is the first candidate
+                var item = results.hits[i];
+                console.log(item)
+                
+                title = 'title'
+                itemloc = 'itemloc'
+                
+                //background-color: #edf4ff;
+                //Create expert panel
+                html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 30%; float:left;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private</p></div>"
+
+                //Here's the fancy new part: we now query the top5 documents per expert
+
+                //create document panel
+                html += "<div style='width: 70%; min-height: 70px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'><p style=' '><a class='searchLink' target='_blank' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview + "</div>";
+                            
+                             
+                html += "</div>"
+                
+                html += "<hr>";
+            
+            }
+            
+            
+            
+            
+        else{
+		
+        
+		
+            //console.log(results.hits)
+            //console.log(results.numresults)
+            for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
+                var item = results.hits[i];
+                console.log(item)
+                //if(item == undefined)
+                //	alert(i)
+                
+                // HACKY: sometimes there's an 'undefined' result (e.g. for 'wistudata.nl') - what causes this? for now we skip
+                if(item !== undefined){
+                        
+                    var title = item.title;
+            
+                    //temp fix
+                    itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
+                    
+                    //background-color: #edf4ff;
+                    //create document panel of search result
+                    html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 70%; min-height: 70px; float:left; background-color:#f5f9ff; border-style: none dotted none none; border-width: 1px;'><p style=' '><a class='searchLink' target='_blank' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br>";
+                
+                    html += item.preview;
+                    
+                    //Add expert panel
+                    html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private</p></div>"
+    //				Portefeuilles staan even uit, omdat ik ze niet heb
+    //html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: Zaken doen<br>&nbsp;<b>Contact</b>: Private</p></div>"
+                                 
+                    html += "</div>"
+                    
+                    html += "<hr>";
+                }
+            }
+        }
 		
 		
 	}
@@ -584,7 +643,7 @@ function onInstalledNotification(details) {
 		console.log(themec);
 		//Tell server to filter on theme, then call search
 		$.ajax({url: "http://localhost:8000/queryme/theme" + "?theme=" + themec, success: function(results){
-			Search($("#txtSearchTerm").val(), $("#engine").val(), 0)
+			Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 0)
 		}});
 	}).trigger( "change" );
 	//})

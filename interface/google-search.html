@@ -20,6 +20,7 @@
 			<div class="row">
 				<div class="col-md-10 col-sm-12">
 					<input id="engine" name="se" value="expert" type="hidden"></input>
+					<input id="retrievalunit" name="ru" value="doc" type="hidden"></input>
 					<input id="txtSearchTerm" name="q" class="search-page-search" placeholder="What are you looking for?" value="">
 				</div>
 				<div class="col-md-2 col-sm-12">
@@ -47,14 +48,20 @@
 			var searchParams = new URLSearchParams(window.location.search)
 			//what search engine to call - check value of the button as well when you want to change it
 			se = "expert"
+            ru = "doc"
 
 			if(searchParams.has('se')){
 				se = searchParams.get('se')
 				$("#engine").val(searchParams.get('se'))
 			}
+            //get result type desired
+			if(searchParams.has('ru')){
+                ru = searchParams.get('ru')
+                $("#retrievalunit").val(ru)
+			}
 			//get query
 			if(searchParams.has('q')){
-				Search(searchParams.get('q'), se, 0)
+				Search(searchParams.get('q'), se, ru, 0)
 				$("#txtSearchTerm").val(searchParams.get('q'))
 			}
 
