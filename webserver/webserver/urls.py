@@ -21,6 +21,7 @@ from queryme import views
 urlpatterns = [
 	url('queryme/search/', views.search),
 	url('queryme/search_exp/', views.search_exp),
+	url('queryme/search_auth_docs/', views.search_auth_docs),
 	url('queryme/recommend', views.recommend),
 	url('queryme/domainsearch', views.domainsearch),
 	url('queryme/theme', views.theme),

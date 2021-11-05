@@ -159,6 +159,37 @@ function parseiBabs(events, keywords){
 	return results
 }
 
+//If using candidate-based interface, each candidate fires a second query to get matching documents
+//Those results are parsed here 
+function DocsCompleted(response)
+{
+    console.log('interpreting docs per candidate')
+    console.log(response.results)
+    results = response.results
+    author = response.results.hits[0].author
+    //console.log(results.hits[0]['author'])
+      
+    //the html code that will fill the documents panel
+    html_auth = ""
+        
+    for (var i = 0; i < 3; i++){
+        var item = results.hits[i];
+        //console.log(item)
+        itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
+        
+        html_auth += "<p style=' '><a class='searchLink' target='_blank' href='" + item.itemloc + "' id='" + item.docid + "'> " + item.title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview + "<hr>"
+    }
+    a = "#" + author.split(' ').join('').split('.').join('')
+    console.log('looking for' + a)
+    console.log($(a).val())
+    $(a).html(html_auth)
+    
+//    console.log($("#" + author.split(' ').length)
+  //  console.log("#" + author.split(' ').join(''))
+    //console.log(html_auth)
+}
+
+//All queries fired end up here to parse the results
 function SearchCompleted(response)
 {
 	//console.log('hi')
@@ -305,18 +336,22 @@ function SearchCompleted(response)
                 var item = results.hits[i];
                 console.log(item)
                 
-                title = 'title'
-                itemloc = 'itemloc'
-                
                 //background-color: #edf4ff;
                 //Create expert panel
                 html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 30%; float:left;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private</p></div>"
 
                 //Here's the fancy new part: we now query the top5 documents per expert
+                //At this point, we add a div with the id of the author. Once the appropriate JSON request is
+                //completed, we fill it with the results
 
                 //create document panel
-                html += "<div style='width: 70%; min-height: 70px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'><p style=' '><a class='searchLink' target='_blank' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview + "</div>";
+                html += "<div id='" + item.author.split(' ').join('').split('.').join('') + "' style='width: 70%; min-height: 70px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'></div>";
                             
+                //fire json request
+                //console.log(item.author)
+                $.getJSON("http://localhost:8000/queryme/search_auth_docs/" + "?query=" + escape(_keywords.join(" ")) + "&start=" + escape(item.author), '', DocsCompleted);
+//                $.getJSON("http://localhost:8000/queryme/search/" + "?query=" + escape(item.author), '', function() {
+//                DocsCompleted() });
                              
                 html += "</div>"
                 
@@ -326,8 +361,9 @@ function SearchCompleted(response)
             
             
             
-            
+        //document search
         else{
+            console.log('document search ui')
 		
         
 		

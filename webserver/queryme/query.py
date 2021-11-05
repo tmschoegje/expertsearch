@@ -16,8 +16,10 @@ from time import sleep
 es = Elasticsearch()
 ps = PorterStemmer() 
 ss = SnowballStemmer("dutch", ignore_stopwords=True)
-indexName_doc='test-expert-search2'
-indexName_exp='test-expert-search-exp'
+#indexName_doc='test-expert-search2'
+#indexName_exp='test-expert-search-exp'
+indexName_doc = 'expert-search-doc-2'
+indexName_exp = 'expert-search-exp-2'
 themeid=''
 
 #Entrypoint when called properly - call the json version instead of trying to print() results
@@ -101,19 +103,44 @@ def query(q, searchtype, start=0):
     
     #If expert search
     if(searchtype == 'exp'):
-        print('SUCCESS')
+        print('lets search for author with q ' + newq)
         s = Search(using=es, index=indexName_exp).highlight('fulltext', fragment_size=100)
         s = s.query("query_string", query = newq, fields = ["fulltext"]) #fuzziness = "AUTO"
         
     #Otherwise, it's document search
     else:
         s = Search(using=es, index=indexName_doc).highlight('title', 'fulltext', 'onderwerp', fragment_size=100)    
-        s = s.query("query_string", query = newq, fields = ["title", "fulltext"]) #fuzziness = "AUTO"
+        
+           #should we also filter on author
+        if searchtype == "auth_docs":
+            print("Let's filter on author " + start + ' ' + newq)
+            #start contains author name
+            #s.filter('match', tags = ['author',start])
+            
+            #s.filter('term', fields = ['author', start])
+            #s.query("match", title=start)#filter("term", author=start)
+            #s.query("query_string", query = newq, fields = ["title", "fulltext", "author"])
+
+
+            #newq = newq + " " + start
+            auth = start
+            s = s.query("query_string", query = newq, fields = ["title", "fulltext"]).query('match', author=auth)
+            
+            #now set start to proper value
+            start=0
+            #only three results per candidate are fine
+            size=3 
     
-    print(s)
+        else:
+            s = s.query("query_string", query = newq, fields = ["title", "fulltext", "author"]) #fuzziness = "AUTO"
+        
+        
+        
 
     s2 = s[int(start):int(start)+size]
     response = s2.execute()
+    
+            
 
     #Theme is disabled
 #    if(len(themeid) == 1):
@@ -132,8 +159,8 @@ def query(q, searchtype, start=0):
     
     
     #print('test here')
-    #for hit in response:
-    #    print(hit)
+#    for hit in response:
+#        print(hit)
     #print(len(response))
     #print(response.hits.total.value)
     #print(response)
@@ -223,10 +250,15 @@ def jsonResultsURL(response, q, searchtype="doc"):
         res['numresults'] = '0 results\n\n'
     else:
         for hit in response:
-#            print(hit)
+            #print(hit['author'])
+            #if hit['fulltext'] == prevhit:
+            #    print('duplicate result')
+            #prevhit = hit['fulltext']
+            #print(hit['fulltext'][300:350])
 #            for keys in hit.meta:
 #                print(keys)
 
+            
             if searchtype == "exp":
                 res['hits'].append({
                     'preview': preview(hit, 'alltext', q),

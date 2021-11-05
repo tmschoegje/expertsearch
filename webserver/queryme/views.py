@@ -23,6 +23,11 @@ def search_exp(request):
 	query = request.GET.get('query', '')
 	start = request.GET.get('start', '')
 	return JsonResponse({'results': qry(query, 'exp', start)})
+    
+def search_auth_docs(request):
+	query = request.GET.get('query', '')
+	author = request.GET.get('start', '')
+	return JsonResponse({'results': qry(query, 'auth_docs', author)})
 
 def recommend(request):
 	query = request.GET.get('query', '')
