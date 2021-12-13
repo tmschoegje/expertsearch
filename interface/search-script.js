@@ -5,21 +5,43 @@ var _pageNumber = 1;
 var _keywords = ""
 //this one's a hacky solution for the elastic one only atm. easier than figuring otu dsl syntax for from in elastic
 var _curIndex = 0;
+var pid = 'Not set';
+curtask = -1;
+
+var fulltasks = ["Stel dat je onderzoek voorbereid voor een project over fietsgedrag in Utrecht. Is er bij collega's iets bekend over het fietsgebruik van niet-Westerse allochtonen?", "Stel dat je een buurt aantrekkelijk wil maken voor bedrijven. Hebben collega's data over het aantal bedrijven en het aantal arbeidsplaatsen in de verschillende wijken van Utrecht? Weten we waarom bedrijven voor deze plekken kiezen?", "Stel dat je een nieuwe speelplek wil laten bouwen, en wil je controleren of er genoeg belangstelling voor is. Is er bij collega's al iets bekend over hoeveel kinderen er zijn in de wijk Overvecht, en of we meer jonge huishoudens kunnen verwachten in de toekomst?", "Stel dat je Utrecht aantrekkelijk wil maken voor toeristen. Weten collega's hoeveel overnachtigen er jaarlijks in Utrecht zijn door toeristen, en waarom toeristen kiezen voor Utrecht?", "Als je een woning koopt zit er een anti-speculatiebeding op om te voorkomen dat mensen huizen kopen om ze vervolgens door te verkopen. Welke collega's kunnen helpen onderzoeken in hoeverre deze maatregel helpt om huizen meer betaalbaar te maken?", "Stel dat je beleid wil maken om gezondheid gedrag in Leidsche Rijn te stimuleren, en je weet dat collega's in een andere wijk hierin succesvol waren. Welke collega's kunnen je helpen onderzoeken hoe de Wijkaanpak Overvecht opgezet is?", "Stel dat je de tijdlijn wil schetsen van de bouw van de Uithoflijn, vanaf de planning tot de huidige status. Wie kan je hierbij helpen?", "Stel dat je wil weten of corona invloed gaat hebben een bouwproject in jouw wijk. Wie kan je vertellen of corona invloed heeft op de bouwplannen Zorgcentrum Rosendael?"]
 
 $(function ()
 {
-    $('#btnSearch').show().click(function () { console.log('btnsearch'); Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 0);});
-    $('#lnkPrev').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), -1); });
-    $('#lnkNext').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 1);  });
+    $('#btnSearch').show().click(function () { console.log('btnsearch'); Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 0, $("#rank").val());});
+    $('#lnkPrev').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), -1), $("#rank").val(); });
+    $('#lnkNext').click(function () { Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 1, $("#rank").val());  });
 });
+
+
+//let user confirm they want to leave
+//if this returns a string, the user will get a message. do not trigger if the user is performing a query!
+var querying = false; //set to true when performing a query - used for warning user when they're closing a window for other reasons than querying
+
+//called onsubmit
+function querie(){
+    querying = true
+}
+
+//called on Search()
+function unquerie(){
+    querying = false
+}
+
 
 
 var _engine = "se"
 var _retrievalunit = "ru"
+var _ranker = "doc"
 
-function Search(term, engine, ru, direction)
+function Search(term, engine, ru, direction, rank)
 {
 	var startIndex = 1; //might have to be 1 for google, 0 for elastic?
+    unquerie()
 
 	if (direction === -1)
 	{
@@ -60,19 +82,20 @@ function Search(term, engine, ru, direction)
 		console.log("Before the expert call")
 		_engine = "expert"
         _ru = ru
+        _rank = rank
 		// cannot CORS... don't want to depend on Spnique also, so instead I'll make change plans
 		// Two Elastic indices - one is candidate based, the other is document based. will require some more work
 
 		//var url = "https://rest.spinque.com/2.5/gemeenteutrecht/api/experts/q/doc_based_docsearch/p/q/" + escape(term) +"de/results?config=uflix&count=10&offset=" + (startIndex - 1)
         
-        if(ru == "exp")
+        if(rank == "exp" || rank == 'can')
             var url = "http://localhost:8000/queryme/search_exp/" + "?query=" + escape(term) + "&start=" + (startIndex - 1)
 
         //else: document search
         else
             var url = "http://localhost:8000/queryme/search/" + "?query=" + escape(term) + "&start=" + (startIndex - 1)
-        console.log('here')
-        console.log(url)
+        //console.log('here')
+        //console.log(url)
 	}
 	else if(engine == "poc"){
 		console.log("Before the PoC call")
@@ -159,34 +182,63 @@ function parseiBabs(events, keywords){
 	return results
 }
 
-//If using candidate-based interface, each candidate fires a second query to get matching documents
+
+//If using candidate-based interface and eitehr doc or can ranking, each candidate fires a second query to get matching documents
 //Those results are parsed here 
 function DocsCompleted(response)
 {
-    console.log('interpreting docs per candidate')
-    console.log(response.results)
+    //console.log('interpreting docs per candidate')
+    //console.log(response.results)
     results = response.results
-    author = response.results.hits[0].author
-    //console.log(results.hits[0]['author'])
-      
-    //the html code that will fill the documents panel
-    html_auth = ""
-        
-    for (var i = 0; i < 3; i++){
-        var item = results.hits[i];
-        //console.log(item)
-        itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
-        
-        html_auth += "<p style=' '><a class='searchLink' target='_blank' href='" + item.itemloc + "' id='" + item.docid + "'> " + item.title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview + "<hr>"
-    }
-    a = "#" + author.split(' ').join('').split('.').join('')
-    console.log('looking for' + a)
-    console.log($(a).val())
-    $(a).html(html_auth)
+    console.log(results)
     
-//    console.log($("#" + author.split(' ').length)
-  //  console.log("#" + author.split(' ').join(''))
-    //console.log(html_auth)
+    //Very rarely we retrieve a candidate who did not write any documents about the query.  e.g. ranking=can ru=can q=addink, and rank=can ru=doc q=addink
+    //if this is the case we should ignore this author in the interface. i'm not sure why the candidate ranking thinks addink is relevant - it might be a weird thing in how two sequential documents are appended
+    if(response.results.hits[0] !== undefined){
+        author = response.results.hits[0].author
+          
+        //the html code that will fill the documents panel
+        html_auth = ""
+        
+        //How many documents are we displaying?
+        //max 3 for candidate interface
+        nr = 3
+        //max 1 for documents interface
+        if (_ru == 'doc')
+            nr = 1
+        
+        if(results.numresults < nr)
+            nr = results.numresults
+            
+        for (var i = 0; i < nr; i++){
+            var item = results.hits[i];
+            itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
+            
+            var ititle = item.title
+            if (!ititle.includes(" ") & ititle.length > 65)
+                ititle = ititle.substring(0, 65) + " " + ititle.substring(65, ititle.length)
+            
+            url = itemloc + "' id='" + item.docid
+            html_auth += "<p style=''><a class='searchLink' target='_blank' onclick='logclick(\"" + item.docid + "\")' onauxclick='logclick(\"" + item.docid + "\")' href='" + url + "'> " + ititle + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview
+
+            if (i + 1 < nr)
+                html_auth += "<hr style='height=1px;border-style: none none dotted none; border-width: 1px;'>"
+        }
+        a = "#" + author.split(' ').join('').split('.').join('')
+        //console.log('looking for' + a)
+        //console.log($(a).val())
+        $(a).html(html_auth)
+        //Also store number of results (for logging)
+        $(a).attr('nr', nr)
+        
+        //anchor unhide here
+        $(a).parent().show()
+
+        
+    //    console.log($("#" + author.split(' ').length)
+      //  console.log("#" + author.split(' ').join(''))
+        //console.log(html_auth)
+    }
 }
 
 //All queries fired end up here to parse the results
@@ -197,6 +249,7 @@ function SearchCompleted(response)
 	console.log('search completed')
 	console.log(_engine)
 	console.log(response)
+    console.log(rank)
 	
 		
 	if(_engine == "g" || _engine == "g2"){
@@ -291,7 +344,7 @@ function SearchCompleted(response)
 		//-> do we ever need it for our usecase?
 		//	 supposed to skip ahead if we do indeed skip the first x if we do ?from=x
 		//console.log(from)
-		console.log('milestone')
+		//console.log('milestone')
         
         
         
@@ -328,40 +381,53 @@ function SearchCompleted(response)
         
         
         //Now choose what type of interface we show / what is hte retrieval unit: author or document?
-        if(ru == "exp")
+        authors_found = ""
+        if(_ru == "exp")
             //$("#searchResult").html("About to go down");
             
             for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
                 //This is the first candidate
                 var item = results.hits[i];
-                console.log(item)
                 
-                //background-color: #edf4ff;
-                //Create expert panel
-                html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 30%; float:left;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private</p></div>"
-
-                //Here's the fancy new part: we now query the top5 documents per expert
-                //At this point, we add a div with the id of the author. Once the appropriate JSON request is
-                //completed, we fill it with the results
-
-                //create document panel
-                html += "<div id='" + item.author.split(' ').join('').split('.').join('') + "' style='width: 70%; min-height: 70px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'></div>";
-                            
-                //fire json request
-                //console.log(item.author)
-                $.getJSON("http://localhost:8000/queryme/search_auth_docs/" + "?query=" + escape(_keywords.join(" ")) + "&start=" + escape(item.author), '', DocsCompleted);
-//                $.getJSON("http://localhost:8000/queryme/search/" + "?query=" + escape(item.author), '', function() {
-//                DocsCompleted() });
-                             
-                html += "</div>"
                 
-                html += "<hr>";
-            
+                //If ranking is documents + interface is candidates, we can have the same candidate multiple times
+                //Filter candidates that recurr
+                if (!authors_found.includes(item.author)){
+                    authors_found += item.author
+              
+                    //console.log(item)
+                    
+                    //should the checkbox be marked?
+                    checked = ''
+                    if (localStorage.getItem(pid+'toggles'+curtask).includes(item.author))//.split(' ').join('').split('.').join(''))
+                        checked = ' checked'
+                        
+                    //background-color: #edf4ff;
+                    //Create expert panel
+                    html += "<div style='display:none; overflow:auto; background-color:#edf4ff;'><div style='width: 30%; float:left;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private<br>&nbsp;<b>I might ask them</b>: <input type='checkbox' resrnk=" + i + " id='" + item.author + "' class='regular-checkbox' onclick='toggleAuthor(this)' onauxclick='toggleAuthor(this)' " + checked + " /></p></div>"
+
+                    //We now query the top5 documents per expert
+                    //At this point, we add a div with the id of the author. Once the appropriate JSON request is
+                    //completed, we fill it with the results
+
+                    //create document panel
+                    html += "<div id='" + item.author.split(' ').join('').split('.').join('') + "' style='width: 70%; min-height: 70px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'></div>";
+                    
+                    //fire json request
+                    //console.log(item.author)
+                    $.getJSON("http://localhost:8000/queryme/search_auth_docs/" + "?query=" + escape(_keywords.join(" ")) + "&start=" + escape(item.author), '', DocsCompleted);
+    //                $.getJSON("http://localhost:8000/queryme/search/" + "?query=" + escape(item.author), '', function() {
+    //                DocsCompleted() });
+                                 
+                    html += "</div>"
+                    
+                    html += "<hr style='border:none'><hr><hr style='border:none'>";
+                }
             }
             
             
             
-        //document search
+        //document search interface
         else{
             console.log('document search ui')
 		
@@ -371,32 +437,51 @@ function SearchCompleted(response)
             //console.log(results.numresults)
             for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
                 var item = results.hits[i];
-                console.log(item)
+                //console.log(item)
                 //if(item == undefined)
                 //	alert(i)
                 
-                // HACKY: sometimes there's an 'undefined' result (e.g. for 'wistudata.nl') - what causes this? for now we skip
+                // sometimes there's an 'undefined' result we hsould skip
                 if(item !== undefined){
+                    
+                    //if ru = doc   rank = cand   then we have to do an extra step now
+                    // to translate the retrieved candidate to their top relevant doc
+                    if(_rank == "exp" || _rank =='can'){
+//                        alert(item.author.split(' ').join('').split('.').join(''))
+                        //doc panel placeholder
+                        html += "<div style='overflow:auto; background-color:#edf4ff;'><div id='" + item.author.split(' ').join('').split('.').join('') + "' style='width: 70%; min-height: 120px; float:left; background-color:#f5f9ff; border-style: none dotted none none; border-width: 1px;'>";
+                        $.getJSON("http://localhost:8000/queryme/search_auth_docs/" + "?query=" + escape(_keywords.join(" ")) + "&start=" + escape(item.author), '', DocsCompleted);
+                    }
+                    else{
                         
-                    var title = item.title;
-            
-                    //temp fix
-                    itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
-                    
-                    //background-color: #edf4ff;
-                    //create document panel of search result
-                    html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 70%; min-height: 70px; float:left; background-color:#f5f9ff; border-style: none dotted none none; border-width: 1px;'><p style=' '><a class='searchLink' target='_blank' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br>";
+                        var title = item.title;
+                        if (!title.includes(" ") & title.length > 65)
+                            title = title.substring(0, 65) + " " + title.substring(65, title.length)
                 
-                    html += item.preview;
+                        //temp fix
+                        itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
+                        
+                        //background-color: #edf4ff;
+                        //create document panel of search result
+                        html += "<div style='overflow:auto; background-color:#edf4ff;'><div style='width: 70%; min-height: 120px; float:left; background-color:#f5f9ff; border-style: none dotted none none; border-width: 1px;'><p style=' '><a class='searchLink' target='_blank' onclick='logclick(\"" + item.docid + "\")' onauxclick='logclick(\"" + item.docid + "\")' href='" + itemloc + "' id='" + item.docid + "'> " + title + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br>";
                     
+                        html += item.preview;
+                    }
+                        
+                    //should the checkbox be marked?
+                    checked = ''
+                    if (localStorage.getItem(pid+'toggles'+curtask).includes(item.author))
+                        checked = ' checked'
+                        
                     //Add expert panel
-                    html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private</p></div>"
+                    html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private<br>&nbsp;<b>I might ask them</b>: <input type='checkbox' onclick='toggleAuthor(this)' onauxclick='toggleAuthor(this)'" + checked + " resrnk=" + i + " id='" + item.author + "' class='regular-checkbox' /></p></div>"
     //				Portefeuilles staan even uit, omdat ik ze niet heb
     //html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: Zaken doen<br>&nbsp;<b>Contact</b>: Private</p></div>"
                                  
                     html += "</div>"
                     
                     html += "<hr>";
+                    
                 }
             }
         }
@@ -461,7 +546,6 @@ function SearchCompleted(response)
 		//console.log(results.numresults)
 		for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
 			var item = results.hits[i];
-			console.log(item)
 			//if(item == undefined)
 			//	alert(i)
 			
@@ -567,20 +651,228 @@ function SearchCompleted(response)
 	bindClicks();
 }
 
+window.onbeforeunload = function(e) {
+  if(!querying){
+    localStorage.setItem(pid+'logs', localStorage.getItem(pid+'logs') + 'time ' + Date.now() + ' task ' + localStorage.getItem(pid+'curtask') + ' window close?\n')
+    return "Do you want to exit this page?";
+  }
+};
+
+//button to let user start and end tasks. adds markers in logging data so we know when they start/finish
+function startTask(startbut){
+    //in both cases, remove all checkmarks 
+    //uncheck all checkboxes
+    $(":checkbox").removeAttr('checked')
+
+    
+    
+    if(startbut.getAttribute("value") == "Start task"){
+        
+        //switch button 
+        startbut.setAttribute("style", "background-color: #f74040;	color:#fff; border:none; text-align: center;")
+        startbut.setAttribute("value", "Stop searching")
+        
+        logs = localStorage.getItem(pid+'logs');
+        hightask = parseInt(localStorage.getItem(pid+'hightask'));
+                
+        newresult = "time " + Date.now() + " starting task " + hightask + "\n"
+        localStorage.setItem(pid+'curtask', hightask);
+        localStorage.setItem(pid+'hightask', hightask);
+                
+        if(logs === null)
+            localStorage.setItem(pid+'logs', newresult)
+        else
+            localStorage.setItem(pid+'logs', logs + newresult)
+
+        localStorage.setItem(pid+'toggles'+hightask, '')
+        
+        
+        //set task text in interface
+        console.log(localStorage.getItem(pid+'tasks'))
+        t = localStorage.getItem(pid+'tasks')[hightask]
+        $('#task').html(fulltasks[parseInt(t)])
+
+        
+//        $('.check:button').toggle(function(){
+//            alert('hi')
+//            $('input:checkbox').attr('checked','checked');
+//            $(this).val('uncheck all');
+//        },function(){
+//            $('input:checkbox').removeAttr('checked');
+//            $(this).val('check all');        
+  //      })
+    }
+    else{
+        if(confirm("Are you done searching?") == true){
+            startbut.setAttribute("style", "background-color: #03fc8c;	color:#fff; border:none; text-align: center;")
+            startbut.setAttribute("value", "Start task")
+            
+            logs = localStorage.getItem(pid+'logs');
+            curtask = localStorage.getItem(pid+'curtask');
+            hightask = parseInt(localStorage.getItem(pid+'hightask'));
+            newresult = "time " + Date.now() + " stopping task " + curtask + "\n";
+            
+            localStorage.setItem(pid+'curtask', '-1');
+            localStorage.setItem(pid+'hightask', '' + (hightask + 1));
+            
+            if(logs === null)
+                localStorage.setItem(pid+'logs', newresult)
+            else
+                localStorage.setItem(pid+'logs', logs + newresult)
+                
+            //if we finished the first half of the tasks
+            if(hightask == 3){
+                
+                querie() //call this to avoid 'are you sure you want to leave' pop up
+                alert('You finished the first half of the tasks!')
+                window.location.reload();
+            }
+            //if we finished all tasks
+            if(hightask == 7){
+                alert('You finished all the tasks!')
+            }
+            
+            //set task text in interface
+            $('#task').html("Your search task will be here")
+        }
+    }
+}
+
+//nr = number of results for this author
+//defaults to 1 (document view)
+function toggleAuthor(item){
+    //Find author name
+    name = item.getAttribute('id')
+    
+    
+    //Find num results in documents panel
+    // find by author name
+    a = $("#" + name.split(' ').join('').split('.').join(''))
+    if(!a)
+        alert('something went wrong - could not find panel')
+    else{
+        nr = parseInt(a.attr('nr'))
+        if (! nr)
+            nr = 1
+    }
+    
+    
+    
+    // Log toggle actions in joint log
+    logs = localStorage.getItem(pid+'logs');
+    curtask = localStorage.getItem(pid+'curtask')
+
+    // Check if this author is toggled on in logs atm
+    toggles = localStorage.getItem(pid+'toggles'+curtask)
+    if (toggles.includes(name)){
+        newresult = "time " + Date.now() + " task " + curtask + " toggle off " + name + " rank " + item.getAttribute('resrnk') + " numresults " + nr + '\n'
+        localStorage.setItem(pid+'toggles'+curtask, toggles.replace(name, ""))
+        
+        //Toggle all instances off in interface (in doc interface the same author is displayed multiple times)
+        //alert('removing ' + name)
+        console.log($("[id='" + name + "]'"))
+        $("[id='" + name + "']").removeAttr('checked')
+    }
+    else{
+        newresult = "time " + Date.now() + " task " + curtask + " toggle on " + name + " rank " + item.getAttribute('resrnk') + " numresults " + nr + '\n'
+        localStorage.setItem(pid+'toggles'+curtask, toggles + " " + name)
+        
+        //Toggle all instances on in interface (in doc interface the same author is displayed multiple times)
+        //alert('adding ' + name)
+        console.log($("[id='" + name + "']"))
+        $("[id='" + name + "']").each(function(){ $(this).prop('checked', true) })
+    }
+    
+    
+    if(logs === null)
+        localStorage.setItem(pid+'logs', newresult)
+    else
+        localStorage.setItem(pid+'logs', logs + newresult)
+    
+    
+}
+
+// log clicked result
+function logclick(url){
+    logs = localStorage.getItem(pid+'logs');
+    curtask = localStorage.getItem(pid+'curtask');
+    
+    newresult = "time " + Date.now() + " task " + curtask + " click " + url + '\n'
+    if(logs === null)
+        localStorage.setItem(pid+'logs', newresult)
+    else
+        localStorage.setItem(pid+'logs', logs + newresult)
+}
+
+function startLogging(id){
+    pid = "participant " + id
+    
+    //if this is the first time for this participant id
+    if (localStorage.getItem(pid) === null) {
+        name = prompt('What is the name of ' + pid + '?')
+        localStorage.setItem(pid, name)
+        localStorage.setItem(pid+'curtask', '-1') //set to inactive
+        localStorage.setItem(pid+'hightask', '0')
+        localStorage.setItem(pid+'logs', '')
+        localStorage.setItem(pid+'toggles-1', '')
+    }
+    
+    //test if there is an active task (e.g. reloading the page by doing a new query)
+    // if so, set button
+    if (localStorage.getItem(pid+'curtask') != '-1'){
+        startbut = $('#taskButton')
+        startbut.attr("style", "background-color: #f74040;	color:#fff; border:none; text-align: center;")
+        startbut.attr("value", "Stop searching")
+        
+        //set task text in interface
+        t = localStorage.getItem(pid+'tasks')[parseInt(localStorage.getItem(pid+'hightask'))]
+        $('#task').html(fulltasks[parseInt(t)])
+    }
+    
+    //log that the window was opened
+    localStorage.setItem(pid+'logs', localStorage.getItem(pid+'logs') + 'time ' + Date.now() + ' task ' + localStorage.getItem(pid+'curtask') + ' window open?\n')
+    
+    //double check if tasks were set yet
+    if(localStorage.getItem(pid+'tasks') === null) {
+        //if we don't recognise task order because it could be because it is a testrun. otherwise, becacuse we haven't set it yet
+        if(pid.includes('-')){
+            localStorage.setItem(pid+'ranking1', localStorage.getItem('participant 0ranking1'))
+            localStorage.setItem(pid+'ranking2', localStorage.getItem('participant 0ranking2'))
+            localStorage.setItem(pid+'interfaces', localStorage.getItem('participant 0interfaces'))
+            localStorage.setItem(pid+'tasks', localStorage.getItem('participant 0tasks'))
+        }
+    }
+
+    //test if there are authors who should be toggled on for this task
+    //already done when loading checkboxes     
+}
+
 function logNumResults(nr,nd){
 	console.log('updating numresults')
 	//TODO get it 
 //	let gett = 
 	
+    
+    //this part not for experiment
 	numresults = localStorage.getItem('numresults');
 	numresults += Date.now() + " Query " + _keywords.join("-") + " Numresults " + nr + '\n'
-	console.log(numresults)
 	localStorage.setItem('numresults', numresults)
 //	gett.then((results) => {
 //		numresults = results.numresults
 //		numresults.loglines.push(Date.now() + " Query " + _keywords.join("-") + " Numresults " + nr + " Numdocs " + nd)
 //		storeLogs();
 	//})
+    
+    //EXPERIMENT log queries
+    logs = localStorage.getItem(pid+'logs');
+    curtask = localStorage.getItem(pid+'curtask');
+    
+    newresult = "time " + Date.now() + " task " + curtask + " query " + _keywords.join(" ") + " numresults " + nr + '\n'
+    
+    if(logs === null)
+        localStorage.setItem(pid+'logs', newresult)
+    else
+        localStorage.setItem(pid+'logs', logs + newresult)
 }
 
 /*function storeLogs(){
@@ -654,7 +946,7 @@ function bindClicks(){
 }
 
 function onInstalledNotification(details) {
-	//We should store the # results in localstorage.
+	//We should store the # results in localStorage.
 		//On page start: check if logs already exist
 		//On Query(): log new query w results and date.now()
 	numresultsQ = localStorage.getItem('numresults');
@@ -679,9 +971,32 @@ function onInstalledNotification(details) {
 		console.log(themec);
 		//Tell server to filter on theme, then call search
 		$.ajax({url: "http://localhost:8000/queryme/theme" + "?theme=" + themec, success: function(results){
-			Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 0)
+			Search($("#txtSearchTerm").val(), $("#engine").val(), $("#retrievalunit").val(), 0, $("#rank").val())
 		}});
 	}).trigger( "change" );
 	//})
 }
+
+
+//Randomly generated task orders from python shuffle
+n = 25
+task_order = ['07314625', '15740236', '41605273', '01325746', '30265147', '45760312', '16025734', '30167254', '54326017', '64721503', '60513427', '06324715', '32146057', '21450736', '32461057', '61534720', '02164735', '63157402', '15327460', '42675031', '20174653', '61427053', '42173650', '23701564', '63714520']
+
+interface_order = ['can', 'doc', 'can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can']
+
+ranking1_order = ['can', 'can', 'doc', 'doc', 'can', 'can', 'doc', 'doc', 'can', 'can', 'doc', 'doc', 'can', 'can', 'doc', 'doc', 'can', 'can', 'doc', 'doc', 'can', 'can', 'doc', 'doc', 'can']
+ranking2_order = ['doc', 'doc', 'can', 'can', 'can', 'can', 'doc', 'doc', 'doc', 'doc', 'can', 'can', 'can', 'can', 'doc', 'doc', 'doc', 'doc', 'can', 'can', 'can', 'can', 'doc', 'doc', 'doc']
+
+function setTasks(){
+    for (let i = 0; i < n; i++) {
+        localStorage.setItem('participant ' + i + 'tasks', task_order[i])
+        localStorage.setItem('participant ' + i + 'interfaces', interface_order[i])
+        localStorage.setItem('participant ' + i + 'ranking1', ranking1_order[i])
+        localStorage.setItem('participant ' + i + 'ranking2', ranking2_order[i])
+    }
+}
+
+//set tasks - doesn't matter that we rewrite this because it's seeded
+setTasks()
 onInstalledNotification();
+

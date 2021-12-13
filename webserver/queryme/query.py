@@ -12,18 +12,63 @@ from nltk.stem import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
 #from bert_serving.client import BertClient
 from time import sleep
+import json
+import unidecode
 
 es = Elasticsearch()
 ps = PorterStemmer() 
 ss = SnowballStemmer("dutch", ignore_stopwords=True)
 #indexName_doc='test-expert-search2'
 #indexName_exp='test-expert-search-exp'
-indexName_doc = 'expert-search-doc-2'
-indexName_exp = 'expert-search-exp-2'
+indexName_doc = 'expert-search-doc-12'
+indexName_exp = 'expert-search-exp-13' 
 themeid=''
 
+
+
+
+
+#This next part is a copy from indexer.py...
+
+#load expert data
+#experts2 has all blacklisted (i.e. non) authors removed 
+authors = json.loads(open('../prepindex/experts2.json').readlines()[0])
+
+deleteme = []
+#should pre-process experts to make sure we get all aliases
+#print(len(authors))
+
+for author in authors:
+    name = unidecode.unidecode(author)
+    if name != author:  
+            
+        # find alias
+        for author2 in authors:
+            #compare last names again, and first letters of first name
+            if author2.split(" ")[-1] == name.split(" ")[-1] and author2[0] == name[0]:
+                print('merging ' + name + ' and ' + author2)
+                authors[author2].extend(authors[author])
+                found = True
+                deleteme.append(author)
+                break
+            
+for a in deleteme:
+    authors.pop(a)
+
+#find unambigiuous name of an author
+def realname(author):
+    author = unidecode.unidecode(author)
+    if author in authors:
+        return author
+    for a in duplicates:
+        if author in duplicates[a]:
+            return a
+
+#end copy
+
+
 #Entrypoint when called properly - call the json version instead of trying to print() results
-def qry(q, searchtype, start=1):
+def qry(q, searchtype, start=1):  
     return jsonResultsURL(query(q, searchtype, start),q, searchtype)
  
 #Currently not stemming because I didn't stem the documents - e.g. query 'eenzaam' would be stemmed to 'eenza' and give no results
@@ -50,7 +95,7 @@ def mlt(q, size=3):
                 "_id":q
             }}}))[0:int(size)]
         response = s.execute()
-        print(response)
+        #    print(response)
         return jsonResultsURL(response, q)
     return "{'results': { 'numresults': 1, 'hits': {'title': 'No query'}}}"
     
@@ -63,7 +108,7 @@ def mfd(q, domainurl, size=4):
     
     s = Search(using=es, index=indexName_doc).filter('term', domain=domainurl).query("multi_match", query = newq, fields = ["title", "fulltext"])[1:int(size)]
     response = s.execute()
-    print(response)
+    #print(response)
     return jsonResultsURL(response, q)
 
 #theme is a filter in the original use-case. might become applicable later?
@@ -79,20 +124,21 @@ def query(q, searchtype, start=0):
     
     #stemming query terms
     #newq = q#stemm(q)
-    print(q)
+    #print('Query ' + q)
 
     newq = ""
     for term in q.split(" "):
         newq += " "
-        print(term)
         if term == "AND" or term == "OR":
             newq += term
+            
+    # We don't want this right now - automatically adding * 
         else:
-            if len(term) > 2:
-                newq += "*" + term.lower() + "*"
-            else:
+    #        if len(term) > 2:
+    #            newq += "*" + term.lower() + "*"
+    #        else:
                 newq += term.lower()
-    print(newq)
+    #print(newq)
     
     #if there's no query, try to query all
     if len(q) == 0:
@@ -103,7 +149,7 @@ def query(q, searchtype, start=0):
     
     #If expert search
     if(searchtype == 'exp'):
-        print('lets search for author with q ' + newq)
+        print('Candidate ranking ' + q)
         s = Search(using=es, index=indexName_exp).highlight('fulltext', fragment_size=100)
         s = s.query("query_string", query = newq, fields = ["fulltext"]) #fuzziness = "AUTO"
         
@@ -113,7 +159,8 @@ def query(q, searchtype, start=0):
         
            #should we also filter on author
         if searchtype == "auth_docs":
-            print("Let's filter on author " + start + ' ' + newq)
+            print('Documents for author ranking ' + q + ' ' + start)
+            #print("Let's filter on author '" + start + "' " + newq)
             #start contains author name
             #s.filter('match', tags = ['author',start])
             
@@ -123,8 +170,23 @@ def query(q, searchtype, start=0):
 
 
             #newq = newq + " " + start
-            auth = start
-            s = s.query("query_string", query = newq, fields = ["title", "fulltext"]).query('match', author=auth)
+            auth = start.split(" ")[-1]
+            #print('HERE WE ARE')
+            #print(auth)
+            #print(start)
+            #TODO so I guess we just have to disambiguate names using the realnames function?
+            
+            #auth
+            s = s.query("match", author = realname(start)).query("query_string", query = newq, fields = ["title", "fulltext"])
+            #s = s.
+            #.query('terms', tags=[auth])       
+
+            #s.query("match", author=auth)
+            #s.filter('terms', author=auth)
+            #.query('match', author=auth, max_expansions = 0)
+            #s.exclude('terms', tags=['misbruik'])
+            #s.query('bool', filter=[Q('terms', tags=[auth])])
+            #s.filter('terms', tags=[auth])
             
             #now set start to proper value
             start=0
@@ -132,7 +194,8 @@ def query(q, searchtype, start=0):
             size=3 
     
         else:
-            s = s.query("query_string", query = newq, fields = ["title", "fulltext", "author"]) #fuzziness = "AUTO"
+            print('Document ranking ' + q)
+            s = s.query("query_string", query = newq, fields = ["title", "fulltext"]) #fuzziness = "AUTO"
         
         
         
@@ -249,6 +312,10 @@ def jsonResultsURL(response, q, searchtype="doc"):
     if len(response) == 0:
         res['numresults'] = '0 results\n\n'
     else:
+    
+        authors_tmp = {}
+        remove_auth = 0
+    
         for hit in response:
             #print(hit['author'])
             #if hit['fulltext'] == prevhit:
@@ -267,14 +334,28 @@ def jsonResultsURL(response, q, searchtype="doc"):
                 })            
             else:
             
-                res['hits'].append({
-                    'title':str(hit['title']).replace(".docx","").replace(".pdf",""),
-                    'preview': preview(hit, 'fulltext', q),
-                    'docid':str(hit['docid']),
-                    'author':str(hit['author']),
-                    'expertise':str(hit['expertises']),
-                })
-        res['numresults'] = response.hits.total.value#len(response)
+                #if there's more than three documents of the same author, we should filter it
+                a = str(hit['author'])
+                if a in authors_tmp:
+                    authors_tmp[a] += 1
+                else:
+                    authors_tmp[a] = 0
+                    
+                if authors_tmp[a] < 3:
+                
+                    #now prep result
+                
+                    res['hits'].append({
+                        'title':str(hit['title']).replace(".docx","").replace(".pdf",""),
+                        'preview': preview(hit, 'fulltext', q),
+                        'docid':str(hit['docid']),
+                        'author':str(hit['author']),
+                        'expertise':str(hit['expertises']),
+                    })
+                #keep track how many we remove
+                else:
+                    remove_auth += 1
+        res['numresults'] = response.hits.total.value - remove_auth  #len(response)
             
     return res
 
