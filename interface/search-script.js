@@ -8,7 +8,7 @@ var _curIndex = 0;
 var pid = 'Not set';
 curtask = -1;
 
-var fulltasks = ["Stel dat je onderzoek voorbereid voor een project over fietsgedrag in Utrecht. Is er bij collega's iets bekend over het fietsgebruik van niet-Westerse allochtonen?", "Stel dat je een buurt aantrekkelijk wil maken voor bedrijven. Hebben collega's data over het aantal bedrijven en het aantal arbeidsplaatsen in de verschillende wijken van Utrecht? Weten we waarom bedrijven voor deze plekken kiezen?", "Stel dat je een nieuwe speelplek wil laten bouwen, en wil je controleren of er genoeg belangstelling voor is. Is er bij collega's al iets bekend over hoeveel kinderen er zijn in de wijk Overvecht, en of we meer jonge huishoudens kunnen verwachten in de toekomst?", "Stel dat je Utrecht aantrekkelijk wil maken voor toeristen. Weten collega's hoeveel overnachtigen er jaarlijks in Utrecht zijn door toeristen, en waarom toeristen kiezen voor Utrecht?", "Als je een woning koopt zit er een anti-speculatiebeding op om te voorkomen dat mensen huizen kopen om ze vervolgens door te verkopen. Welke collega's kunnen helpen onderzoeken in hoeverre deze maatregel helpt om huizen meer betaalbaar te maken?", "Stel dat je beleid wil maken om gezondheid gedrag in Leidsche Rijn te stimuleren, en je weet dat collega's in een andere wijk hierin succesvol waren. Welke collega's kunnen je helpen onderzoeken hoe de Wijkaanpak Overvecht opgezet is?", "Stel dat je de tijdlijn wil schetsen van de bouw van de Uithoflijn, vanaf de planning tot de huidige status. Wie kan je hierbij helpen?", "Stel dat je wil weten of corona invloed gaat hebben een bouwproject in jouw wijk. Wie kan je vertellen of corona invloed heeft op de bouwplannen Zorgcentrum Rosendael?"]
+var fulltasks = ["Stel dat u een onderzoek voorbereid voor een project over fietsgedrag in Utrecht. Is er bij collega's iets bekend over het fietsgebruik van niet-Westerse allochtonen?", "Stel dat u het aantrekkelijk wil maken voor bedrijven om te vestigen in een bepaalde wijk. Hebben collega's data over het aantal bedrijven en het aantal arbeidsplaatsen in de verschillende wijken van Utrecht? Weten ze waarom bedrijven voor deze plekken kiezen?", "Stel dat u een nieuwe speelplek kunt laten bouwen, en wil controleren of er genoeg belangstelling voor is. Is er bij collega's iets bekend over hoeveel kinderen er zijn in de wijk Overvecht, en of we meer jonge huishoudens kunnen verwachten in de toekomst?", "Stel dat u Utrecht aantrekkelijker wilt maken voor toeristen. Weten collega's hoeveel overnachtigen toeristen jaarlijks maken in Utrecht? Waarom kiezen toeristen voor Utrecht?", "Als u een woning koopt zit er een anti-speculatiebeding op om te voorkomen dat mensen huizen kopen om ze vervolgens door te verkopen. Welke collega's weten hoe effectief deze maatregel blijkt te zijn om huizen meer betaalbaar te maken?", "Stel dat u beleid wilt maken om gezond gedrag te stimuleren in  de wijk Leidsche Rijn. U weet dat collega's in een andere wijk hierin succesvol waren. Welke collega's kunnen u uitleggen hoe de Wijkaanpak Overvecht bedacht is?", "Stel dat u de tijdlijn wil schetsen van de bouw van de Uithoflijn, vanaf de planning tot de huidige status. Wie kan u hierbij helpen?", "Stel dat u wilt weten of corona invloed gaat hebben een bouwproject. Wie kan u vertellen of corona invloed heeft op de bouwplannen Zorgcentrum Rosendael?"]
 
 $(function ()
 {
@@ -214,9 +214,17 @@ function DocsCompleted(response)
             var item = results.hits[i];
             itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
             
-            var ititle = item.title
-            if (!ititle.includes(" ") & ititle.length > 65)
-                ititle = ititle.substring(0, 65) + " " + ititle.substring(65, ititle.length)
+            var ititle = item.title.match(/.{1,65}/g)
+//            if (! ititle.includes(" ")){
+//            ititle = ititle.
+            for (var j = 0; j < ititle.length; j++)
+                if (! ititle[j].includes(" "))
+                    ititle[j] += " "
+            
+            ititle = ititle.join(" ")
+            
+//            > 65)
+  //              ititle = ititle.substring(0, 65) + " " + ititle.substring(65, ititle.length)
             
             url = itemloc + "' id='" + item.docid
             html_auth += "<p style=''><a class='searchLink' target='_blank' onclick='logclick(\"" + item.docid + "\")' onauxclick='logclick(\"" + item.docid + "\")' href='" + url + "'> " + ititle + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview
@@ -349,7 +357,7 @@ function SearchCompleted(response)
         
         
         
-		if (results.numresults > _resultsPerPage)
+		if (results.numresults > 0 && results.hits.length > _resultsPerPage)
 		{
 			_nextIndex = _curIndex + _resultsPerPage;
 			$("#lnkNext").show();
@@ -382,10 +390,10 @@ function SearchCompleted(response)
         
         //Now choose what type of interface we show / what is hte retrieval unit: author or document?
         authors_found = ""
-        if(_ru == "exp")
+        if(_ru == "exp"){
             //$("#searchResult").html("About to go down");
             
-            for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
+            for (var i = 0; i < results.hits.length && i < _resultsPerPage; i++){
                 //This is the first candidate
                 var item = results.hits[i];
                 
@@ -426,7 +434,7 @@ function SearchCompleted(response)
             }
             
             
-            
+        }
         //document search interface
         else{
             console.log('document search ui')
@@ -435,7 +443,7 @@ function SearchCompleted(response)
 		
             //console.log(results.hits)
             //console.log(results.numresults)
-            for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
+            for (var i = 0; i < results.hits.length && i < _resultsPerPage; i++){
                 var item = results.hits[i];
                 //console.log(item)
                 //if(item == undefined)
@@ -544,7 +552,7 @@ function SearchCompleted(response)
 		
 		//console.log(results.hits)
 		//console.log(results.numresults)
-		for (var i = 0; i < results.numresults && i < _resultsPerPage; i++){
+		for (var i = 0; i < results.hits.length && i < _resultsPerPage; i++){
 			var item = results.hits[i];
 			//if(item == undefined)
 			//	alert(i)
@@ -849,6 +857,9 @@ function startLogging(id){
 
 function logNumResults(nr,nd){
 	console.log('updating numresults')
+//    console.log(typeof nr)
+//    nr=nr.replace("\n","")
+    nr = parseInt(nr)
 	//TODO get it 
 //	let gett = 
 	
@@ -895,8 +906,8 @@ function bindClicks(){
 		//Do Elastic mlt query with size 3 for more documents like this
 		$.ajax({url: "http://localhost:8000/queryme/recommend" + "?query=" + escape($(this).parent().children("a.searchLink").attr("id")) + "&size=3", success: function(results){
 			results = results.results
-			console.log(results.numresults)
-			console.log(results.hits)
+			//console.log(results.numresults)
+			//console.log(results.hits)
 			for (var i = 0; results.numresults > 0 && i < results.hits.length; i++){
 				var item = results.hits[i];
 				var title = item.title;
