@@ -214,20 +214,28 @@ function DocsCompleted(response)
             var item = results.hits[i];
             itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
             
-            var ititle = item.title.match(/.{1,65}/g)
+            var ititle = item.title.match(/.{1,63}/g)
 //            if (! ititle.includes(" ")){
 //            ititle = ititle.
             for (var j = 0; j < ititle.length; j++)
                 if (! ititle[j].includes(" "))
                     ititle[j] += " "
             
-            ititle = ititle.join(" ")
+            ititle = ititle.join("<br> ")
+//            ititle = ititle
+            
+            //console.log(item.preview)
+            //var iprev = item.preview.match(/[\s\S]{1,70}/g)
+            //for (var j = 0; j < iprev.length; j++)
+            //    iprev[j] = iprev[j].trim()
+            
+            //iprev = iprev.join("<br>&nbsp")
             
 //            > 65)
   //              ititle = ititle.substring(0, 65) + " " + ititle.substring(65, ititle.length)
             
             url = itemloc + "' id='" + item.docid
-            html_auth += "<p style=''><a class='searchLink' target='_blank' onclick='logclick(\"" + item.docid + "\")' onauxclick='logclick(\"" + item.docid + "\")' href='" + url + "'> " + ititle + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + item.preview
+            html_auth += "<p style='padding-left: 4px;'><a class='searchLink' target='_blank' onclick='logclick(\"" + item.docid + "\")' onauxclick='logclick(\"" + item.docid + "\")' href='" + url + "'> " + ititle + "</a>&nbsp;&nbsp;&nbsp;<a class='mlt'></a><br></p>" + "<div style='padding-left: 4px;'>" + item.preview + "</div>"
 
             if (i + 1 < nr)
                 html_auth += "<hr style='height=1px;border-style: none none dotted none; border-width: 1px;'>"
@@ -356,8 +364,7 @@ function SearchCompleted(response)
         
         
         
-        
-		if (results.numresults > 0 && results.hits.length > _resultsPerPage)
+		if (results.numresults > 10)
 		{
 			_nextIndex = _curIndex + _resultsPerPage;
 			$("#lnkNext").show();
@@ -419,7 +426,7 @@ function SearchCompleted(response)
                     //completed, we fill it with the results
 
                     //create document panel
-                    html += "<div id='" + item.author.split(' ').join('').split('.').join('') + "' style='width: 70%; min-height: 70px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'></div>";
+                    html += "<div id='" + item.author.split(' ').join('').split('.').join('') + "' style='width: 70%; min-height: 100px; float:right; background-color:#f5f9ff; border-style: none none none dotted; border-width: 1px;'></div>";
                     
                     //fire json request
                     //console.log(item.author)
@@ -482,7 +489,7 @@ function SearchCompleted(response)
                         checked = ' checked'
                         
                     //Add expert panel
-                    html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: " + item.expertise + "<br>&nbsp;<b>Contact</b>: Private<br>&nbsp;<b>I might ask them</b>: <input type='checkbox' onclick='toggleAuthor(this)' onauxclick='toggleAuthor(this)'" + checked + " resrnk=" + i + " id='" + item.author + "' class='regular-checkbox' /></p></div>"
+                    html += "</p></div><div style='width: 30%; float:right; padding-left: 4px;'><p><b>Auteur</b>: " + item.author + "<br><b>Portefeuilles</b>: " + item.expertise + "<br><b>Contact</b>: Private<br><b>I might ask them</b>: <input type='checkbox' onclick='toggleAuthor(this)' onauxclick='toggleAuthor(this)'" + checked + " resrnk=" + i + " id='" + item.author + "' class='regular-checkbox' /></p></div>"
     //				Portefeuilles staan even uit, omdat ik ze niet heb
     //html += "</p></div><div style='width: 30%; float:right;'><p>&nbsp;<b>Auteur</b>: " + item.author + "<br>&nbsp;<b>Portefeuilles</b>: Zaken doen<br>&nbsp;<b>Contact</b>: Private</p></div>"
                                  
@@ -810,6 +817,9 @@ function logclick(url){
         localStorage.setItem(pid+'logs', newresult)
     else
         localStorage.setItem(pid+'logs', logs + newresult)
+    
+    //change color of URL so user can find it again
+    $("#"+url).css('color','purple')
 }
 
 function startLogging(id){
