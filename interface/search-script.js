@@ -212,7 +212,7 @@ function DocsCompleted(response)
             
         for (var i = 0; i < nr; i++){
             var item = results.hits[i];
-            itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
+            itemloc = 'C:/Users/Allemaal/Desktop/expertsearch/prepindex/docs/' + item.docid + '.pdf' //'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
             
             var ititle = item.title.match(/.{1,63}/g)
 //            if (! ititle.includes(" ")){
@@ -474,7 +474,7 @@ function SearchCompleted(response)
                             title = title.substring(0, 65) + " " + title.substring(65, title.length)
                 
                         //temp fix
-                        itemloc = 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
+                        itemloc = 'C:/Users/Allemaal/Desktop/expertsearch/prepindex/docs/' + item.docid + '.pdf'// 'C:/Users/tmsch/Desktop/expert-search/prepindex/docs/' + item.docid + '.pdf'
                         
                         //background-color: #edf4ff;
                         //create document panel of search result
