@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.urls import re_path as url
 from queryme import views
 #from .query import qry
 

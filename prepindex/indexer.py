@@ -142,7 +142,7 @@ es = Elasticsearch(timeout=30, max_retries=10, retry_on_timeout=True)
 
 
 
-"""
+
 indexed_ids = []
 
 #Data generation for the document-based index
@@ -197,7 +197,7 @@ es.indices.create(index=indexName_doc, ignore=400)
 #perform bulk index
 bulk(es, gendata_doc())
 
-"""
+
 
 # Now do the expertise index 
 def gendata_exp():
