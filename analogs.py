@@ -6,6 +6,8 @@
 
 
 #kwijt: marike, peter, robin, petra
+p0_logs = ''
+p1_logs = ''
 p2_logs = 'time 1639738969038 task -1 window open?\ntime 1639738969131 task -1 query uithoflijn numresults 94\ntime 1639741207966 task -1 window close?\ntime 1640791557459 task -1 window open?\ntime 1640791557506 task -1 query utrecht numresults 4324\ntime 1640792047828 task -1 window open?\ntime 1640792048424 task -1 query banana numresults 0\ntime 1640792067794 task -1 window open?\ntime 1640792068246 task -1 query  numresults 4343\ntime 1640792081724 starting task 0\ntime 1640792110626 task 0 window open?\ntime 1640792111093 task 0 query anti-speculatiebeding numresults 35\ntime 1640792131188 task 0 window open?\ntime 1640792131240 task 0 query anti-speculatiebeding effectief  numresults 226\ntime 1640792149985 task 0 window open?\ntime 1640792150159 task 0 query anti-speculatiebeding effectief huis numresults 455\ntime 1640792196363 task 0 window open?\ntime 1640792196416 task 0 query speculatiebeding effectief huis numresults 427\ntime 1640792213686 task 0 toggle on R. van Essen rank 0 numresults 3\ntime 1640792227425 task 0 window open?\ntime 1640792227471 task 0 query speculatiebeding numresults 1\ntime 1640792236372 stopping task 0\ntime 1640792268107 starting task 1\ntime 1640792293829 task 1 window open?\ntime 1640792293936 task 1 query arbeidsplaatsen utrecht numresults 4324\ntime 1640792312963 task 1 window open?\ntime 1640792313013 task 1 query arbeidsplaatsen  numresults 23\ntime 1640792323136 task 1 toggle on M. Degenkamp rank 0 numresults 1\ntime 1640792337618 task 1 toggle on Aloys Kersten rank 1 numresults 2\ntime 1640792342118 task 1 toggle off M. Degenkamp rank 0 numresults 1\ntime 1640792380681 task 1 toggle on Aldert de Vries rank 6 numresults 3\ntime 1640792383510 stopping task 1\ntime 1640792421306 starting task 2\ntime 1640792438128 task 2 window open?\ntime 1640792438348 task 2 query Uithoflijn numresults 94\ntime 1640792449690 task 2 toggle on J.H. Greeven rank 0 numresults 3\ntime 1640792469500 stopping task 2\ntime 1640792476558 starting task 3\ntime 1640792507377 task 3 window open?\ntime 1640792507501 task 3 query niet-Westerse allochtonen numresults 3352\ntime 1640792536410 task 3 window open?\ntime 1640792536513 task 3 query fietsgebruik numresults 25\ntime 1640792565558 task 3 window open?\ntime 1640792565623 task 3 query fietsgebruik allochtonen numresults 32\ntime 1640792578283 task 3 toggle on M. van Teeseling rank 0 numresults 3\ntime 1640792591068 stopping task 3\ntime 1640792595663 task -1 window open?\ntime 1640792595990 task -1 query fietsgebruik allochtonen numresults 26\ntime 1640792749964 starting task 4\ntime 1640792780952 task 4 window open?\ntime 1640792781276 task 4 query gezond gedrag beleid numresults 514\ntime 1640792817011 task 4 toggle on Ben Norg rank 6 numresults 1\ntime 1640792826434 stopping task 4\ntime 1640792909373 starting task 5\ntime 1640792935933 task 5 window open?\ntime 1640792936242 task 5 query Overvecht gezin numresults 317\ntime 1640792951128 task 5 window open?\ntime 1640792951419 task 5 query Overvecht jonge huishoudens numresults 368\ntime 1640792996495 task 5 window open?\ntime 1640792996768 task 5 query Overvecht jong numresults 319\ntime 1640793009887 task 5 toggle on E.C. Dekker rank 1 numresults 1\ntime 1640793025293 stopping task 5\ntime 1640793069886 starting task 6\ntime 1640793088505 task 6 window open?\ntime 1640793088788 task 6 query bouwplannen Zorgcentrum Rosendael numresults 40\ntime 1640793113389 task 6 window open?\ntime 1640793113957 task 6 query corona Zorgcentrum Rosendael numresults 120\ntime 1640793139196 task 6 toggle on A.A.H. Verkerke rank 4 numresults 1\ntime 1640793142574 stopping task 6\ntime 1640793150963 starting task 7\ntime 1640793166786 task 7 window open?\ntime 1640793167015 task 7 query toeristen  numresults 27\ntime 1640793172502 task 7 toggle on V.J. Drost rank 0 numresults 1\ntime 1640793192074 stopping task 7\n'
 p3_logs = 'time 1640794710452 task -1 window open?\ntime 1640794710882 task -1 query toeristen  numresults 31\ntime 1640794957205 starting task 0\ntime 1640794998054 task 0 window open?\ntime 1640794998260 task 0 query fietsgedrag niet westerse allochtonen numresults 3353\ntime 1640795016931 task 0 window open?\ntime 1640795017135 task 0 query fietsgedrag allochtonen numresults 9\ntime 1640795108666 task 0 click 271eb20c-ec72-49fc-bba4-4715428f748c\ntime 1640795162379 task 0 click 49fd9f34-73dd-424b-9214-288615e2d940\ntime 1640795180335 task 0 toggle on Martijn Dijkhof rank 4 numresults 1\ntime 1640795208302 stopping task 0\ntime 1640795350325 starting task 1\ntime 1640795391903 task 1 window open?\ntime 1640795392506 task 1 query voorkeur bedrijfsvestiging numresults 276\ntime 1640795453501 task 1 window open?\ntime 1640795453713 task 1 query voorkeur wijk bedrijven numresults 1795\ntime 1640795520972 task 1 window open?\ntime 1640795521121 task 1 query aantal arbeidsplaatsen wijk  numresults 2829\ntime 1640795561006 task 1 click b4371e72-d08c-4cd0-b998-7dc116b22bb4\ntime 1640795622748 task 1 click b4371e72-d08c-4cd0-b998-7dc116b22bb4\ntime 1640795636004 task 1 toggle on Hans Huurman rank 8 numresults 1\ntime 1640795676805 task 1 click a00873ad-47cb-4bde-9286-b7296da6f255\ntime 1640795708397 task 1 toggle on A.A.H. Verkerke rank 9 numresults 1\ntime 1640795743335 task 1 click c92dcba9-1761-4baa-b978-ec442539bb64\ntime 1640795776553 stopping task 1\ntime 1640795808679 starting task 2\ntime 1640795829569 task 2 window open?\ntime 1640795829981 task 2 query toeristen utrecht numresults 4324\ntime 1640795893556 task 2 click 07b9c332-ff81-4cf8-baae-0dc6f05e93b1\ntime 1640795948959 task 2 toggle on V.J. Drost rank 7 numresults 1\ntime 1640795983379 task 2 toggle on D.S.M. van de Ven rank 2 numresults 1\ntime 1640796009046 stopping task 2\ntime 1640796021878 starting task 3\ntime 1640796049223 task 3 window open?\ntime 1640796049369 task 3 query overvecht ontwikkelingen numresults 1486\ntime 1640796091658 task 3 click 242a07d0-8c1f-4d02-8b15-a1355fcb441a\ntime 1640796149626 task 3 click c5f456e2-d6b4-47fe-a2d3-2c671f25497c\ntime 1640796192052 task 3 click 7d6de34c-e6d5-4b75-8660-308626bbc76b\ntime 1640796219830 task 3 toggle on C.E. Bac rank 4 numresults 1\ntime 1640796245645 task 3 click c5f456e2-d6b4-47fe-a2d3-2c671f25497c\ntime 1640796268922 stopping task 3\ntime 1640796275172 task -1 window open?\ntime 1640796275736 task -1 query overvecht ontwikkelingen numresults 610\ntime 1640796590967 starting task 4\ntime 1640796615860 task 4 window open?\ntime 1640796616526 task 4 query gezond gedrag stimuleren numresults 431\ntime 1640796695892 task 4 click 899cf2c6-4874-400a-a948-f459fb3cce2b\ntime 1640796748051 task 4 toggle on Tinja Verkleij rank 1 numresults 1\ntime 1640796883814 task 4 toggle on M. Weber rank 7 numresults 3\ntime 1640796925084 stopping task 4\ntime 1640796943455 starting task 5\ntime 1640796967800 task 5 window open?\ntime 1640796968611 task 5 query zorgcentrum rosendael numresults 11\ntime 1640797020341 task 5 click 23a3c634-c7d4-4fa3-a474-80aab55acedb\ntime 1640797098128 task 5 toggle on Antoniek Vermeulen rank 9 numresults 1\ntime 1640797135160 task 5 click 99246f05-1e17-40b8-8ab2-a1f7c6b75ba4\ntime 1640797170942 task 5 click afec48fd-6a47-49b1-9f23-9d859821358c\ntime 1640797218459 task 5 click 64f5a0de-9679-4a0d-a7ca-1c35044c7d64\ntime 1640797239959 stopping task 5\ntime 1640797243042 starting task 6\ntime 1640797261182 task 6 window open?\ntime 1640797261625 task 6 query anti-speculatiebeding numresults 29\ntime 1640797334153 task 6 window open?\ntime 1640797334520 task 6 query anti-speculatie beding numresults 32\ntime 1640797362881 task 6 window open?\ntime 1640797363158 task 6 query anti-speculatiebeding numresults 29\ntime 1640797388650 task 6 window open?\ntime 1640797388807 task 6 query speculatie numresults 1\ntime 1640797407666 task 6 window open?\ntime 1640797407969 task 6 query anti-speculatiebeding numresults 29\ntime 1640797453522 task 6 window open?\ntime 1640797454150 task 6 query huizen doorverkopen numresults 37\ntime 1640797468141 task 6 click f046f0d8-0398-48d0-9f87-005103b1f091\ntime 1640797551233 task 6 toggle on S.M. Draad rank 1 numresults 1\ntime 1640797569873 task 6 window open?\ntime 1640797570040 task 6 query speculatiebeding numresults 1\ntime 1640797577098 task 6 toggle on R. van Essen rank 0 numresults 1\ntime 1640797581145 stopping task 6\ntime 1640797591157 starting task 7\ntime 1640797617463 task 7 window open?\ntime 1640797618008 task 7 query tijdlijn ontwikkelen numresults 371\ntime 1640797633090 task 7 window open?\ntime 1640797633501 task 7 query tijdlijn uithoflijn numresults 53\ntime 1640797642345 task 7 toggle on J.H. Greeven rank 0 numresults 3\ntime 1640797655776 task 7 click 660670a4-7591-417f-9835-ca572fb374e4\ntime 1640797664890 task 7 toggle on S.C. de Gier rank 1 numresults 3\ntime 1640797668657 stopping task 7\ntime 1640797678527 starting task 8\ntime 1640797690564 stopping task 8\n'
 p4_logs = 'time 1641050530940 task -1 window open?\ntime 1641050531455 task -1 query utrecht numresults 1030\ntime 1641050602800 task -1 window close?\ntime 1641050603129 task -1 window open?\ntime 1641050603852 task -1 query utrecht numresults 1030\ntime 1641050900926 starting task 0\ntime 1641050934652 task 0 window open?\ntime 1641050935425 task 0 query toerisme numresults 34\ntime 1641051006258 task 0 query toerisme numresults 47\ntime 1641051042806 task 0 click 3b762335-f2d9-442d-8a60-e5a4d30aa788\ntime 1641051059281 task 0 toggle on Eelko van den Boogaard rank 7 numresults 3\ntime 1641051062260 task 0 query toerisme numresults 47\ntime 1641051067508 task 0 toggle on V.J. Drost rank 0 numresults 3\ntime 1641051084461 task 0 query toerisme numresults 47\ntime 1641051099429 task 0 click e02b18e6-ba29-468a-8b64-35640a0e0228\ntime 1641051122439 task 0 query toerisme numresults 47\ntime 1641051165077 stopping task 0\ntime 1641051219521 starting task 1\ntime 1641051240105 task 1 window open?\ntime 1641051240441 task 1 query fiets numresults 165\ntime 1641051248702 task 1 window open?\ntime 1641051249001 task 1 query fiets etnische numresults 169\ntime 1641051257979 task 1 window open?\ntime 1641051258623 task 1 query fiets AND etnische numresults 2\ntime 1641051288587 task 1 window open?\ntime 1641051288961 task 1 query fietsen AND etnische numresults 2\ntime 1641051302308 task 1 window open?\ntime 1641051302360 task 1 query fietsen AND allochtonen numresults 0\ntime 1641051312377 task 1 window open?\ntime 1641051312559 task 1 query fiets allochtonen numresults 170\ntime 1641051367135 task 1 click 083b59a7-bd5a-4898-ac55-b3d0b5c1f0a0\ntime 1641051413800 task 1 window open?\ntime 1641051414134 task 1 query fiets etnische numresults 169\ntime 1641051450512 task 1 query fiets etnische numresults 303\ntime 1641051465134 task 1 window open?\ntime 1641051465432 task 1 query fietsen etnische numresults 125\ntime 1641051470546 task 1 toggle on M. Braams rank 0 numresults 3\ntime 1641051520928 task 1 query fietsen etnische numresults 188\ntime 1641051537833 stopping task 1\ntime 1641051572589 starting task 2\ntime 1641051619703 task 2 window open?\ntime 1641051620573 task 2 query overvecht gezin numresults 317\ntime 1641051641164 task 2 window open?\ntime 1641051641747 task 2 query overvecht huishouden numresults 300\ntime 1641051660436 task 2 window open?\ntime 1641051660777 task 2 query overvecht demografie numresults 284\ntime 1641051676418 task 2 window open?\ntime 1641051676455 task 2 query overvecht AND demografie numresults 0\ntime 1641051689875 task 2 window open?\ntime 1641051690436 task 2 query overvecht AND gezinnen numresults 54\ntime 1641051765080 task 2 window open?\ntime 1641051765483 task 2 query overvecht AND kinderen numresults 111\ntime 1641051781493 task 2 click f35b500a-6f28-447c-b7a0-90416e461187\ntime 1641051857008 task 2 window open?\ntime 1641051857419 task 2 query overvecht AND toekomst numresults 162\ntime 1641051869431 task 2 click 6e13071e-f008-46c2-badf-0e772b743903\ntime 1641051943844 task 2 window open?\ntime 1641051944287 task 2 query overvecht AND toekomst AND kinderen numresults 80\ntime 1641051981988 task 2 toggle on W. Brandsen rank 5 numresults 3\ntime 1641051994929 task 2 window open?\ntime 1641051995151 task 2 query overvecht AND toekomst numresults 162\ntime 1641051996545 task 2 toggle on W.M. Hendrix rank 0 numresults 3\ntime 1641052002547 stopping task 2\ntime 1641052006264 starting task 3\ntime 1641052026361 task 3 window open?\ntime 1641052027055 task 3 query uithoflijn numresults 42\ntime 1641052086073 task 3 toggle on J.H. Greeven rank 0 numresults 3\ntime 1641052138891 stopping task 3\ntime 1641052141700 task -1 window open?\ntime 1641052142101 task -1 query uithoflijn numresults 42\ntime 1641052321736 starting task 4\ntime 1641052342536 task 4 window open?\ntime 1641052342861 task 4 query overvecht gezond numresults 393\ntime 1641052347783 task 4 window open?\ntime 1641052347998 task 4 query overvecht AND gezond numresults 85\ntime 1641052387980 task 4 toggle on M.P.D.J. van der Horst rank 0 numresults 1\ntime 1641052405253 stopping task 4\ntime 1641052408163 starting task 5\ntime 1641052427306 task 5 window open?\ntime 1641052427358 task 5 query wergelegenheid numresults 0\ntime 1641052433205 task 5 window open?\ntime 1641052433606 task 5 query werkgelegenheid numresults 121\ntime 1641052445752 task 5 window open?\ntime 1641052446169 task 5 query stimuleren werkgelegenheid numresults 340\ntime 1641052454923 task 5 click 1b6751bd-df84-41f3-820e-63fa9f0f74cf\ntime 1641052472850 task 5 window open?\ntime 1641052473542 task 5 query werken aan werk numresults 1025\ntime 1641052482865 task 5 window open?\ntime 1641052483415 task 5 query werken AND werk numresults 349\ntime 1641052498828 task 5 click 705d0fc8-12cf-4a3b-b959-b784441b29a7\ntime 1641052545231 task 5 window open?\ntime 1641052545628 task 5 query " werken aan werk"  numresults 24\ntime 1641052548168 task 5 window open?\ntime 1641052548504 task 5 query "werken aan werk"  numresults 24\ntime 1641052597785 task 5 click e14f23eb-ebfc-4f1c-9406-f3deae17fab3\ntime 1641052629692 task 5 toggle on A.M. Eling rank 5 numresults 1\ntime 1641052638942 stopping task 5\ntime 1641052655691 starting task 6\ntime 1641052698675 task 6 window open?\ntime 1641052698849 task 6 query speculatiebeding numresults 1\ntime 1641052706205 task 6 click e8535fda-db98-4df8-bf93-0b9c76b5ddb0\ntime 1641052811405 task 6 toggle on R. van Essen rank 0 numresults 1\ntime 1641052819155 stopping task 6\ntime 1641052820922 starting task 7\ntime 1641052842378 task 7 window open?\ntime 1641052843313 task 7 query corona bouwproject numresults 118\ntime 1641052864684 task 7 window open?\ntime 1641052865619 task 7 query corona bouw numresults 314\ntime 1641052870376 task 7 window open?\ntime 1641052871205 task 7 query corona AND bouw numresults 33\ntime 1641052876730 task 7 click e6543d4a-fc68-4cd0-b883-4c411a7de699\ntime 1641052970171 task 7 click 6bcb82d3-5042-47a7-8fca-6b512331e604\ntime 1641053008122 task 7 window open?\ntime 1641053008767 task 7 query corona AND bouwplan numresults 5\ntime 1641053038437 task 7 window open?\ntime 1641053038661 task 7 query corona AND bouwproject numresults 1\ntime 1641053063993 task 7 window open?\ntime 1641053065514 task 7 query corona AND "de bouw"  numresults 25\ntime 1641053129653 task 7 click be11eb37-11b3-4537-a10a-2fed8c521bbe\ntime 1641053172922 task 7 click 18b1c42f-1c0f-4ebb-a806-ea0b3eb63061\ntime 1641053217905 task 7 click 64cd3475-3140-450c-acdb-3cae9a6c59d3\ntime 1641053249801 task 7 toggle on B. de Jong rank 2 numresults 1\ntime 1641053255936 stopping task 7\ntime 1641053261517 starting task 8\n'
@@ -15,7 +17,7 @@ p7_logs = 'time 1641060016248 task -1 window open?\ntime 1641060016584 task -1 q
 p8_logs = 'time 1641225441416 task -1 window open?\ntime 1641225442088 task -1 query utrecht numresults 1030\ntime 1641225574996 task -1 window open?\ntime 1641225575204 task -1 query woonboot numresults 4\ntime 1641225580212 task -1 window open?\ntime 1641225580924 task -1 query roeien numresults 9\ntime 1641225585525 task -1 window open?\ntime 1641225585783 task -1 query raadsbrief numresults 805\ntime 1641225747079 task -1 click ff5e4140-6e15-46fa-90f9-bb09a4b151d6\ntime 1641225869063 task -1 window close?\ntime 1641225870116 task -1 window open?\ntime 1641225870424 task -1 query raadsbrief numresults 805\ntime 1641225871662 task -1 click ff5e4140-6e15-46fa-90f9-bb09a4b151d6\ntime 1641225901673 task -1 click 5d09ed33-53ac-4920-b154-6c78ec0337dc\ntime 1641225937694 task -1 click a67ad15a-0351-4f41-8160-ea89739cd75f\ntime 1641225952852 starting task 0\ntime 1641226001609 task 0 window open?\ntime 1641226001870 task 0 query gezond gedrag overvecht wijkaanpak numresults 446\ntime 1641226007619 task 0 click 1e4f6771-929e-4233-acd4-1c5d2dfb5672\ntime 1641226026777 task 0 toggle on M.P.D.J. van der Horst rank 0 numresults 3\ntime 1641226050223 task 0 click 2664ab19-8d24-4be3-8648-b3466c33749f\ntime 1641226068484 task 0 toggle on K. van der Goot rank 1 numresults 3\ntime 1641226075038 task 0 click 1e4f6771-929e-4233-acd4-1c5d2dfb5672\ntime 1641226091302 task 0 window open?\ntime 1641226091539 task 0 query everhardt numresults 98\ntime 1641226106126 stopping task 0\ntime 1641226139903 starting task 1\ntime 1641226161955 task 1 window open?\ntime 1641226162596 task 1 query anti-speculatiebeding effectiviteit numresults 107\ntime 1641226169998 task 1 click 40fecb8a-fe02-4f11-bc4f-f7af65b9a796\ntime 1641226170703 task 1 click 40fecb8a-fe02-4f11-bc4f-f7af65b9a796\ntime 1641226199619 task 1 window open?\ntime 1641226200051 task 1 query anti-speculatiebeding numresults 29\ntime 1641226222142 task 1 click e8535fda-db98-4df8-bf93-0b9c76b5ddb0\ntime 1641226247977 task 1 window open?\ntime 1641226248312 task 1 query maatregelen betaalbaarheid huizen numresults 541\ntime 1641226256575 task 1 click 92d239ac-8026-45fe-b26d-f7f3ec3dcafe\ntime 1641226281226 task 1 window open?\ntime 1641226281671 task 1 query anti-speculatiebeding numresults 29\ntime 1641226286658 task 1 click e8535fda-db98-4df8-bf93-0b9c76b5ddb0\ntime 1641226331147 task 1 click c542582c-0e3a-40cb-829f-78d6efe41d10\ntime 1641226345596 task 1 toggle on R. van Essen rank 0 numresults 3\ntime 1641226348419 stopping task 1\ntime 1641226374840 starting task 2\ntime 1641226394623 task 2 window open?\ntime 1641226394961 task 2 query toerisme utrecht numresults 1030\ntime 1641226401919 task 2 click 07b9c332-ff81-4cf8-baae-0dc6f05e93b1\ntime 1641226455638 task 2 toggle on V.J. Drost rank 0 numresults 3\ntime 1641226459761 task 2 click b7734d3f-49a5-437f-ba6b-4bbcc9d850e1\ntime 1641226486515 task 2 toggle on D.S.M. van de Ven rank 1 numresults 3\ntime 1641226492374 stopping task 2\ntime 1641226497680 starting task 3\ntime 1641226512784 task 3 window open?\ntime 1641226513152 task 3 query kinderen overvecht numresults 391\ntime 1641226527482 task 3 window open?\ntime 1641226527885 task 3 query leeftijd overvecht numresults 337\ntime 1641226560109 task 3 window open?\ntime 1641226560765 task 3 query gezinnen overvecht numresults 320\ntime 1641226572829 task 3 click d8a6970b-1233-4d2c-876b-ddb10f6361a0\ntime 1641226623720 task 3 window open?\ntime 1641226624136 task 3 query kinderen overvecht  numresults 391\ntime 1641226630755 task 3 click f7b649ea-a49b-4af5-af55-af4c1a0cfcd8\ntime 1641226665410 task 3 window open?\ntime 1641226665781 task 3 query jeugd overvecht  numresults 405\ntime 1641226689624 task 3 window open?\ntime 1641226689985 task 3 query jonge huishoudens overvecht  numresults 368\ntime 1641226698579 task 3 click cc3a967c-f4e4-4d99-9044-d3dd847ba569\ntime 1641226735192 task 3 window open?\ntime 1641226735758 task 3 query leeftijdsgroepen overvecht numresults 287\ntime 1641226740821 task 3 click ee3b3a68-5b82-4a61-8601-92441adf30e6\ntime 1641226764041 task 3 click 524e48a9-dcff-480d-88bb-44b65e9bb590\ntime 1641226786214 task 3 click f35b500a-6f28-447c-b7a0-90416e461187\ntime 1641226801090 task 3 toggle on J. van Kruijsdijk rank 0 numresults 3\ntime 1641226803743 stopping task 3\ntime 1641226805369 task -1 window open?\ntime 1641226805502 task -1 query leeftijdsgroepen overvecht numresults 554\ntime 1641226935736 starting task 4\ntime 1641226942776 task 4 window open?\ntime 1641226942981 task 4 query tijdlijn uithoflijn numresults 111\ntime 1641226945639 task 4 click 88b545a5-c216-4523-a8c8-5813a3eb8513\ntime 1641226960045 stopping task 4\ntime 1641226961276 task -1 click f72a9b6b-e838-42ed-9348-73e7c0c18d0d\ntime 1641227076790 task -1 click 88b545a5-c216-4523-a8c8-5813a3eb8513\ntime 1641227080614 task -1 window close?\ntime 1641227082164 task -1 window open?\ntime 1641227082286 task -1 query tijdlijn uithoflijn numresults 111\ntime 1641227084607 task -1 click 88b545a5-c216-4523-a8c8-5813a3eb8513\ntime 1641227089965 starting task 4\ntime 1641227099653 task 4 toggle on O.A. James rank 0 numresults 1\ntime 1641227102444 task 4 click f72a9b6b-e838-42ed-9348-73e7c0c18d0d\ntime 1641227116315 stopping task 4\ntime 1641227119548 starting task 5\ntime 1641227136243 task 5 window open?\ntime 1641227136573 task 5 query fietsgedrag niet-westerse allochtonen numresults 3353\ntime 1641227143454 task 5 window open?\ntime 1641227143583 task 5 query fiets niet-westerse allochtonen numresults 3391\ntime 1641227148998 task 5 click ee3b3a68-5b82-4a61-8601-92441adf30e6\ntime 1641227159266 task 5 window open?\ntime 1641227159478 task 5 query vervoer niet-westerse allochtonen numresults 3419\ntime 1641227174029 task 5 click 7d95c678-e7ad-4302-95dd-fb4ebd4b6e5c\ntime 1641227182595 task 5 window open?\ntime 1641227182870 task 5 query fietsen utrecht numresults 4324\ntime 1641227185972 task 5 click 083b59a7-bd5a-4898-ac55-b3d0b5c1f0a0\ntime 1641227199625 task 5 toggle on M. van Teeseling rank 0 numresults 1\ntime 1641227203681 task 5 toggle off M. van Teeseling rank 0 numresults 1\ntime 1641227204452 task 5 toggle on M. van Teeseling rank 1 numresults 1\ntime 1641227217680 stopping task 5\ntime 1641227219177 starting task 6\ntime 1641227233576 task 6 window open?\ntime 1641227233685 task 6 query bedrijfsvestiging  numresults 0\ntime 1641227250039 task 6 window open?\ntime 1641227250292 task 6 query bedrijven vestiging keuze numresults 1008\ntime 1641227284969 task 6 window open?\ntime 1641227285098 task 6 query arbeidsplaatsen wijken numresults 1157\ntime 1641227290407 task 6 click b5562e80-5497-4fab-80fc-a67c24ba7a8a\ntime 1641227313768 task 6 click a8a955bf-5aa6-4672-acff-87bffe1e9315\ntime 1641227330127 task 6 click 123beabe-8828-4b4f-b563-399f2fb522b6\ntime 1641227359732 task 6 toggle on Aloys Kersten rank 2 numresults 1\ntime 1641227363844 task 6 click a00873ad-47cb-4bde-9286-b7296da6f255\ntime 1641227374929 stopping task 6\ntime 1641227375864 starting task 7\ntime 1641227388798 task 7 window open?\ntime 1641227389055 task 7 query zorgcentrum rosendael bouw numresults 429\ntime 1641227395076 task 7 click 7eee0a3c-1672-47a8-a501-021e36985b4c\ntime 1641227418589 task 7 click 99246f05-1e17-40b8-8ab2-a1f7c6b75ba4\ntime 1641227436806 task 7 window open?\ntime 1641227436966 task 7 query rosendael corona numresults 168\ntime 1641227439752 task 7 click 99246f05-1e17-40b8-8ab2-a1f7c6b75ba4\ntime 1641227449379 task 7 click f40b8ea5-0be3-49f9-a428-0acb490d4b9a\ntime 1641227476716 task 7 toggle on S.B. Beenen rank 0 numresults 1\ntime 1641227485400 task 7 window open?\ntime 1641227485517 task 7 query voortgang rosendael numresults 859\ntime 1641227500822 stopping task 7\ntime 1641227812297 task -1 window close?\n'
 p9_logs = 'time 1641313020745 task -1 window open?\ntime 1641313024268 task -1 query voortgang numresults 425\ntime 1641313035295 task -1 window open?\ntime 1641313035724 task -1 query amsterdam numresults 201\ntime 1641314896695 starting task 0\ntime 1641314921857 task 0 window open?\ntime 1641314922747 task 0 query bouwkundige numresults 34\ntime 1641314956165 task 0 toggle on De heer J. van Rooijen rank 0 numresults 1\ntime 1641314964167 stopping task 0\ntime 1641314971221 starting task 1\ntime 1641315058827 stopping task 1\ntime 1641315061133 starting task 2\ntime 1641315085224 task 2 window open?\ntime 1641315086676 task 2 query zorgcentrum rosendael numresults 11\ntime 1641315099918 task 2 toggle on P. Buisman rank 2 numresults 1\ntime 1641315101599 task 2 toggle on R.J. Evelein rank 0 numresults 1\ntime 1641315111090 stopping task 2\ntime 1641315112720 starting task 3\ntime 1641315187455 task 3 window open?\ntime 1641315188408 task 3 query hoeveel kinderen wijk overvecht numresults 655\ntime 1641315212885 task 3 toggle on J.J. van Luxemburg rank 6 numresults 1\ntime 1641315217432 stopping task 3\ntime 1641315221337 task -1 window open?\ntime 1641315221480 task -1 query hoeveel kinderen wijk overvecht numresults 1765\ntime 1641315530361 starting task 4\ntime 1641315587548 task 4 window open?\ntime 1641315588363 task 4 query aantal bedrijven verschillende wijken utrcht numresults 3238\ntime 1641315603731 task 4 toggle on W.F. Matser rank 0 numresults 3\ntime 1641315615192 stopping task 4\ntime 1641315618498 starting task 5\ntime 1641315642466 task 5 window open?\ntime 1641315642602 task 5 query wijkaanpak overvecht numresults 558\ntime 1641315650692 task 5 toggle on W.M. Hendrix rank 0 numresults 3\ntime 1641315652708 task 5 toggle on M. van den Berg rank 1 numresults 3\ntime 1641315672996 task 5 window open?\ntime 1641315673367 task 5 query gezond gedrag numresults 484\ntime 1641315677225 task 5 toggle on M. Weber rank 0 numresults 3\ntime 1641315678745 task 5 toggle on G. Hengeveld rank 1 numresults 3\ntime 1641315682218 task 5 toggle on E.S. Hochheimer rank 2 numresults 3\ntime 1641315688671 stopping task 5\ntime 1641315690844 starting task 6\ntime 1641315714045 task 6 window open?\ntime 1641315714200 task 6 query fietsgebruik numresults 25\ntime 1641315718835 task 6 toggle on M. van Teeseling rank 0 numresults 3\ntime 1641315726069 task 6 toggle on W.S. Doornbos rank 1 numresults 3\ntime 1641315737766 stopping task 6\ntime 1641315739956 starting task 7\ntime 1641315759367 task 7 window open?\ntime 1641315759510 task 7 query toeristen numresults 31\ntime 1641315795799 task 7 toggle on AH. Arendsen rank 3 numresults 1\ntime 1641315799615 stopping task 7\ntime 1641319061421 starting task 8\ntime 1641319072923 stopping task 8\ntime 1641319084523 task -1 window close?\n'
 p10_logs = 'time 1641319087195 task -1 window open?\ntime 1641319087547 task -1 query toeristen numresults 31\ntime 1641319091132 starting task 0\ntime 1641319150341 task 0 toggle on H.W. Knol rank 1 numresults 1\ntime 1641319167007 task 0 toggle on D.S.M. van de Ven rank 2 numresults 3\ntime 1641319183238 task 0 toggle on N.M. Verlaan rank 6 numresults 1\ntime 1641319213590 stopping task 0\ntime 1641319239556 starting task 1\ntime 1641319321786 task 1 toggle on N.M. Verlaan rank 6 numresults 1\ntime 1641319327246 task 1 toggle on C. Mesman rank 4 numresults 1\ntime 1641319343740 task 1 toggle on H.W. Knol rank 1 numresults 1\ntime 1641319349121 stopping task 1\ntime 1641319355932 starting task 2\ntime 1641319413497 task 2 toggle on H.W. Knol rank 1 numresults 1\ntime 1641319455969 stopping task 2\ntime 1641319467649 starting task 3\ntime 1641319501199 task 3 toggle on D.S.M. van de Ven rank 2 numresults 3\ntime 1641319514977 task 3 window open?\ntime 1641319515354 task 3 query vestigen bedrijven numresults 595\ntime 1641319554073 task 3 toggle on J. Brombacher rank 4 numresults 3\ntime 1641319561322 task 3 toggle on P.J. van den Heuvel rank 5 numresults 3\ntime 1641319583196 stopping task 3\ntime 1641319587401 task -1 window open?\ntime 1641319588016 task -1 query vestigen bedrijven numresults 327\ntime 1641319729517 starting task 4\ntime 1641319764367 task 4 window open?\ntime 1641319764717 task 4 query toeristen numresults 27\ntime 1641319786914 task 4 toggle on E.M. Kylstra rank 2 numresults 1\ntime 1641319795368 task 4 toggle on J. Klappe rank 3 numresults 1\ntime 1641319808989 task 4 toggle on W.J.L. Kalfsvel rank 6 numresults 1\ntime 1641319817701 stopping task 4\ntime 1641319823817 starting task 5\ntime 1641319870691 task 5 window open?\ntime 1641319870841 task 5 query huizenmarkt numresults 3\ntime 1641319896815 task 5 window open?\ntime 1641319897136 task 5 query woningen numresults 313\ntime 1641319908135 task 5 toggle on F.J. Meijer rank 1 numresults 1\ntime 1641319923069 task 5 toggle on H.M.M. van Opheusden rank 4 numresults 1\ntime 1641319930177 stopping task 5\ntime 1641319934631 starting task 6\ntime 1641319956689 task 6 window open?\ntime 1641319956932 task 6 query kinderen numresults 218\ntime 1641319978669 task 6 window open?\ntime 1641319979040 task 6 query kinderen overvecht numresults 391\ntime 1641320040930 task 6 window open?\ntime 1641320041437 task 6 query kinderen overvecht speelplek numresults 394\ntime 1641320055619 task 6 toggle on A.F. Koops rank 1 numresults 1\ntime 1641320075068 task 6 toggle on J.P.M. Bleijs rank 5 numresults 1\ntime 1641320080368 stopping task 6\ntime 1641320082692 starting task 7\ntime 1641320124921 task 7 window open?\ntime 1641320125941 task 7 query Zorgcentrum Rosendael corona numresults 120\ntime 1641320133395 task 7 toggle on R.J. Evelein rank 0 numresults 1\ntime 1641320144023 task 7 toggle on P. Buisman rank 3 numresults 1\ntime 1641320158954 stopping task 7\n'
-
+p11_logs = ''
 p12_logs = 'time 1641484261695 task -1 window open?\ntime 1641484263809 task -1 query vaartsche rijn numresults 415\ntime 1641484991620 task -1 toggle on B. Coenen rank 0 numresults 3\ntime 1641484992893 task -1 toggle off B. Coenen rank 0 numresults 3\ntime 1641484994932 task -1 toggle on B. Coenen rank 0 numresults 3\ntime 1641485089678 task -1 window open?\ntime 1641485090429 task -1 query mariaplaats numresults 31\ntime 1641485195750 starting task 0\ntime 1641485257397 task 0 window open?\ntime 1641485258098 task 0 query toerisme numresults 34\ntime 1641485288449 task 0 toggle on V.J. Drost rank 0 numresults 3\ntime 1641485385302 task 0 toggle on Bram van Grasstek rank 9 numresults 3\ntime 1641485390188 task 0 query toerisme numresults 47\ntime 1641485402384 stopping task 0\ntime 1641485410469 starting task 1\ntime 1641485457418 task 1 window open?\ntime 1641485457857 task 1 query leeftijdsopbouw overvecht numresults 287\ntime 1641485524115 task 1 window open?\ntime 1641485524620 task 1 query leeftijdsopbouw in overvecht numresults 1028\ntime 1641485637984 task 1 window open?\ntime 1641485638472 task 1 query jeugd in overvecht numresults 1028\ntime 1641485740875 task 1 window open?\ntime 1641485741195 task 1 query jeugdopbouw in overvecht numresults 1028\ntime 1641485818116 task 1 toggle on W.M. Hendrix rank 0 numresults 3\ntime 1641485825822 task 1 toggle on C. van Zanten rank 2 numresults 3\ntime 1641485828092 task 1 toggle off W.M. Hendrix rank 0 numresults 3\ntime 1641485843344 task 1 toggle on W.M. Hendrix rank 0 numresults 3\ntime 1641485846147 task 1 toggle off C. van Zanten rank 2 numresults 3\ntime 1641485865891 task 1 toggle on Marina Slijkerman rank 4 numresults 2\ntime 1641485901402 stopping task 1\ntime 1641485905528 starting task 2\ntime 1641485946681 task 2 window open?\ntime 1641485947209 task 2 query bedrijventerreinen numresults 28\ntime 1641486046665 task 2 toggle on L. Roxs rank 1 numresults 1\ntime 1641486429784 task 2 window open?\ntime 1641486575576 task 2 window open?\ntime 1641486575761 task 2 query overvecht numresults 284\ntime 1641486603338 stopping task 2\ntime 1641486610441 starting task 3\ntime 1641486702083 task 3 window open?\ntime 1641486702123 task 3 query speculaitebeding numresults 0\ntime 1641486717071 task 3 window open?\ntime 1641486717170 task 3 query speculatiebeding numresults 1\ntime 1641486745260 task 3 toggle on R. van Essen rank 0 numresults 1\ntime 1641486756705 stopping task 3\ntime 1641486757989 task -1 window open?\ntime 1641486758082 task -1 query speculatiebeding numresults 1\ntime 1641486986506 starting task 4\ntime 1641487025270 task 4 window open?\ntime 1641487025876 task 4 query uithoflijn tijdlijn numresults 53\ntime 1641487101179 task 4 toggle on F. van der Zanden rank 7 numresults 1\ntime 1641487128514 task 4 window open?\ntime 1641487129257 task 4 query uithoflijn geschiedenis numresults 70\ntime 1641487200504 task 4 click f72a9b6b-e838-42ed-9348-73e7c0c18d0d\ntime 1641487339348 task 4 toggle on S.C. de Gier rank 2 numresults 1\ntime 1641487382629 task 4 query uithoflijn geschiedenis numresults 133\ntime 1641487396517 task 4 toggle on J.H. Greeven rank 1 numresults 1\ntime 1641487422152 stopping task 4\ntime 1641487425054 starting task 5\ntime 1641487450541 task 5 window open?\ntime 1641487450813 task 5 query fietsgebruik allochtonen numresults 26\ntime 1641487525791 task 5 window open?\ntime 1641487525989 task 5 query fietsen allochtonen numresults 127\ntime 1641487564904 task 5 window open?\ntime 1641487564975 task 5 query "fietsen allochtonen" numresults 0\ntime 1641487576886 task 5 window open?\ntime 1641487577290 task 5 query gedrag"fietsen allochtonen" numresults 140\ntime 1641487591786 task 5 window open?\ntime 1641487591823 task 5 query "fietsengedrag allochtonen" numresults 0\ntime 1641487608240 task 5 window open?\ntime 1641487608292 task 5 query "fietsgedrag allochtonen" numresults 0\ntime 1641487614365 task 5 window open?\ntime 1641487614414 task 5 query "fiets allochtonen" numresults 0\ntime 1641487631946 task 5 window open?\ntime 1641487632174 task 5 query gedrag allochtonen numresults 145\ntime 1641487661664 task 5 toggle on C.A. Verbokkem rank 9 numresults 1\ntime 1641487663666 task 5 query gedrag allochtonen numresults 221\ntime 1641487707966 task 5 window open?\ntime 1641487708228 task 5 query fiets allochtonen numresults 170\ntime 1641487745050 task 5 query fiets allochtonen numresults 303\ntime 1641487791820 task 5 window open?\ntime 1641487792054 task 5 query allochtoon fiets numresults 167\ntime 1641487817448 task 5 query allochtoon fiets numresults 300\ntime 1641487833361 task 5 query allochtoon fiets numresults 300\ntime 1641487854242 task 5 query allochtoon fiets numresults 300\ntime 1641487895864 stopping task 5\ntime 1641487906024 starting task 6\ntime 1641487944357 task 6 window open?\ntime 1641487944656 task 6 query wijkaanpak overvecht numresults 287\ntime 1641487950664 task 6 toggle on W.M. Hendrix rank 0 numresults 1\ntime 1641487955901 task 6 toggle on M. van den Berg rank 1 numresults 1\ntime 1641487965420 task 6 toggle on M.P.D.J. van der Horst rank 2 numresults 1\ntime 1641487974289 task 6 toggle off M. van den Berg rank 1 numresults 1\ntime 1641487988178 stopping task 6\ntime 1641487990444 starting task 7\ntime 1641488028818 task 7 window open?\ntime 1641488029848 task 7 query zorgcentrum rosendael corona numresults 120\ntime 1641488048044 task 7 toggle on A.A.H. Verkerke rank 4 numresults 1\ntime 1641488059371 task 7 toggle on M.K. Kikkert rank 5 numresults 1\ntime 1641488072680 task 7 toggle on Antoniek Vermeulen rank 8 numresults 1\ntime 1641488077779 stopping task 7\n'
 p13_logs = 'time 1641492759950 task -1 window open?\ntime 1641492761129 task -1 query zorgcentrum rosendael corona numresults 120\ntime 1641492820547 task -1 window open?\ntime 1641492821410 task -1 query papier numresults 25\ntime 1641493145443 starting task 0\ntime 1641493234439 task 0 window open?\ntime 1641493235432 task 0 query Overvecht populatie kinderen numresults 393\ntime 1641493320917 task 0 window open?\ntime 1641493321605 task 0 query overvecht basisscholen aantal kinderen numresults 802\ntime 1641493364026 task 0 toggle on A.E. Postma rank 4 numresults 1\ntime 1641493411683 task 0 window open?\ntime 1641493412155 task 0 query huishoudens overvecht numresults 319\ntime 1641493434269 task 0 window open?\ntime 1641493434957 task 0 query populatie overvecht numresults 290\ntime 1641493506011 task 0 toggle on W. Westgeest rank 7 numresults 1\ntime 1641493659868 stopping task 0\ntime 1641493864262 starting task 1\ntime 1641493895239 task 1 window open?\ntime 1641493896170 task 1 query statistieken bedrijven utrecht numresults 1030\ntime 1641493909472 task 1 window open?\ntime 1641493909679 task 1 query utrecht bedrijven numresults 1030\ntime 1641493950444 task 1 window open?\ntime 1641493951023 task 1 query werkgelegenheid wijken numresults 558\ntime 1641493968992 task 1 toggle on M. van Dijk rank 1 numresults 1\ntime 1641493978978 task 1 toggle on G.J.W. Wanders rank 2 numresults 1\ntime 1641493997358 task 1 toggle on M. van der Scheer rank 3 numresults 1\ntime 1641494027225 task 1 window open?\ntime 1641494027419 task 1 query bedrijvigheid numresults 47\ntime 1641494035784 task 1 toggle on J.W.R. Huurman rank 0 numresults 1\ntime 1641494053755 task 1 toggle on Hans Huurman rank 1 numresults 1\ntime 1641494085436 task 1 toggle on Natalie Horning rank 4 numresults 1\ntime 1641494098032 task 1 toggle on J. Jepsen rank 6 numresults 1\ntime 1641494183168 stopping task 1\ntime 1641494200472 starting task 2\ntime 1641494247234 task 2 window open?\ntime 1641494247693 task 2 query anti-speculatiebeding numresults 29\ntime 1641494257499 task 2 window open?\ntime 1641494257633 task 2 query "anti-speculatiebeding" numresults 1\ntime 1641494279521 task 2 click e8535fda-db98-4df8-bf93-0b9c76b5ddb0\ntime 1641494339335 task 2 window open?\ntime 1641494339912 task 2 query effectiviteit anti-speculatiebeding numresults 107\ntime 1641494366330 task 2 window open?\ntime 1641494366746 task 2 query betaalbaarheid huizen numresults 66\ntime 1641494383652 task 2 click cf18eee1-3dc5-4f10-a3b4-7e3c8449c6bd\ntime 1641494453543 task 2 toggle on D.J.M. Buckers rank 3 numresults 1\ntime 1641494462276 task 2 click d15e123c-063c-4e75-a0d0-19dcb1afb938\ntime 1641494491045 task 2 toggle off D.J.M. Buckers rank 3 numresults 1\ntime 1641494515896 task 2 window open?\ntime 1641494515982 task 2 query "anti-speculatie" numresults 0\ntime 1641494521620 task 2 window open?\ntime 1641494521736 task 2 query "anti-speculatiebeding" numresults 1\ntime 1641494527877 task 2 click e8535fda-db98-4df8-bf93-0b9c76b5ddb0\ntime 1641494581085 task 2 toggle on R. van Essen rank 0 numresults 1\ntime 1641494604869 task 2 window open?\ntime 1641494605275 task 2 query woning kopen  numresults 222\ntime 1641494657448 task 2 window open?\ntime 1641494657721 task 2 query beding koopwoningen numresults 31\ntime 1641494676010 task 2 click 0a59ac15-3212-4a39-ae70-4a448c19fc33\ntime 1641494726102 task 2 toggle on Annette Damen rank 4 numresults 1\ntime 1641494759003 task 2 toggle on J. Lagerweij rank 8 numresults 1\ntime 1641494759975 task 2 click 1b900a57-7af7-4518-8240-26d8b745a995\ntime 1641494772947 task 2 click bdebb285-10f4-4623-bc7e-24c1066c3851\ntime 1641494791227 task 2 click d5e5781d-07f6-4f45-bd56-f00d38e4b96c\ntime 1641494809775 stopping task 2\ntime 1641494853526 starting task 3\ntime 1641494872518 task 3 window open?\ntime 1641494872740 task 3 query wijkaanpak overvecht numresults 287\ntime 1641494888321 task 3 click 823b6d0f-97d6-492b-a649-6330560e3fd3\ntime 1641494936022 task 3 toggle on W.M. Hendrix rank 0 numresults 1\ntime 1641494942155 task 3 click 2793c52a-7557-4483-813a-8d782f53bfb4\ntime 1641494973756 task 3 window open?\ntime 1641494974016 task 3 query gezondheid overvecht numresults 391\ntime 1641494984876 task 3 click 42935483-3eac-4548-921f-72f7eb449597\ntime 1641495051469 task 3 window open?\ntime 1641495051708 task 3 query gezond overvecht numresults 393\ntime 1641495062227 task 3 click 1e4f6771-929e-4233-acd4-1c5d2dfb5672\ntime 1641495072155 task 3 toggle on M.P.D.J. van der Horst rank 0 numresults 1\ntime 1641495088621 stopping task 3\ntime 1641495094686 task -1 window open?\ntime 1641495094907 task -1 query gezond overvecht numresults 393\ntime 1641495363370 starting task 4\ntime 1641495401269 task 4 window open?\ntime 1641495401873 task 4 query fietsgebruik numresults 20\ntime 1641495484959 task 4 window open?\ntime 1641495485160 task 4 query fietsgebruik allochtonen numresults 26\ntime 1641495499300 task 4 toggle on W.S. Doornbos rank 1 numresults 3\ntime 1641495544740 task 4 toggle on W.J. van Mierlo rank 8 numresults 3\ntime 1641495581906 task 4 window open?\ntime 1641495582295 task 4 query fietsgebruik cultuur numresults 213\ntime 1641495596079 task 4 click 8274b7b7-0721-492b-9447-bfd130594fa8\ntime 1641495626085 task 4 toggle on Trix Aarts rank 5 numresults 3\ntime 1641495636231 task 4 toggle on J.C. Damoiseaux rank 6 numresults 2\ntime 1641495646725 task 4 toggle on J.W. Tamboer rank 8 numresults 1\ntime 1641495660645 task 4 toggle on M. van Teeseling rank 9 numresults 3\ntime 1641495667361 stopping task 4\ntime 1641495671076 starting task 5\ntime 1641495691342 task 5 window open?\ntime 1641495692075 task 5 query zorgcentrum rosendael numresults 11\ntime 1641495708629 task 5 window open?\ntime 1641495709491 task 5 query zorgcentrum rosendael corona  numresults 120\ntime 1641495728352 task 5 window open?\ntime 1641495729099 task 5 query zorgcentrum rosendael numresults 11\ntime 1641495732515 task 5 click 64f5a0de-9679-4a0d-a7ca-1c35044c7d64\ntime 1641495761287 task 5 toggle on R.J. Evelein rank 0 numresults 1\ntime 1641495769532 task 5 toggle on P. Buisman rank 2 numresults 1\ntime 1641495806033 task 5 click 99246f05-1e17-40b8-8ab2-a1f7c6b75ba4\ntime 1641495823135 stopping task 5\ntime 1641495829253 starting task 6\ntime 1641495845758 task 6 window open?\ntime 1641495846024 task 6 query toerisme  numresults 34\ntime 1641495863931 task 6 window open?\ntime 1641495864179 task 6 query statistieken toerisme numresults 36\ntime 1641495878684 task 6 click 07b9c332-ff81-4cf8-baae-0dc6f05e93b1\ntime 1641495904708 task 6 toggle on V.J. Drost rank 1 numresults 3\ntime 1641495950772 task 6 window open?\ntime 1641495951104 task 6 query toerisme "huidige stand van zaken" numresults 72\ntime 1641495976687 stopping task 6\ntime 1641495977981 starting task 7\ntime 1641495991899 task 7 window open?\ntime 1641495992489 task 7 query bouw Uithoflijn numresults 252\ntime 1641495996778 task 7 toggle on S.C. de Gier rank 0 numresults 3\ntime 1641496019455 task 7 toggle on J.H. Greeven rank 2 numresults 3\ntime 1641496059486 stopping task 7\n'
 p14_logs = 'time 1641501994573 task -1 window open?\ntime 1641501994910 task -1 query huizen numresults 44\ntime 1641502002006 task -1 toggle on D.M.A.M. Hoffmans rank 0 numresults 1\ntime 1641502008330 task -1 toggle off D.M.A.M. Hoffmans rank 0 numresults 1\ntime 1641502009319 starting task 0\ntime 1641502138709 task 0 window open?\ntime 1641502138772 task 0 query utrecht toerist numresults 4324\ntime 1641502221041 task 0 window open?\ntime 1641502221095 task 0 query utrecht AND toerist  numresults 7\ntime 1641502251559 task 0 toggle on V.J. Drost rank 4 numresults 2\ntime 1641502261713 stopping task 0\ntime 1641502296120 task -1 window open?\ntime 1641502296172 task -1 query toerist  numresults 7\ntime 1641502642472 starting task 1\ntime 1641502675621 task 1 window open?\ntime 1641502675999 task 1 query demografie overvecht numresults 550\ntime 1641502682462 task 1 window open?\ntime 1641502682505 task 1 query demografie AND overvecht numresults 0\ntime 1641502714332 task 1 window open?\ntime 1641502714413 task 1 query gezin huishouden overvecht numresults 684\ntime 1641502721298 task 1 window open?\ntime 1641502721402 task 1 query gezin OR huishouden AND overvecht numresults 18\ntime 1641502762088 task 1 toggle on E.S. Quak rank 5 numresults 1\ntime 1641502796995 task 1 query gezin OR huishouden AND overvecht numresults 18\ntime 1641502828042 task 1 window open?\ntime 1641502828128 task 1 query gezin OR huishouden OR demografie numresults 183\ntime 1641502842602 task 1 window open?\ntime 1641502842651 task 1 query gezin OR huishouden OR familie AND demografie numresults 0\ntime 1641502851741 task 1 window open?\ntime 1641502851789 task 1 query gezin AND demografie numresults 0\ntime 1641502855876 task 1 window open?\ntime 1641502855934 task 1 query demografie numresults 0\ntime 1641502880971 task 1 window open?\ntime 1641502881036 task 1 query gezin OR familie OR huishouden numresults 222\ntime 1641502914786 task 1 window open?\ntime 1641502914854 task 1 query gezin OR familie OR huishouden AND wijk numresults 33\ntime 1641502941202 task 1 window open?\ntime 1641502941274 task 1 query gezin OR familie OR huishouden AND wijk NOT hulp numresults 32\ntime 1641502958442 task 1 window open?\ntime 1641502958560 task 1 query gezin OR familie OR huishouden AND wijk NOT hulp NOT jeugdhulp numresults 33\ntime 1641502981070 task 1 window open?\ntime 1641502981159 task 1 query gezin OR familie OR huishouden AND wijk numresults 33\ntime 1641502986618 task 1 query gezin OR familie OR huishouden AND wijk numresults 34\ntime 1641503011747 task 1 window open?\ntime 1641503011820 task 1 query gezin OR familie OR huishouden AND wijk OR buurt numresults 33\ntime 1641503036785 task 1 window open?\ntime 1641503036866 task 1 query gezin OR familie OR huishouden AND wijk OR buurt AND overvecht numresults 6\ntime 1641503057220 task 1 toggle on G.J. Schoonvelde rank 2 numresults 2\ntime 1641503064202 stopping task 1\ntime 1641503075896 starting task 2\ntime 1641503118991 task 2 window open?\ntime 1641503119064 task 2 query speculatiebeding numresults 1\ntime 1641503124477 task 2 toggle on R. van Essen rank 0 numresults 1\ntime 1641503128155 stopping task 2\ntime 1641503132685 starting task 3\ntime 1641503172601 task 3 window open?\ntime 1641503172676 task 3 query projecteigenaar OR project AND uithoflijn numresults 59\ntime 1641503186706 task 3 toggle on J.H. Greeven rank 0 numresults 3\ntime 1641503201983 task 3 toggle on S.C. de Gier rank 4 numresults 3\ntime 1641503207573 stopping task 3\ntime 1641503209211 task -1 window open?\ntime 1641503209305 task -1 query projecteigenaar OR project AND uithoflijn numresults 59\ntime 1641503736435 starting task 4\ntime 1641503891316 task 4 window open?\ntime 1641503891695 task 4 query bedrijven AND locatie  numresults 133\ntime 1641503932801 task 4 window open?\ntime 1641503932879 task 4 query ruimtelijke ordening AND vestiging numresults 14\ntime 1641503970496 task 4 window open?\ntime 1641503970583 task 4 query ruimtelijke ordening AND vastgoed numresults 191\ntime 1641503978750 task 4 window open?\ntime 1641503978853 task 4 query ruimtelijke ordening AND vastgoed AND locatie numresults 35\ntime 1641504009809 task 4 query ruimtelijke ordening AND vastgoed AND locatie numresults 35\ntime 1641504045501 task 4 window open?\ntime 1641504045580 task 4 query vve  numresults 40\ntime 1641504079582 task 4 query vve  numresults 41\ntime 1641504107984 task 4 window open?\ntime 1641504108046 task 4 query bestemmingslocatie  numresults 0\ntime 1641504111771 task 4 window open?\ntime 1641504111852 task 4 query bestemming AND locatie  numresults 115\ntime 1641504124161 task 4 window open?\ntime 1641504124276 task 4 query bestemming locatie  numresults 954\ntime 1641504127624 task 4 window open?\ntime 1641504127738 task 4 query bestemming aND locatie  numresults 986\ntime 1641504131400 task 4 window open?\ntime 1641504131492 task 4 query bestemming AND locatie  numresults 115\ntime 1641504161763 task 4 window open?\ntime 1641504161884 task 4 query bestemming AND locatie NOT raadsbrief numresults 115\ntime 1641504194962 task 4 window open?\ntime 1641504195068 task 4 query bestemming AND locatie AND ruimtelijke AND ontwikkeling numresults 36\ntime 1641504209856 task 4 toggle on W.C.F. van Gelder rank 2 numresults 1\ntime 1641504220607 task 4 toggle on J. Zuidgeest rank 3 numresults 1\ntime 1641504265826 stopping task 4\ntime 1641504278042 starting task 5\ntime 1641504388662 task 5 window open?\ntime 1641504388756 task 5 query fiets AND AZC numresults 2\ntime 1641504415741 task 5 window open?\ntime 1641504415781 task 5 query fiets AND allochtoon  numresults 0\ntime 1641504432747 task 5 window open?\ntime 1641504432819 task 5 query fiets azc numresults 321\ntime 1641504441100 task 5 window open?\ntime 1641504441136 task 5 query transport AND azc numresults 0\ntime 1641504459981 task 5 window open?\ntime 1641504460037 task 5 query allochtonen numresults 7\ntime 1641504485320 task 5 window open?\ntime 1641504485366 task 5 query fiets numresults 297\ntime 1641504491289 task 5 window open?\ntime 1641504491331 task 5 query fietsgebruik numresults 25\ntime 1641504522647 task 5 toggle on M. van Teeseling rank 0 numresults 1\ntime 1641504537233 task 5 toggle on M. Fleer rank 5 numresults 1\ntime 1641504542570 task 5 query fietsgebruik numresults 25\ntime 1641504559854 stopping task 5\ntime 1641504667728 starting task 6\ntime 1641504764547 task 6 window open?\ntime 1641504764610 task 6 query wijk AND gezondheid numresults 140\ntime 1641504776952 task 6 window open?\ntime 1641504777009 task 6 query wijk AND gezondheid AND bestemming numresults 13\ntime 1641504831905 task 6 toggle on J.C.D. Hofland rank 7 numresults 1\ntime 1641504846228 task 6 query wijk AND gezondheid AND bestemming numresults 13\ntime 1641504855768 task 6 toggle on E.S. Quak rank 2 numresults 1\ntime 1641504862176 task 6 toggle on y in de stad Essa rank 0 numresults 1\ntime 1641504865303 stopping task 6\ntime 1641504879964 starting task 7\ntime 1641504918816 task 7 window open?\ntime 1641504918869 task 7 query covid AND bouwplan numresults 0\ntime 1641504921512 task 7 window open?\ntime 1641504921591 task 7 query covid AND bouw numresults 11\ntime 1641504961627 task 7 toggle on A.A.H. Verkerke rank 8 numresults 1\ntime 1641504964841 stopping task 7\n'
@@ -23,7 +25,7 @@ p15_logs =  'time 1641819032186 task -1 window open?\ntime 1641819032266 task -1
 p16_logs = 'time 1641821824802 task -1 window open?\ntime 1641821825107 task -1 query veiligheid numresults 370\ntime 1641821935029 task -1 click bad95d52-a806-49fb-b931-d8c3765f35bf\ntime 1641821974374 task -1 toggle on J.C.H. Muntinga- Visser rank 0 numresults 3\ntime 1641821977983 task -1 toggle on J.A.H. Pleiter rank 1 numresults 1\ntime 1641822025323 task -1 toggle on Angelique Vaars rank 2 numresults 1\ntime 1641822032567 task -1 toggle on H.A.M Binneveld rank 4 numresults 1\ntime 1641822035783 task -1 toggle on A.J.I. Puik rank 5 numresults 3\ntime 1641822043988 task -1 toggle on M.M. van Hest rank 8 numresults 3\ntime 1641822052017 starting task 0\ntime 1641822124445 task 0 window open?\ntime 1641822124797 task 0 query verkeersveiligheid numresults 120\ntime 1641822145317 task 0 window open?\ntime 1641822145664 task 0 query verkeersveiligheid allochtonen numresults 126\ntime 1641822220040 task 0 window open?\ntime 1641822220693 task 0 query fietsveiligheid allochtonen numresults 8\ntime 1641822237509 task 0 click e2a7947d-41a7-4ea2-8857-818becfd1a6a\ntime 1641822313782 task 0 window close?\ntime 1641822357943 task 0 window open?\ntime 1641822358431 task 0 query fietsveiligheid allochtonen Utrecht numresults 1030\ntime 1641822385599 task 0 window open?\ntime 1641822385972 task 0 query fietsveiligheid niet-Westerse allochtonen Utrecht numresults 1031\ntime 1641822492911 task 0 window open?\ntime 1641822493046 task 0 query fietsveiligheid numresults 2\ntime 1641822515228 stopping task 0\ntime 1641822579463 task -1 window open?\ntime 1641822579530 task -1 query fietsveiligheid AND allochtoon numresults 0\ntime 1641822600684 starting task 1\ntime 1641822668927 task 1 window open?\ntime 1641822671507 task 1 query  numresults 1031\ntime 1641822697807 task 1 toggle on O. Blok rank 1 numresults 3\ntime 1641822719052 task 1 toggle on Manon Moonen rank 4 numresults 3\ntime 1641822738861 task 1 toggle on C. Aalberts rank 9 numresults 3\ntime 1641822744479 task 1 query  numresults 4343\ntime 1641822761401 task 1 toggle on M.P.J. Daverschot rank 8 numresults 3\ntime 1641822764612 task 1 query  numresults 4343\ntime 1641822804443 task 1 window open?\ntime 1641822805297 task 1 query bevolkingsgroei AND overvecht numresults 8\ntime 1641822822187 task 1 click fc464e7c-64eb-44c5-85e3-b6012608ab8a\ntime 1641822939408 task 1 click 076607e1-c78d-49ed-a232-b315da51c810\ntime 1641823019367 task 1 window open?\ntime 1641823019444 task 1 query geboortecijfers AND Utrecht numresults 0\ntime 1641823030846 task 1 window open?\ntime 1641823031152 task 1 query geboorten AND Utrecht numresults 1\ntime 1641823057560 task 1 window open?\ntime 1641823057844 task 1 query speelgelegenheid AND Overvecht numresults 4\ntime 1641823067588 task 1 click 52975fb3-1253-456b-a36c-b89108980fb2\ntime 1641823153538 task 1 window open?\ntime 1641823153919 task 1 query speeltuin numresults 22\ntime 1641823170265 task 1 click 32bab588-1bda-4c81-a1da-a4dfea43ff35\ntime 1641823256915 task 1 window open?\ntime 1641823258105 task 1 query speeltuin AND Overvecht numresults 11\ntime 1641823284843 task 1 click 3d3a409b-9df0-4e4b-948f-ba4104b3eb8b\ntime 1641823309358 task 1 toggle on J.J. van Luxemburg rank 0 numresults 3\ntime 1641823318961 task 1 toggle on M.K. Kikkert rank 6 numresults 1\ntime 1641823322050 task 1 toggle on M.J. van Leeuwen rank 7 numresults 3\ntime 1641823325706 task 1 toggle on J.N. Wigboldus rank 9 numresults 1\ntime 1641823330382 task 1 query speeltuin AND Overvecht numresults 0\ntime 1641823336832 task 1 window close?\ntime 1641823343520 task 1 window close?\ntime 1641823356792 task 1 query speeltuin AND Overvecht numresults 10\ntime 1641823408518 stopping task 1\ntime 1641823551713 starting task 2\ntime 1641823617100 task 2 window open?\ntime 1641823617176 task 2 query bedrijfsvestiging numresults 0\ntime 1641823627049 task 2 window open?\ntime 1641823627072 task 2 query speeltuin AND Overvecht numresults 11\ntime 1641823644834 task 2 window open?\ntime 1641823645057 task 2 query werkgelegenheid numresults 121\ntime 1641823697240 task 2 toggle on J.M. Offenberg rank 0 numresults 3\ntime 1641823701089 task 2 toggle on Aloys Kersten rank 1 numresults 1\ntime 1641823703173 task 2 toggle on G.J.W. Wanders rank 2 numresults 1\ntime 1641823732031 task 2 toggle on M. van der Scheer rank 6 numresults 3\ntime 1641823739747 task 2 toggle on J. Schuilenburg rank 7 numresults 3\ntime 1641823746726 task 2 toggle on J.W.R. Huurman rank 8 numresults 3\ntime 1641823757226 task 2 query werkgelegenheid numresults 201\ntime 1641823768988 task 2 toggle on Klaas Beerda rank 0 numresults 2\ntime 1641823776676 task 2 toggle on M. van Dijk rank 2 numresults 3\ntime 1641823779296 task 2 toggle on G.T. Houtman rank 3 numresults 3\ntime 1641823790111 task 2 toggle on N. Horst rank 4 numresults 3\ntime 1641823812222 stopping task 2\ntime 1641823816991 starting task 3\ntime 1641823843549 task 3 window open?\ntime 1641823844273 task 3 query openbaar vervoer numresults 411\ntime 1641823902273 task 3 toggle on R. Tiemersma rank 0 numresults 3\ntime 1641823924104 task 3 toggle on R. Boot rank 2 numresults 3\ntime 1641823931068 task 3 toggle on Marieke Zijp rank 3 numresults 3\ntime 1641823939314 task 3 toggle on W.J. van Mierlo rank 5 numresults 3\ntime 1641823981688 task 3 click eafaa29e-4a1c-4070-8cc1-7100c6f9781a\ntime 1641824002639 task 3 click 66192bff-695a-4eef-aaed-768ccb916631\ntime 1641824039464 task 3 window open?\ntime 1641824040449 task 3 query openbaar vervoer AND uithoflijn numresults 20\ntime 1641824070041 stopping task 3\ntime 1641824073072 task -1 window open?\ntime 1641824073149 task -1 query openbaar vervoer AND uithoflijn numresults 28\ntime 1641824279630 starting task 4\ntime 1641824318601 task 4 window open?\ntime 1641824318941 task 4 query woningspeculatie numresults 0\ntime 1641824325104 task 4 window close?\ntime 1641824325226 task 4 window open?\ntime 1641824325251 task 4 query openbaar vervoer AND uithoflijn numresults 28\ntime 1641824369409 task 4 window open?\ntime 1641824369732 task 4 query woningspeculatie numresults 0\ntime 1641824375213 task 4 window close?\ntime 1641824375337 task 4 window open?\ntime 1641824375355 task 4 query openbaar vervoer AND uithoflijn numresults 28\ntime 1641824384495 task 4 window open?\ntime 1641824384547 task 4 query speculatie numresults 1\ntime 1641824391404 task 4 toggle on M.E.J. van Lijden rank 0 numresults 1\ntime 1641824415291 task 4 window open?\ntime 1641824415611 task 4 query antispeculatie numresults 0\ntime 1641824428417 task 4 window open?\ntime 1641824428753 task 4 query anti-speculatie numresults 36\ntime 1641824453005 task 4 query anti-speculatie numresults 36\ntime 1641824457054 task 4 query anti-speculatie numresults 36\ntime 1641824517123 task 4 toggle off M.E.J. van Lijden rank 0 numresults 1\ntime 1641824534182 task 4 toggle on M.E.J. van Lijden rank 0 numresults 1\ntime 1641824563795 stopping task 4\ntime 1641824566885 starting task 5\ntime 1641824617663 task 5 window open?\ntime 1641824618008 task 5 query zorgcentrum Rosendael numresults 15\ntime 1641824630485 task 5 toggle on R.J. Evelein rank 2 numresults 1\ntime 1641824647954 task 5 window open?\ntime 1641824648007 task 5 query zorgcentrum AND Rosendael numresults 3\ntime 1641824674023 task 5 click bcf8e50b-90d6-498c-aff3-4eb5f5f5d430\ntime 1641824701523 stopping task 5\ntime 1641824706381 starting task 6\ntime 1641824738986 task 6 window open?\ntime 1641824739060 task 6 query toerismecijfers numresults 0\ntime 1641824754984 task 6 window open?\ntime 1641824755051 task 6 query overnachtingen numresults 8\ntime 1641824763814 task 6 toggle on V.J. Drost rank 0 numresults 1\ntime 1641824768618 task 6 toggle on A.P.M. Ruis rank 1 numresults 1\ntime 1641824790223 stopping task 6\ntime 1641824792225 starting task 7\ntime 1641824822989 task 7 window open?\ntime 1641824823059 task 7 query wijkaanpak AND Overvecht numresults 21\ntime 1641824829283 task 7 toggle on M.P.D.J. van der Horst rank 0 numresults 1\ntime 1641824832328 task 7 toggle on W.M. Hendrix rank 1 numresults 1\ntime 1641824835173 task 7 toggle on M. van den Berg rank 2 numresults 1\ntime 1641824848515 task 7 toggle off W.M. Hendrix rank 6 numresults 1\ntime 1641824855613 task 7 toggle off M.P.D.J. van der Horst rank 4 numresults 1\ntime 1641824877639 stopping task 7\n'
 
 
-logs = [p2_logs, p3_logs, p4_logs, p5_logs, p6_logs, p7_logs, p8_logs, p9_logs, p10_logs, p12_logs, p13_logs, p14_logs, p15_logs, p16_logs]
+logs = [p0_logs, p1_logs, p2_logs, p3_logs, p4_logs, p5_logs, p6_logs, p7_logs, p8_logs, p9_logs, p10_logs, p11_logs, p12_logs, p13_logs, p14_logs, p15_logs, p16_logs]
 
 #Randomly generated task orders from python shuffle
 n = 25
@@ -156,7 +158,8 @@ for i, t in enumerate(tasks):
     print()
     
 print('Average time experiment ' + str(time_total))
-    
+   
+   
 print('\n\nPer condition')
 
 docdoc = {          'clicks': 0, 
@@ -309,7 +312,7 @@ for i, p in enumerate(participants):
                     addtask_condition(t, rankdoc, to)
                     addtask_condition(t, docdoc, to)
             else:
-                addtask_condition(t, intdoc, to)
+                addtask_condition(t, intcan, to)
                 if ranking2_order[i] == 'can':
                     addtask_condition(t, rankcan, to)
                     addtask_condition(t, cancan, to)
@@ -383,7 +386,7 @@ print('\n\nRanking document')
 print(cancan)
 print()
 print('Average time ' + str(rankdoc['time'] / 60000) + ' minutes')
-
+print()
 
 #ANOVA on time in seconds
 
@@ -397,19 +400,20 @@ dataset = []
 for i, time in enumerate(docdoc['times']):
     dataset.append(['doc', 'doc', docdoc['tasks'][i], docdoc['numactions'][i], time])
     
-for time in candoc['times']:
-    dataset.append(['can', 'doc', candoc['tasks'][i], docdoc['numactions'][i], time])
+for i, time in enumerate(candoc['times']):
+    dataset.append(['can', 'doc', candoc['tasks'][i], candoc['numactions'][i], time])
     
-for time in doccan['times']:
-    dataset.append(['doc', 'can', doccan['tasks'][i], docdoc['numactions'][i], time])
+for i, time in enumerate(doccan['times']):
+    dataset.append(['doc', 'can', doccan['tasks'][i], doccan['numactions'][i], time])
     
-for time in cancan['times']:
-    dataset.append(['can', 'can', cancan['tasks'][i], docdoc['numactions'][i], time])
+for i, time in enumerate(cancan['times']):
+    dataset.append(['can', 'can', cancan['tasks'][i], cancan['numactions'][i], time])
 
 
 df = pd.DataFrame(data=dataset, columns=['interface','ranking','task','numactions','time'])
 print(df)
 
+print('time anova')
 model = ols('time ~ C(interface) * C(ranking)', data=df).fit()
 print(sm.stats.anova_lm(model, typ=2))
 
@@ -469,6 +473,7 @@ print('doc ranking ' + str(sum(rankdoc['numactions']) / len(rankdoc['numactions'
 print('can ranking ' + str(sum(rankcan['numactions']) / len(rankcan['numactions'])))
 
 
+print('numactions anova')
 model = ols('numactions ~ C(interface) * C(ranking)', data=df).fit()
 print(sm.stats.anova_lm(model, typ=2))
 
@@ -487,7 +492,36 @@ normality_plot, stat = stats.probplot(model.resid, plot= plt, rvalue= True)
 ax.set_title("Probability plot of model residual's", fontsize= 20)
 ax.set
 
-plt.show()
+#plt.show()
+
+plt.clf()
+
+print()
+print()
+#let's check   times people stopped searching
+docdoc['times'].sort()
+docdoc['times'] = [x / 60000 for x in docdoc['times']]
+candoc['times'].sort()
+candoc['times'] = [x / 60000 for x in candoc['times']]
+doccan['times'].sort()
+doccan['times'] = [x / 60000 for x in doccan['times']]
+cancan['times'].sort()
+cancan['times'] = [x / 60000 for x in cancan['times']]
+
+#subplot test
+plt.plot(docdoc['times'])
+plt.plot(doccan['times'])
+plt.plot(candoc['times'])
+plt.plot(cancan['times'])
+#fig, axs = plt.subplots(2, 2)
+#axs[0,0].plot(docdoc['times'])
+#axs[0,1].plot(doccan['times'])
+#axs[1,0].plot(candoc['times'])
+#axs[1,1].plot(cancan['times'])
+
+#plt.show()
+
+
 #alternative methods?        
 #https://www.statisticssolutions.com/what-to-do-when-the-assumptions-of-your-analysis-are-violated/
 
@@ -495,6 +529,395 @@ plt.show()
 
 
 
-
 #Okay now, let's play with the response data
 print('\n\n\nResponse data')
+
+responses = pd.read_csv('responses3.csv', header=0, encoding='ANSI', delimiter=';')
+
+#for line in responses:
+#    print(line)
+
+print()
+
+rdocdoc = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+          }
+rdoccan = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+rcandoc = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+rcancan = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+rintcan = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+rintdoc = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+rrankdoc = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+rrankcan = { 'zekerheid':0,
+            'zekerheids':[],
+          'sus':[],
+          'avg_sus':0,
+          'numanswers':0,
+          'snap':0,
+          'snaps':[],
+          'fijn':0,
+          'feedback':''
+        }
+        
+
+def addanswer(row, condition, order):
+    if order == 1:
+        condition['zekerheid'] += int(row[3])
+        condition['zekerheids'].append(int(row[3]))
+        if row[4].is_integer():
+            condition['snaps'].append(int(row[4]))
+        condition['fijn'] += int(row[5])
+        sus = 2.5*(int(row[6]) + int(row[7]) + int(row[8]) + int(row[9]) + int(row[10]) + int(row[11]) + int(row[12]) + int(row[13]) + int(row[14]) + int(row[15]))
+        condition['sus'].append(sus)
+        susbefore.append(sus)
+    else:
+        condition['zekerheid'] += int(row[17])
+        condition['zekerheids'].append(int(row[17]))
+        condition['fijn'] += int(row[18])
+        sus = 2.5*(int(row[20]) + int(row[21]) + int(row[22]) + int(row[23]) + int(row[24]) + int(row[25]) + int(row[26]) + int(row[27]) + int(row[28]) + int(row[19]))
+        condition['sus'].append(sus)
+        susafter.append(sus)
+        
+    condition['numanswers'] += 1
+        
+        
+preferences = []
+susbefore = []
+susafter = []
+for i, t in responses.iterrows():
+    
+    if interface_order[i] == 'can':
+        preferences.append(['can'+str(ranking1_order[i]), 'doc' + str(ranking2_order[i]), int(t[30])])
+    else:
+        preferences.append(['doc'+str(ranking1_order[i]), 'can' + str(ranking2_order[i]), int(t[30])])
+    
+    if interface_order[i] == 'can':
+            addanswer(t, rintcan, 1)
+            if ranking1_order[i] == 'can':
+                addanswer(t, rcancan, 1)
+                addanswer(t, rrankcan, 1)
+            else:
+                addanswer(t, rrankdoc, 1)
+                addanswer(t, rcandoc, 1)
+            addanswer(t, rintdoc, 2)
+            if ranking2_order[i] == 'can':
+                addanswer(t, rrankcan, 2)
+                addanswer(t, rdoccan, 2)
+            else:
+                addanswer(t, rrankdoc, 2)
+                addanswer(t, rdocdoc, 2)
+    else:
+            addanswer(t, rintdoc, 1)
+            if ranking1_order[i] == 'can':
+                addanswer(t, rrankcan, 1)
+                addanswer(t, rdoccan, 1)
+            else:
+                addanswer(t, rrankdoc, 1)
+                addanswer(t, rdocdoc, 1)
+            addanswer(t, rintcan, 2)
+            if ranking2_order[i] == 'can':
+                addanswer(t, rrankcan, 2)
+                addanswer(t, rcancan, 2)
+            else:
+                addanswer(t, rrankdoc, 2)
+                addanswer(t, rcandoc, 2)
+
+def avganswers(condition):
+    condition['zekerheid'] /= condition['numanswers']
+    condition['avg_sus'] = sum(condition['sus']) / len(condition['sus'])
+    condition['fijn'] /= condition['numanswers']
+    condition['snap'] = sum(condition['snaps']) / len(condition['snaps'])
+
+avganswers(rdocdoc)
+avganswers(rcandoc)
+avganswers(rdoccan)
+avganswers(rcancan)
+
+avganswers(rintdoc)
+avganswers(rintcan)
+avganswers(rrankdoc)
+avganswers(rrankcan)
+
+"""
+print('doc doc')
+print(rdocdoc)
+print('can doc')
+print(rcandoc)
+print('doc can')
+print(rdoccan)
+print('can can')
+print(rcancan)
+"""
+
+
+
+rdataset = []
+for i, sus in enumerate(rdocdoc['sus']):
+    rdataset.append(['doc', 'doc', rdocdoc['zekerheids'][i], sus])
+    
+for i, sus in enumerate(rcandoc['sus']):
+    rdataset.append(['can', 'doc', rcandoc['zekerheids'][i], sus])
+    
+for i, sus in enumerate(rdoccan['sus']):
+    rdataset.append(['doc', 'can', rdoccan['zekerheids'][i], sus])
+    
+for i, sus in enumerate(rcancan['sus']):
+    rdataset.append(['can', 'can', rcancan['zekerheids'][i], sus])
+
+
+rdf = pd.DataFrame(data=rdataset, columns=['interface','ranking','zekerheid','sus'])
+print(df)
+
+print('Average SUS scores for conditions')
+print('doc doc')
+print(rdocdoc['avg_sus'])
+print(rdocdoc['fijn'])
+print(rdocdoc['zekerheid'])
+print()
+print('doc can')
+print(rdoccan['avg_sus'])
+print(rdoccan['fijn'])
+print(rdoccan['zekerheid'])
+print()
+print('can doc')
+print(rcandoc['avg_sus'])
+print(rcandoc['fijn'])
+print(rcandoc['zekerheid'])
+print()
+print('can can')
+print(rcancan['avg_sus'])
+print(rcancan['fijn'])
+print(rcancan['zekerheid'])
+print()
+print('doc interface')
+print(rintdoc['avg_sus'])
+print(rintdoc['fijn'])
+print(rintdoc['zekerheid'])
+print()
+print('can interface')
+print(rintcan['avg_sus'])
+print(rintcan['fijn'])
+print(rintcan['zekerheid'])
+print()
+print('doc ranking')
+print(rrankdoc['avg_sus'])
+print(rrankdoc['fijn'])
+print(rrankdoc['zekerheid'])
+print()
+print('can ranking')
+print(rrankcan['avg_sus'])
+print(rrankcan['fijn'])
+print(rrankcan['zekerheid'])
+print()
+
+print('SUS ANOVA')
+model = ols('sus ~ C(interface) * C(ranking)', data=rdf).fit()
+print(sm.stats.anova_lm(model, typ=2))
+print()
+print('Zekerheid ANOVA')
+model = ols('zekerheid ~ C(interface) * C(ranking)', data=rdf).fit()
+print(sm.stats.anova_lm(model, typ=2))
+
+
+
+print('\n\nPairwise preferences')
+
+#construct a dataset with all responses
+rdataset = []
+for i, row in enumerate(rdocdoc):
+    rdataset.append('hi')
+
+
+#Average preference interface
+#Average preference ranking
+#TODO look for pairwise preference stuff online
+print(preferences)
+
+def compare(cond1, cond2, ps=preferences):
+    count = 0
+    found = 0
+    if cond1 == cond2:
+        return '-'
+    for p in ps:
+        if p[0] == cond1 and p[1] == cond2:
+            found += 1
+            count += p[2]
+    if found == 0:
+        return 'x'
+    return str(count / found)
+
+def compare_avg(cond1, cond2, ps=preferences):
+    count = 0
+    found = 0
+    if cond1 == cond2:
+        return '-'
+    for p in ps:
+        if p[0] == cond1 and p[1] == cond2:
+            found += 1
+            count += p[2]
+        if p[0] == cond2 and p[1] == cond1:
+            found += 1
+            count += abs(5 - p[2])
+
+    if found == 0:
+        return 'x'
+    return str(count / found)
+
+print()
+print('Pairwise comparisons: row system 1, column system 2')
+print(' interface ')
+print('      docdoc    candoc    doccan   cancan')
+print('docdoc  ' + compare('docdoc', 'docdoc') + '          ' + compare('docdoc', 'candoc') + '         ' + compare('docdoc', 'doccan') + '        ' + compare('docdoc', 'cancan'))
+print('candoc  ' + compare('candoc', 'docdoc') + '          ' + compare('candoc', 'candoc') + '         ' + compare('candoc', 'doccan') + '        ' + compare('candoc', 'cancan'))
+print('doccan  ' + compare('doccan', 'docdoc') + '          ' + compare('doccan', 'candoc') + '         ' + compare('doccan', 'doccan') + '        ' + compare('doccan', 'cancan'))
+print('cancan  ' + compare('cancan', 'docdoc') + '          ' + compare('cancan', 'candoc') + '         ' + compare('cancan', 'doccan') + '        ' + compare('cancan', 'cancan'))
+
+print()
+print()
+print('Pairwise comparisons averaged')
+print('      docdoc    candoc    doccan   cancan')
+print('docdoc  ' + compare_avg('docdoc', 'docdoc') + '          ' + compare_avg('docdoc', 'candoc') + '         ' + compare_avg('docdoc', 'doccan') + '        ' + compare_avg('docdoc', 'cancan'))
+print('candoc  ' + compare_avg('candoc', 'docdoc') + '          ' + compare_avg('candoc', 'candoc') + '         ' + compare_avg('candoc', 'doccan') + '        ' + compare_avg('candoc', 'cancan'))
+print('doccan  ' + compare_avg('doccan', 'docdoc') + '          ' + compare_avg('doccan', 'candoc') + '         ' + compare_avg('doccan', 'doccan') + '        ' + compare_avg('doccan', 'cancan'))
+print('cancan  ' + compare_avg('cancan', 'docdoc') + '          ' + compare_avg('cancan', 'candoc') + '         ' + compare_avg('cancan', 'doccan') + '        ' + compare_avg('cancan', 'cancan'))
+
+print('\nAverage preference for the second system')
+lst = [x[2] for x in preferences]
+print(sum(lst) / len(lst))
+print('thats huge!')
+
+print(sum(susbefore) / len(susbefore))
+print(sum(susafter) / len(susafter))
+
+def avg_preference(condition):
+    p = 0
+    c = compare_avg(condition, 'docdoc')
+    if c != 'x' and c != '-':
+        p += float(c)
+        
+    c = compare_avg(condition, 'doccan')
+    if c != 'x' and c != '-':
+        p += float(c)
+
+    c = compare_avg(condition, 'candoc')
+    if c != 'x' and c != '-':
+        p += float(c)
+
+    c = compare_avg(condition, 'cancan')
+    if c != 'x' and c != '-':
+        p += float(c)
+
+    return str(p / 2.0)
+    
+def avg_preference_count(condition):
+    p = 0
+    c = compare_avg(condition, 'docdoc')
+    if c != 'x' and c != '-':
+        if float(c) > 2.5:
+            p += 1
+        
+    c = compare_avg(condition, 'doccan')
+    if c != 'x' and c != '-':
+        if float(c) > 2.5:
+            p += 1
+
+    c = compare_avg(condition, 'candoc')
+    if c != 'x' and c != '-':
+        if float(c) > 2.5:
+            p += 1
+
+    c = compare_avg(condition, 'cancan')
+    if c != 'x' and c != '-':
+        if float(c) > 2.5:
+            p += 1
+
+    return str(p / 2.0)
+
+print()
+print('Average preference score')
+print('docdoc ' + avg_preference('docdoc'))
+print('doccan ' + avg_preference('doccan'))
+print('candoc ' + avg_preference('candoc'))
+print('cancan ' + avg_preference('cancan'))
+print()
+print('Average preference - only choices score')
+print('docdoc ' + avg_preference_count('docdoc'))
+print('doccan ' + avg_preference_count('doccan'))
+print('candoc ' + avg_preference_count('candoc'))
+print('cancan ' + avg_preference_count('cancan'))
+print()
+print()
+
+
+#Make the table
+print('      Condition      |   Effectiveness   |       Efficiency     | User satisfaction')
+print('Interface    Ranking |                   |  Time (m)   #actions |') 
+print('   doc         doc   |                   |    ' + str(round(docdoc['time'] / 60000, 2)) + '      ' + str(round(docdoc['queries'] + docdoc['clicks'], 2)))
+print('   doc         can   |                   |    ' + str(round(doccan['time'] / 60000, 2)))
+print('   can         can   |                   |    ' + str(round(candoc['time'] / 60000, 2)))
+print('   can         doc   |                   |    ' + str(round(cancan['time'] / 60000, 2)))
+
+
+
+#Look in overlap of experts toggled
