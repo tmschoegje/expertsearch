@@ -200,7 +200,6 @@ print('removing this many minutes from task 5 ' + str((participants[14][5]['time
 
 avg_start /= avg_count
 
-#anchor
 #plt.plot(sorted(alliers), '.')
 #plt.show()
 
@@ -752,17 +751,18 @@ def addanswer(row, condition, order):
 preferences = []
 susbefore = []
 susafter = []
-print('ADDANSWEr') 
 for j, t in responses.iterrows():
     i = j
 
-#    if i == 1:
-#        pass
-    if i == 19:  #i=1 is peter
+    if i == 19:  #i=1 is p, i=19  is t re-doing p's tasks because we the data was unusable
         i = 1
 #        print('HERE')
 #        print(t)
 #        pass;
+
+    #m's responses will be biased because he used the system wrong
+    if i == 10:
+        pass
     
     if interface_order[i] == 'can':
         preferences.append(['can'+str(ranking1_order[i]), 'doc' + str(ranking2_order[i]), int(t[30]), t[31], t[32]])
@@ -966,7 +966,7 @@ print('cancan  ' + compare_avg('cancan', 'docdoc') + '          ' + compare_avg(
 print('\nAverage preference for the second system')
 lst = [x[2] for x in preferences]
 print(sum(lst) / len(lst))
-print('thats huge!')
+#print('thats huge!')
 
 print(sum(susbefore) / len(susbefore))
 print(sum(susafter) / len(susafter))
