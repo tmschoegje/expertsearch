@@ -60,7 +60,7 @@ ranking2_order = ['doc', 'doc', 'can', 'can', 'can', 'can', 'doc', 'doc', 'doc',
 
 participants = []
 
-for log in logs:
+for numdex, log in enumerate(logs):
     #stuff we keep track of per participant
     p = []
     for i in range(8):
@@ -69,6 +69,7 @@ for log in logs:
                     'numtoggles': 0,
                     'numrelevant': 0,
                     'numrelevants':{},
+                    'ranks':{},
                     'queries': 0,
                     'starttime':0,
                     'endtime':0,
@@ -78,6 +79,7 @@ for log in logs:
     
     prevline = ''
     curtask = -1
+    print('Starting p ' + str(numdex))
     for line in log.split("\n"):
         lp = line.split(" ")
         print(line)
@@ -85,11 +87,16 @@ for log in logs:
         #if the window was closed and re opened during an active task, add the difference to the 'delay'
         if 'window open' in line and 'window close' in prevline and curtask > -1:
             p[curtask]['delays'] += int(lp[1]) - int(prevline.split(" ")[1])
-            
+
         if 'query' in line and curtask > -1:
             p[curtask]['queries'] += 1
             if p[curtask]['time_to_query'] == 0:
                 p[curtask]['time_to_query'] = int(lp[1]) - p[curtask]['starttime']
+                
+            if 'query' in prevline and lp[1] != prevline.split(" ")[1]:
+                print('INSPECT ME: next page?')
+                
+                #IF NEXT PAGE, DON'T COUNT AS QUERY
         
         if 'starting task' in line and int(lp[-1]) < 8:
             curtask = int(lp[-1])
@@ -101,11 +108,13 @@ for log in logs:
                 p[curtask]['toggles'] = p[curtask]['toggles'].replace((" ").join(lp[6:-4]), "")
                 p[curtask]['numrelevant'] -= int(lp[-1])
                 p[curtask]['numrelevants'].pop((" ").join(lp[6:-4]), None)
+                p[curtask]['ranks'].pop((" ").join(lp[6:-4]), None)
             else:
                 p[curtask]['numtoggles'] += 1
                 p[curtask]['toggles'] += (" ").join(lp[6:-4])
                 p[curtask]['numrelevant'] += int(lp[-1])
                 p[curtask]['numrelevants'][(" ").join(lp[6:-4])] = int(lp[-1])
+                p[curtask]['ranks'][(" ").join(lp[6:-4])] = int(lp[-3])
                 
         if 'click' in line and curtask > -1:
             p[curtask]['clicks'] += 1
@@ -118,6 +127,49 @@ for log in logs:
         prevline = line
         
     participants.append(p)
+
+
+#manually fix some stuff due to bad logging (next page didn't affect logged ranks)
+participants[4][0]['ranks']['Eelko van den Boogaard'] = 13
+participants[5][4]['ranks']['R. van Alfen'] = 27
+participants[7][7]['ranks']['R. Mouktadibillah'] = 10
+participants[7][7]['ranks']['Monique van Kampen'] = 13
+participants[7][7]['ranks']['M.E.J. van Lijden'] = 17
+participants[7][7]['ranks']['D.T. Crabbendam'] = 23
+participants[7][7]['ranks']['B.J. Brijder'] = 34
+participants[11][0]['ranks']['A.W. Velthuis'] = 6
+participants[11][1]['ranks']['div. auteurs'] = 21
+participants[11][4]['ranks']['M. Kessels'] = 12
+participants[15][1]['ranks']['Hans Huurman'] = 12
+participants[15][1]['ranks']['V.J. Drost'] = 14
+#print(participants[15][3]['ranks'])
+
+"""
+p4 t0
+	eelko 7->13
+p5 t4
+	alfen 2->27
+p7 t7
+	mouktadibillah ->10
+	monique van kampen 3->13
+	lijden 7->17
+	crabbendam 3->23
+	brijder 4->34
+	
+p11 t 0
+	velthuis 6->16
+	
+	t1
+	div auteurs 1->21
+	
+	t4
+	kessels 2->12
+
+p15 t1
+	huurman 2->12
+	drost 4 -> 14
+
+"""
 
 print('Per participant')
 avg_start = 0
@@ -1541,6 +1593,11 @@ for c in gt_candidates:
         gt_candidates[c].append([])
 
 
+
+
+#anchor
+
+
     
 def print_effectiveness(condition, name):
     print()
@@ -1552,6 +1609,7 @@ def print_effectiveness(condition, name):
     task_1toggle = 0
     task_2toggle = 0
     task_3toggle = 0
+    ranks = 0
     
     for i, t in enumerate(condition['fulltasks']):
        
@@ -1573,7 +1631,10 @@ def print_effectiveness(condition, name):
                 task_3toggle +=1
                 
                 
+                
             task_candidates.append(nr)
+        for nr in t['ranks']:
+            ranks += t['ranks'][nr]
             
         #print(condition['taskids'][i])
         gt_candidates[name][condition['taskids'][i]].append(task_candidates)
@@ -1591,6 +1652,8 @@ def print_effectiveness(condition, name):
     print(str(task_1toggle / task_toggles) + ' % of toggles had one documents')
     print(str(task_2toggle / task_toggles) + ' % of toggles had two documents')
     print(str(task_3toggle / task_toggles) + ' % of toggles had three documents')
+    print()
+    print('Average ranking is ' + str(ranks/task_toggles))
     print()
     
 print()
@@ -1697,7 +1760,8 @@ def gt_print(condition):
     fail = 0
     for t in range(8):
         #use gt_candidates[condition][t]    for interrator agreeance
-        
+        #print(gt_candidates[condition][t])
+        #taskset = 
         
         #print(gt_candidates[condition][t])
         #print(len(gt_candidates[condition][t]))
@@ -1751,11 +1815,31 @@ gt_print('doccan')
 gt_print('candoc')
 gt_print('cancan')
 
+import collections
 
 
+print()
+print()
+def find_overlap(condition):
+    print(condition)
+    lst = []
+    for t in range(8):
+        print('task ' + str(t))
+        lst = []
+        for p in gt_candidates[condition][t]:
+            lst.extend(p)
+        
+        print([item for item, count in collections.Counter(lst).items() if count > 3])
 
-
-
+find_overlap('docdoc')
+print()
+find_overlap('doccan')
+print()
+find_overlap('candoc')
+print()
+find_overlap('cancan')
+print()
+print()
 
 print('Follow-up: intra rator agreeance within condition? interrator agreeance between conditions?')
      
