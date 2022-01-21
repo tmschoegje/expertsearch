@@ -1059,12 +1059,12 @@ print()
 
 
 #Make the table
-print('      Condition       |   Effectiveness   |                Efficiency                |     User satisfaction     |')
-print('Interface    Ranking  |                   |  Time (m)   queries   clicks   #actions  |   SUS   Zekerheid   Fijn  |') 
+print('      Condition       |   Effectiveness   |                Efficiency                |     User satisfaction      |')
+print('Interface    Ranking  |                   |  Time (m)   queries   clicks   #actions  |   SUS   Zekerheid   Fijn   |') 
 print('   doc         doc    |                   |    ' + str(round(docdoc['time'] / 60000, 2)) + '      ' + str(round(docdoc['queries'], 2)) + "      " + str(round(docdoc['clicks'], 2)) + "      " + str(round(docdoc['queries'] + docdoc['clicks'], 2)) + '    |  ' + str(round(rdocdoc['avg_sus'], 2)) + '     ' + str(round(rdocdoc['zekerheid'], 2))  + '       ' + str(round(rdocdoc['fijn'], 2)) + '  |')
-print('   doc         can    |                   |    ' + str(round(doccan['time'] / 60000, 2)) + '      ' + str(round(doccan['queries'], 2)) + "      " + str(round(doccan['clicks'], 2)) + "      " + str(round(doccan['queries'] + doccan['clicks'], 2)) + '     |  ' + str(round(rdoccan['avg_sus'], 2)) + '      ' + str(round(rdoccan['zekerheid'], 2))  + '       ' + str(round(rdoccan['fijn'], 2)) + '  |')
-print('   can         doc    |                   |    ' + str(round(candoc['time'] / 60000, 2)) + '      ' + str(round(candoc['queries'], 2)) + "      " + str(round(candoc['clicks'], 2)) + "      " + str(round(candoc['queries'] + candoc['clicks'], 2)) + '     |  ' + str(round(rcandoc['avg_sus'], 2)) + '     ' + str(round(rcandoc['zekerheid'], 2))  + '       ' + str(round(rcandoc['fijn'], 2)) + '  |')
-print('   can         can    |                   |    ' + str(round(cancan['time'] / 60000, 2)) + '      ' + str(round(cancan['queries'], 2)) + "      " + str(round(cancan['clicks'], 2)) + "      " + str(round(cancan['queries'] + cancan['clicks'], 2)) + '     |  ' + str(round(rcancan['avg_sus'], 2)) + '     ' + str(round(rcancan['zekerheid'], 2))  + '       ' + str(round(rcancan['fijn'], 2)) + '  |')
+print('   doc         can    |                   |    ' + str(round(doccan['time'] / 60000, 2)) + '      ' + str(round(doccan['queries'], 2)) + "      " + str(round(doccan['clicks'], 2)) + "      " + str(round(doccan['queries'] + doccan['clicks'], 2)) + '    |  ' + str(round(rdoccan['avg_sus'], 2)) + '     ' + str(round(rdoccan['zekerheid'], 2))  + '      ' + str(round(rdoccan['fijn'], 2)) + '  |')
+print('   can         doc    |                   |    ' + str(round(candoc['time'] / 60000, 2)) + '      ' + str(round(candoc['queries'], 2)) + "      " + str(round(candoc['clicks'], 2)) + "      " + str(round(candoc['queries'] + candoc['clicks'], 2)) + '    |  ' + str(round(rcandoc['avg_sus'], 2)) + '     ' + str(round(rcandoc['zekerheid'], 2))  + '       ' + str(round(rcandoc['fijn'], 2)) + ' |')
+print('   can         can    |                   |    ' + str(round(cancan['time'] / 60000, 2)) + '      ' + str(round(cancan['queries'], 2)) + "      " + str(round(cancan['clicks'], 2)) + "      " + str(round(cancan['queries'] + cancan['clicks'], 2)) + '    |  ' + str(round(rcancan['avg_sus'], 2)) + '      ' + str(round(rcancan['zekerheid'], 2))  + '       ' + str(round(rcancan['fijn'], 2)) + ' |')
 
 print()
 print()
