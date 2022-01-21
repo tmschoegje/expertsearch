@@ -1375,6 +1375,24 @@ docs = {'names':[],
         'zekerheids':[]
 }
 
+alldocs = {'names':[],
+        'times':[],
+        'clicks':[],
+        'queries':[],
+        'sus_loves':[],
+        'fijns':[],
+        'zekerheids':[]
+        }
+
+allcans = {'names':[],
+        'times':[],
+        'clicks':[],
+        'queries':[],
+        'sus_loves':[],
+        'fijns':[],
+        'zekerheids':[]
+}
+
 for i, p in enumerate(preferences):
     if i == 19: # ignore second performance of task 1
         pass
@@ -1390,10 +1408,15 @@ for i, p in enumerate(preferences):
             else:
                 add_fan(cans, rs[i][1], 2, participants[i])
         
+        if p[0][:3] == 'doc':
+            add_fan(alldocs, rs[i][1], 1, participants[i])
+        else:
+            add_fan(allcans, rs[i][1], 1, participants[i])
 
-
-
-
+        if p[1][:3] == 'doc':
+            add_fan(alldocs, rs[i][1], 2, participants[i])
+        else:
+            add_fan(allcans, rs[i][1], 2, participants[i])
         
 #    print(p)
 
@@ -1411,10 +1434,20 @@ print('queries doc ' + str(sum(docs['queries']) / len(docs['queries'])) + ' can 
 print('clicks doc ' + str(sum(docs['clicks']) / len(docs['clicks'])) + ' can ' + str(sum(cans['clicks']) / len(cans['clicks'])))
 print('zekerheids doc ' + str(sum(docs['zekerheids']) / len(docs['zekerheids'])) + ' can ' + str(sum(cans['zekerheids']) / len(cans['zekerheids'])))
 print()
+
+#print(alldocs)
+print('times doc ' + str(sum(alldocs['times']) / len(alldocs['times'])) + ' allcans ' + str(sum(allcans['times']) / len(allcans['times'])))
+print('queries doc ' + str(sum(alldocs['queries']) / len(alldocs['queries'])) + ' allcans ' + str(sum(allcans['queries']) / len(allcans['queries'])))
+print('clicks doc ' + str(sum(alldocs['clicks']) / len(alldocs['clicks'])) + ' allcans ' + str(sum(allcans['clicks']) / len(allcans['clicks'])))
+print('zekerheids doc ' + str(sum(alldocs['zekerheids']) / len(alldocs['zekerheids'])) + ' allcans ' + str(sum(allcans['zekerheids']) / len(allcans['zekerheids'])))
+print()
+print()
+print()
+
 print()
 print('We find that fans feel are more confident on their chosen system')
-print()
-print()
+print((4.3 + 4.0) / 2)
+print((3.8421052631578947 + 3.789473684210526) / 2)
 
 print('lets try non-parametric two-way anova alternative on time ')
 print()
