@@ -1831,13 +1831,61 @@ def find_overlap(condition):
         
         print([item for item, count in collections.Counter(lst).items() if count > 3])
 
-find_overlap('docdoc')
+#find_overlap('docdoc')
+#print()
+#find_overlap('doccan')
+#print()
+#find_overlap('candoc')
+#print()
+#find_overlap('cancan')
 print()
-find_overlap('doccan')
 print()
-find_overlap('candoc')
+
+print('so lets try a little less complicated: get a set of all items for each condition. then show intersection')
 print()
-find_overlap('cancan')
+print()
+docdoc_set = []
+doccan_set = []
+candoc_set = []
+cancan_set = []
+
+for t in range(8):
+    [docdoc_set.extend(x) for x in gt_candidates['docdoc'][t]]
+    [doccan_set.extend(x) for x in gt_candidates['doccan'][t]]
+    [candoc_set.extend(x) for x in gt_candidates['candoc'][t]]
+    [cancan_set.extend(x) for x in gt_candidates['cancan'][t]]
+    
+#print(docdoc_set)
+print()
+docdoc_set = set(docdoc_set)
+doccan_set = set(doccan_set)
+candoc_set = set(candoc_set)
+cancan_set = set(cancan_set)
+
+print('Overlap both doc interfaces')
+print(docdoc_set & doccan_set)
+print(len(docdoc_set & doccan_set))
+
+print()
+print('Overlap can interfaces')
+print(candoc_set & cancan_set)
+print(len(candoc_set & cancan_set))
+print()
+
+
+print('Overlap both doc rankings')
+print(docdoc_set & candoc_set)
+print(len(docdoc_set & candoc_set))
+
+print()
+print('Overlap can rankings')
+print(doccan_set & cancan_set)
+print(len(doccan_set & cancan_set))
+print()
+
+
+
+print()
 print()
 print()
 
