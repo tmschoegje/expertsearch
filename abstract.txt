@@ -1,0 +1,69 @@
+TODO in morning
+* wat hiervan wil ik vervangen door ANOVAs
+* wil ik posthoc interview doen om meer te leren?
+	TODO posthoc study waarin we onderzoeken voorkeur?
+
+
+Models for expert search retrieval have traditionally ranked candidate experts using a document-based representation or a candidate-based representation. We investigated whether a document-based result presentation (a document with an author attached) or a candidate-based result presentation (an author with multiple documents attached) preferable. We also vary the type of ranking to
+compare the relative importance of the type of ranking function and the type of result presentation. 
+
+Twenty searchers each performed eight simulated tasks, and filled in intra- and post-experiment questionnaires. First we performed a quantitative analysis, and found that users were on average most efficient when using the candidate-based interface with a document-based ranking. Tasks were performed in 2.88 minutes on average, which is a significant difference (p < 0.01) compared to 3.65 minutes in the document-based interface with the same ranking. This is likely because users on average only clicked 0.36 search results for further inspection compared to 1.94 results. Although both systems achieved a similar user satisfaction (71 - 73 on the System Usability Scale), the users reported a lower confidence in the results they found in the candidate-based interface (3.55 compared to 4.0 on a 5-point Likert scale). This may be because the author-based interface included more documents per author, which may not all be relevant when the candidate is not a specialist. The interface and ranking changes appear to be on the same order of importance for the search experience.
+
+Using an ANOVA we find weak evidence that the system ranking affects the effiency (p = 0.097852), but strong evidence for an interaction effect between the ranking and the user interface (p = 0.002071)
+
+We then performed a qualitative analysis on user responses and found that user preferences between the systems were mixed. We found that our change in the interface affected two variables related to the user's  perception of the interface: the perceived retrieval unit (by presenting authors or documents as the retrieval unit) and the perceived complexity (by the increased number of documents presented per result). 
+
+
+
+ p < 0.1 weak evidence or a trend
+
+
+TODO posthoc study waarin we onderzoeken voorkeur?
+TODO it seems mor experienced people  need less info?
+
+
+
+
+
+
+
+We then perform a 
+
+
+#in a user study based on simulated tasks
+
+We first perform a qualitative study to understand user preferences of one system over the other. We find that results are 
+
+
+We are currently performing a post-experiment questionnaire to identify possible factors 
+
+
+We first perform a quantitative study and find that, although the document-based interface is more efficient
+
+
+
+We performed a user study based on simulated tasks to 
+
+
+WHAT IF WE JUST GROUP USERS THAT PREFER DOC BASED AND USERS THAT PREFER CAN BASED
+
+
+First we perform a qualitative analysis 
+
+In general, we the document-based retrieval 
+
+We find that the document-based retrieval 
+
+
+
+
+, and the relative importance compared.
+
+is often categorized as 
+
+has shown the difference 
+
+
+We first perform a qualitative analysis to see why users prefer which system. 
+
+We find that mixed results
