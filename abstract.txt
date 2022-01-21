@@ -1,18 +1,88 @@
+- anywhere on earth
+? kan ik paper met plaatje uitwerken 
+	zwakke punt: heel veel variabelen  limitatie 
+		+ council - covid situatie
+
+
+dit systeem is de new uflix
+	* we leggen niet uit naar systeem, geven geen link naar systeem
+	* in het andere geven we geen link naar het interface terrein 
+
+	* plaatje   interface
+
+
+
+
 TODO in morning
 * wil ik posthoc interview doen om meer te leren?
 	TODO posthoc study waarin we onderzoeken voorkeur?
 
 
-Models for expert search retrieval have traditionally ranked candidate experts using a document-based representation or a candidate-based representation. We perform a quantitative and a qualitative analysis to determine whether a document-based result presentation (a document with an author attached) or a candidate-based result presentation (an author with multiple documents attached) preferable. We also vary the type of ranking to
-compare the relative importance of the type of ranking function and the type of result presentation. 
+moet expert paper lezen voor andere
+	document search in titel?
+	policy worker paper - wil je verder komen?
+		hoe ziet zo'n channel eruit
+		
+		
+		mensen zeggen 'ik wil  expert '  channel waarin die expert centraal staat
 
-We analyzed 179 simulated tasks performed by twenty users, and investigate intra- and post-experiment questionnaires. First we performed a quantitative analysis, and found that users were on average most efficient when using the candidate-based interface with a document-based ranking. It was [todo more/less] effective, more efficient and had a similar satisfaction level compared to the document-based interface with the same ranking.
 
-Tasks were performed in 2.88 minutes on average, which is a significant difference (p < 0.01, Nemenyi post-hoc test) compared to 3.65 minutes in the document-based interface with the same ranking. This is likely because users on average only clicked 0.36 search results for further inspection compared to 1.94 results. Although both systems achieved a similar user satisfaction (71 - 73 on the System Usability Scale), the users reported a lower confidence in the results they found in the candidate-based interface (3.55 compared to 4.0 on a 5-point Likert scale). This may be because the author-based interface included more documents per author, which may not all be relevant when the candidate is not a specialist. The types of interface and ranking appear to be on the same order of importance for the search experience.
+
+people prefer toggling experts with more documents
+Low interrator agreeance between interface types.
+
+
+%. It was [todo more/less] effective, more efficient and had a similar satisfaction level compared to the document-based interface with the same ranking.
+
+
+
+
+titel: expert finding
+
+Models for expert retrieval have traditionally ranked candidate experts using a document-based representation or a candidate-based representation. We perform a quantitative and a qualitative analysis to determine whether a document-based result presentation (a document with an author attached) or a candidate-based result presentation (an author with multiple documents attached) is preferable. We also vary the type of ranking to compare the relative importance of the type of ranking function and the type of result presentation. 
+
+We analyzed 171 simulated tasks performed by nineteen novice users, and we investigate intra- and post-experiment questionnaires. First we performed a quantitative analysis, and found that users were on average most efficient when using the candidate-based interface with a document-based ranking, while maintaining similar levels of effectiveness and user satisfaction.
+
+Compared the the document-based interface with the document-based ranking, the proposed system allowed for significantly faster task completion (2.88 minutes compared to 3.65 minutes, p < 0.01, Nemenyi post-hoc test). This is likely because users on average only opened 0.36 search results for further inspection compared to 1.94 search results. Users performed a similar rate of tasks correctly in both systems (79\% in the proposed system compared to 80\%) and achieved a similar user satisfaction (72.0 compared to 71.9 on the System Usability Scale). The types of interface and ranking appear to be on the same order of importance for the search experience, as changes in the interface and ranking types affected the effectiveness, efficiency and user satisfaction on similar levels.
+
+We then performed a qualitative analysis on user responses and found that user preferences between the systems were mixed. We found that changing the interface type affected two variables related to the user's perception of the interface: the perceived retrieval unit (by presenting authors or documents as the retrieval unit) and the perceived complexity (by the increased number of documents presented per result). Users report a higher confidence in their preferred system (TODO invullen). Further research is necessary to investigate how these variables affect the user's prefered interface type, and how this affects the users' confidence.
+
+
+
+confidence they have in the results they find.
+
+
+User confidence changed depending on the system. 
+
+User preferences affected user confidence
+
+Further research is necessary to investigate 
+
+
+A large amount of data negatively affected user confidence.
+
+
+
+Tasks were performed in 2.88 minutes on average, which is a significant difference compared to 3.65 minutes in the document-based interface with the same ranking (p < 0.01, Nemenyi post-hoc test). 
+
+ (79\% of tasks were completed correctly, compared to 80%) and user satisfaction (72.0 vs 71.9 on the System Usability Scale). 
+
+
+
+
+Effectiveness was similar, as the proportion of tasks correctly completed was 0.78 is both 
+
+
+The system with the candidate-based interface had similar levels of effectiveness (0.78 correct task completion) and user satisfaction  
+
+
+Although both systems achieved a similar user satisfaction (71 - 73 on the System Usability Scale), the users reported a lower confidence in the results they found in the candidate-based interface (3.55 compared to 4.0 on a 5-point Likert scale). This may be because the author-based interface included more documents per author, which may not all be relevant when the candidate is not a specialist. 
 
 We then performed a qualitative analysis on user responses and found that user preferences between the systems were mixed. We found that our change in the interface affected two variables related to the user's  perception of the interface: the perceived retrieval unit (by presenting authors or documents as the retrieval unit) and the perceived complexity (by the increased number of documents presented per result). 
 
 
+Om 5u sturen
+	kijkt
 
 
 

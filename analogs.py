@@ -68,6 +68,7 @@ for log in logs:
                     'toggles': "",
                     'numtoggles': 0,
                     'numrelevant': 0,
+                    'numrelevants':{},
                     'queries': 0,
                     'starttime':0,
                     'endtime':0,
@@ -99,10 +100,12 @@ for log in logs:
                 p[curtask]['numtoggles'] -= 1
                 p[curtask]['toggles'] = p[curtask]['toggles'].replace((" ").join(lp[6:-4]), "")
                 p[curtask]['numrelevant'] -= int(lp[-1])
+                p[curtask]['numrelevants'].pop((" ").join(lp[6:-4]), None)
             else:
                 p[curtask]['numtoggles'] += 1
                 p[curtask]['toggles'] += (" ").join(lp[6:-4])
                 p[curtask]['numrelevant'] += int(lp[-1])
+                p[curtask]['numrelevants'][(" ").join(lp[6:-4])] = int(lp[-1])
                 
         if 'click' in line and curtask > -1:
             p[curtask]['clicks'] += 1
@@ -287,7 +290,8 @@ docdoc = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}
+                    'ids':[],
+                    'taskids':[]}
 candoc = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -302,7 +306,8 @@ candoc = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}         
+                    'ids':[],
+                    'taskids':[]}         
 cancan = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -317,7 +322,8 @@ cancan = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}         
+                    'ids':[],
+                    'taskids':[]}         
 doccan = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -332,7 +338,8 @@ doccan = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}         
+                    'ids':[],
+                    'taskids':[]}         
 intcan = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -347,7 +354,8 @@ intcan = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}  
+                    'ids':[],
+                    'taskids':[]}  
 intdoc = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -362,7 +370,8 @@ intdoc = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}  
+                    'ids':[],
+                    'taskids':[]}  
 rankcan = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -377,7 +386,8 @@ rankcan = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}  
+                    'ids':[],
+                    'taskids':[]}  
 rankdoc = {          'clicks': 0, 
                     'toggles': "",
                     'numtoggles': 0,
@@ -392,7 +402,8 @@ rankdoc = {          'clicks': 0,
                     'tasks':[],
                     'numactions':[],
                     'fulltasks':[],
-                    'ids':[]}  
+                    'ids':[],
+                    'taskids':[]}  
 
 def addtask_condition(task, condition, to, i):
     if task['time'] == 0:
@@ -412,6 +423,7 @@ def addtask_condition(task, condition, to, i):
         condition['numactions'].append(task['clicks'] + task['queries'])
         condition['fulltasks'].append(task)
         condition['ids'].append(i)
+        condition['taskids'].append(to)
 
 for i, p in enumerate(participants):
     for j, t in enumerate(p):
@@ -1241,17 +1253,7 @@ feedback('doccan', 'cancan', 'behaviour')
 
 
 
-print()
-print()
-print()
-print()
-print()
-print('todo effectiveness')
-#* sander p4 heeft next page gebruikt - dat wordt niet gelogd! Hoe interpreteren we de ranking resultaten
-#	1 resultaat op p1, 1 op p2 voor task 1
-#	Zie ook: Sander (vader) p
 
-#Kunnen we toch miguel's data weer erin zetten?
 
 #print('Lets investigate candoc, because it seems to do so well')
 #print(candoc['ids'])
@@ -1377,7 +1379,6 @@ for i, p in enumerate(preferences):
     if i == 19: # ignore second performance of task 1
         pass
     else:
-        print(i)
         if p[2] == 1 or p[2] == 2:
             if p[0][:3] == 'doc':
                 add_fan(docs, rs[i][1], 1, participants[i])
@@ -1459,6 +1460,314 @@ print(stats.friedmanchisquare(docdoc['times'][:32], doccan['times'][:32], candoc
 #print(sp.posthoc_nemenyi_friedman(np.array([docdoc['times'][:32], candoc['times'][:32], doccan['times'][:32], cancan['times'][:32]])))
 print(sp.posthoc_nemenyi_friedman(np.array([docdoc['times'][:32], candoc['times'][:32], doccan['times'][:32], cancan['times'][:32]]).T))
 print('We see pairwise comparisons for  docdoc (0), doccan (1), candoc (2), and cancan (3)')
+
+
+
+
+
+print()
+print()
+print()
+print()
+print()
+print('Investigating effectiveness')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for attribute in docdoc:
+    print(attribute)
+    
+print()
+    
+    
+    
+
+
+
+
+
+
+
+#keep track of all candidates toggled, which we have to evaluate later
+gt_candidates = {'docdoc':[], 'candoc':[], 'doccan':[], 'cancan':[]}
+for c in gt_candidates:
+    for i in range(8):
+        gt_candidates[c].append([])
+
+
+    
+def print_effectiveness(condition, name):
+    print()
+    print(str(name))
+    task_count = 0
+    task_unsuccess = 0
+    task_toggles = 0
+    task_numrelevant = 0
+    task_1toggle = 0
+    task_2toggle = 0
+    task_3toggle = 0
+    
+    for i, t in enumerate(condition['fulltasks']):
+       
+        task_count += 1
+        if t['numtoggles'] == 0:
+            task_unsuccess += 1
+        task_toggles += t['numtoggles']
+        task_numrelevant += t['numrelevant']
+        
+        task_candidates = []
+        #for i in range(8):
+        #    task_candidates.append([])
+        for nr in t['numrelevants']:
+            if t['numrelevants'][nr] == 1:
+                task_1toggle +=1
+            if t['numrelevants'][nr] == 2:
+                task_2toggle +=1
+            if t['numrelevants'][nr] == 3:
+                task_3toggle +=1
+                
+                
+            task_candidates.append(nr)
+            
+        #print(condition['taskids'][i])
+        gt_candidates[name][condition['taskids'][i]].append(task_candidates)
+#            print(t['numrelevants'][nr])
+#        task_1toggle = 
+#        if round(t['numrelevant']) == round(2* t['numtoggles']):
+#            task_2toggle += 1
+#        if round(t['numrelevant']) == round(3*t['numtoggles']):
+#            task_3toggle += 1
+    
+    print(str(task_unsuccess / task_count) + ' tasks without toggles')
+    print(str(task_toggles / task_count) + ' average toggles')
+    print(str(task_numrelevant / task_toggles) + ' results per toggle')
+    print()
+    print(str(task_1toggle / task_toggles) + ' % of toggles had one documents')
+    print(str(task_2toggle / task_toggles) + ' % of toggles had two documents')
+    print(str(task_3toggle / task_toggles) + ' % of toggles had three documents')
+    print()
+    
+print()
+print('Metric 1: did they select an expert?    Also testing if people prefer toggling experts with more documents')
+#for t in docdoc:
+print_effectiveness(docdoc, 'docdoc')
+print_effectiveness(doccan, 'doccan')
+print_effectiveness(candoc, 'candoc')
+print_effectiveness(cancan, 'cancan')
+
+print()
+
+
+
+
+
+
+print('Metric 2: did they select relevant experts')
+# Create a ground truth per task
+    # Per task, see what experts were toggled
+
+
+
+
+print(gt_candidates['docdoc'])
+print(len(gt_candidates['docdoc']))
+
+
+print()
+print()
+gt_full = []
+
+for i in range(8):
+    gt_full.append([])
+
+    for t in gt_candidates['docdoc'][i]:
+        gt_full[i].extend(t)
+    for t in gt_candidates['doccan'][i]:
+        gt_full[i].extend(t)
+    for t in gt_candidates['candoc'][i]:
+        gt_full[i].extend(t)
+    for t in gt_candidates['cancan'][i]:
+        gt_full[i].extend(t)
+
+print('gt7')
+print(gt_full[7])
+print(set(gt_full[7]))
+print(len(gt_full))
+
+    # Then determine if they were relevant based on their portfolio
+
+#gt_candidates['conditionname'][task_performed][list of candidates toggled on]
+
+print("Total set of candidates for task 0")
+
+#goede portefeuilles voor fietsgedrag allochtonen: mobiliteit, diversiteit
+#Hol geen bekende portefeuille, maar schreef 'Utrecht fietst!'
+true0 = ['C.A. Verbokkem', 'J.W. Tamboer', 'Freek Deuss', 'R. van Alfen', 'W.S. Doornbos', 'A.W. Velthuis', 'S.C.G. Hol', 'P. Stumpel-Vos', 'M. Fleer', 'M. van Teeseling', 'Trix Aarts', 'Martijn Dijkhof', 'J.C. Damoiseaux', 'M.C. Manders']
+false0 = ['M. Braams', 'W.J. van Mierlo', 'Elkie van Ginneke']
+
+#goede portefeuilles voor buurt aantrekkelijk wil maken voor bedrijven: Ruimtelijke Ontwikkeling, economische zaken, vastgoed, ruimtelijke ordening
+#schuilenburg geen port -> maar schrijft wel over vestigen van een bedrijf
+#We rekenen geen portefeuille goed! denk ik?
+true1 = ['W.F. Matser', 'G.J.W. Wanders', 'M. van der Scheer', 'J.W.R. Huurman', 'W.C.F. van Gelder', 'J.M. Offenberg', 'N. Horst', 'M. van Dijk', 'Aldert de Vries', 'Hans Huurman', 'L. Roxs', 'J. Schuilenburg', 'J. Zuidgeest', 'Klaas Beerda', 'W.J.L. Kalfsvel', 'K. Verschoor', 'R. Wierdsma', 'A.M. Eling', 'Bas Akkers', 'Natalie Horning']
+# verkerke is openbare ruimte... note sure on this one!
+false1 = ['A.A.H. Verkerke', 'G.T. Houtman', 'D.C.M. Fiolet', 'J. Jepsen', 'D.S.M. van de Ven', 'Aloys Kersten']
+
+#speelplek bouwen porto's: ruimtelijke ontwikkelign, wonen, jeugd en jeugdzorg, cultuur, sport, overvecht, Jeugd en Jeugdzorg, wonen
+true2 = ['M.K. Kikkert', 'M.P.J. Daverschot', 'J.A. van Soelen', 'J. Lekkerkerker- Rack', 'W. Brandsen', 'W.M. Hendrix', 'Angela van der Putten', 'C. Aalberts', 'K. van der Goot', 'G.J. Schoonvelde', 'C. van Ommen', 'Marina Slijkerman', 'M.J. van Leeuwen', 'S. Hamimid', 'Manon Moonen', 'J.J. van Luxemburg', 'A.A.G. Timmerman', 'A.E. Postma', 'J.N. Wigboldus', 'W. Westgeest']
+# onderwijs blok, werk en inkomen
+false2 = ['O. Blok', 'J. van Kruijsdijk', 'A.R. Boelens', 'L. Maats', 'E.C. Dekker', 'E.S. Quak', 'C.E. Bac']
+
+#toeristen: economie, 
+true3 = ['V.J. Drost', 'Bram van Grasstek', 'Ank Hendriks', 'A.P.M. Ruis', 'Eelko van den Boogaard', 'AH. Arendsen', 'Oscar Rentinck', 'W.J.L. Kalfsvel']
+false3 = ['M. van Teeseling', 'D.S.M. van de Ven', ]
+
+#anti speculatiebeding
+true4 = ['M. Kessels', 'S.M. Draad', 'B.J. Brijder', 'Philippe Thijssen', 'Annette Damen', 'K. Verschoor', 'M.E.J. van Lijden', 'I. van de Klundert', 'R. Koene', 'Trudy Maas', 'J. Lagerweij', 'R. Mouktadibillah', 'E. de Ridder', 'Monique van Kampen', 'D.T. Crabbendam']
+false4 = ['R. van Essen']
+
+#gezond gedrag
+true5 = ['J.C.D. Hofland', 'Philippe Thijssen', 'Trix Aarts', 'E.S. Hochheimer', 'M. van den Berg', 'P. van der Meer', 'W.M. Hendrix', 'M.P.D.J. van der Horst', 'M. Weber', 'G. Hengeveld', 'Tinja Verkleij', 'K. van der Goot', 'Fabian Mol']
+false5 = ['E.S. Quak', 'Ben Norg', 'F. Douglas', 'M. Kik', 'C.A. Kuin', 'y in de stad Essa', 'C.A. Verbokkem']
+
+#tijdlijn uithoflijn
+true6 = ['div. auteurs', 'S.M. Draad', 'R. Tiemersma', 'Marieke Zijp', 'F. van der Zanden', 'De heer J. van Rooijen', 'Rogier Crusio', 'B. Coenen', 'J.H. Greeven', 'S.C. de Gier', 'R. Boot', 'W.J. van Mierlo', 'R. Doedens', 'Marjon van Caspel']
+false6 = ['O.A. James']
+
+#corona rosendael
+true7 = ['W.F. Matser', 'S.B. Beenen', 'Esther van Bladel', 'P. Buisman', 'M.K. Kikkert', 'D.P. Reinking', 'R.J. Evelein', 'Karin Sam Sin-Vos', 'P.H. Meijer', 'B. de Jong']
+false7 = ['A.A.H. Verkerke', 'M.A. van Kooten', 'Antoniek Vermeulen', 'J.M.W. Koolenbrander']
+
+gt_manual = [true0, true1, true2, true3, true4, true5, true6, true7]
+
+
+print()
+print()
+print()
+
+print('groundtruth test')
+def gt_print(condition):
+    print()
+    truth = 0
+    fail = 0
+    for t in range(8):
+        #use gt_candidates[condition][t]    for interrator agreeance
+        
+        
+        #print(gt_candidates[condition][t])
+        #print(len(gt_candidates[condition][t]))
+        for person in gt_candidates[condition][t]:
+            for c in person:
+                #print(c)
+                if c in gt_manual[t]:
+                    truth += 1
+                else:
+                    fail += 1
+                    
+        # iterrator agreeance for doc interface
+        
+                    
+    print(condition + ' ' + str(truth / (truth + fail)))
+
+
+def gt_interrator(cond1, cond2):
+    print()
+    truth = 0
+    fail = 0
+    for t in range(8):
+        #use gt_candidates[condition][t]    for interrator agreeance
+        
+        
+        #print(gt_candidates[condition][t])
+        #print(len(gt_candidates[condition][t]))
+        
+        testset = gt_candidates[cond1][t]
+        testset.extend(gt_candidates[cond2][t])
+        
+#        for person in gt_candidates[cond1][t]:
+#            for c in person:
+#                #print(c)
+#                if c in gt_manual[t]:
+#                    truth += 1
+#                else:
+#                    fail += 1
+                    
+        # iterrator agreeance for doc interface
+        
+        print(len(testset))
+                    
+#    print(condition + ' ' + str(truth / (truth + fail)))
+gt_interrator('docdoc', 'doccan')
+gt_interrator('candoc', 'cancan')
+
+
+gt_print('docdoc')
+gt_print('doccan')
+gt_print('candoc')
+gt_print('cancan')
+
+
+
+
+
+
+
+print('Follow-up: intra rator agreeance within condition? interrator agreeance between conditions?')
+     
+print()
+print('onderzoeksvraag: intrarator agreeable binnen een interface vs interrator agreeance between conditions, en ook: interrator agreeance between two types of interfacse')
+
+#for t in docdoc[tasks]
+
+#print(docdoc['toggles'])
+#print()
+#print(candoc['toggles'])
+
+print()
+#print(docdoc['fulltasks'][0])
+#print(candoc['fulltasks'][0])
+#print(doccan['fulltasks'][0])
+#print(cancan['fulltasks'][0])
+
+
+
+print('Metric 3: average rank of selected experts')
+
+#* sander p4 heeft next page gebruikt - dat wordt niet gelogd?  OF IS HET EEN NIEUWE QUERY
+
+#! Hoe interpreteren we de ranking resultaten
+#	1 resultaat op p1, 1 op p2 voor task 1
+#	Zie ook: Sander (vader) p
+
+#Kunnen we toch miguel's data weer erin zetten?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 print()
