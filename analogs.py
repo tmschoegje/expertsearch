@@ -739,7 +739,7 @@ fig = interaction_plot(
     ax=ax,
 )
 
-plt.show()
+#plt.show()
 from time import sleep
 
 #sleep(60)
@@ -1189,6 +1189,25 @@ for i, row in enumerate(rdocdoc):
 #TODO look for pairwise preference stuff online
 print(preferences)
 
+def compare_binary(cond1, cond2, ps=preferences):
+    count = 0
+    found = 0
+    if cond1 == cond2:
+        return '-'
+    for p in ps:
+        if p[0] == cond1 and p[1] == cond2:
+            found += 1
+            count += 1
+        if p[0] == cond2 and p[1] == cond1:
+            found += 1
+            count -= 1
+
+    if found == 0:
+        return 'x'
+    return str(count / found)
+
+
+
 
 def compare(cond1, cond2, ps=preferences):
     count = 0
@@ -1198,7 +1217,7 @@ def compare(cond1, cond2, ps=preferences):
     for p in ps:
         if p[0] == cond1 and p[1] == cond2:
             found += 1
-            count += p[2]
+            count += 1- (p[2] / 5)
     if found == 0:
         return 'x'
     return str(count / found)
@@ -1211,10 +1230,10 @@ def compare_avg(cond1, cond2, ps=preferences):
     for p in ps:
         if p[0] == cond1 and p[1] == cond2:
             found += 1
-            count += p[2]
+            count += 1 - (p[2] / 5)
         if p[0] == cond2 and p[1] == cond1:
             found += 1
-            count += abs(5 - p[2])
+            count += abs((p[2] / 5))
 
     if found == 0:
         return 'x'
@@ -1237,6 +1256,19 @@ print('docdoc  ' + compare_avg('docdoc', 'docdoc') + '          ' + compare_avg(
 print('candoc  ' + compare_avg('candoc', 'docdoc') + '          ' + compare_avg('candoc', 'candoc') + '         ' + compare_avg('candoc', 'doccan') + '        ' + compare_avg('candoc', 'cancan'))
 print('doccan  ' + compare_avg('doccan', 'docdoc') + '          ' + compare_avg('doccan', 'candoc') + '         ' + compare_avg('doccan', 'doccan') + '        ' + compare_avg('doccan', 'cancan'))
 print('cancan  ' + compare_avg('cancan', 'docdoc') + '          ' + compare_avg('cancan', 'candoc') + '         ' + compare_avg('cancan', 'doccan') + '        ' + compare_avg('cancan', 'cancan'))
+
+print()
+print()
+
+print('Binary pairwise comparisons averaged')
+print('      docdoc    candoc    doccan   cancan')
+print('docdoc  ' + compare_binary('docdoc', 'docdoc') + '          ' + compare_binary('docdoc', 'candoc') + '         ' + compare_binary('docdoc', 'doccan') + '        ' + compare_binary('docdoc', 'cancan'))
+print('candoc  ' + compare_binary('candoc', 'docdoc') + '          ' + compare_binary('candoc', 'candoc') + '         ' + compare_binary('candoc', 'doccan') + '        ' + compare_binary('candoc', 'cancan'))
+print('doccan  ' + compare_binary('doccan', 'docdoc') + '          ' + compare_binary('doccan', 'candoc') + '         ' + compare_binary('doccan', 'doccan') + '        ' + compare_binary('doccan', 'cancan'))
+print('cancan  ' + compare_binary('cancan', 'docdoc') + '          ' + compare_binary('cancan', 'candoc') + '         ' + compare_binary('cancan', 'doccan') + '        ' + compare_binary('cancan', 'cancan'))
+
+
+
 
 print('\nAverage preference for the second system')
 lst = [x[2] for x in preferences]
@@ -1666,21 +1698,54 @@ zcancan = {'names':[],
         'zekerheids':[]
 }
 
+nofans = 0
+allfans = 0
 
 for i, p in enumerate(preferences):
     if i == 19: # ignore second performance of task 1
         pass
     else:
+        allfans += 1
         if p[2] == 1 or p[2] == 2:
             if p[0][:3] == 'doc':
                 add_fan(docs, rs[i][1], 1, participants[i])
             else:
                 add_fan(cans, rs[i][1], 1, participants[i])
-        if p[2] == 5 or p[2] == 4:
+                
+                
+            if p[0] == 'docdoc':
+                add_fan(zdocdoc, rs[i][1], 1, participants[i])
+            if p[0] == 'candoc':
+                add_fan(zcandoc, rs[i][1], 1, participants[i])
+            if p[0] == 'doccan':
+                add_fan(zdoccan, rs[i][1], 1, participants[i])
+            if p[0] == 'cancan':
+                add_fan(zcancan, rs[i][1], 1, participants[i])
+
+                
+                
+        elif p[2] == 5 or p[2] == 4:
             if p[1][:3] == 'doc':
                 add_fan(docs, rs[i][1], 2, participants[i])
             else:
                 add_fan(cans, rs[i][1], 2, participants[i])
+
+
+
+            if p[1] == 'docdoc':
+                add_fan(zdocdoc, rs[i][1], 2, participants[i])
+            if p[1] == 'candoc':
+                add_fan(zcandoc, rs[i][1], 2, participants[i])
+            if p[1] == 'doccan':
+                add_fan(zdoccan, rs[i][1], 2, participants[i])
+            if p[1] == 'cancan':
+                add_fan(zcancan, rs[i][1], 2, participants[i])
+
+        else:
+            print(p)
+            print('No fans!')
+            nofans += 1
+
         
         if p[0][:3] == 'doc':
             add_fan(alldocs, rs[i][1], 1, participants[i])
@@ -1691,6 +1756,7 @@ for i, p in enumerate(preferences):
             add_fan(alldocs, rs[i][1], 2, participants[i])
         else:
             add_fan(allcans, rs[i][1], 2, participants[i])
+            
         
 #    print(p)
 
@@ -1717,6 +1783,12 @@ print('zekerheids doc ' + str(sum(alldocs['zekerheids']) / len(alldocs['zekerhei
 print()
 print()
 print()
+
+print('no votes ' + str(nofans))
+print('docdoc zekerheid ' + str(sum(zdocdoc['zekerheids']) / len(zdocdoc['zekerheids'])) + ' votes' + str(len(zdocdoc['zekerheids']) / allfans))
+print('doccan zekerheid ' + str(sum(zdoccan['zekerheids']) / len(zdoccan['zekerheids'])) + ' votes' + str(len(zdoccan['zekerheids']) / allfans))
+print('candoc zekerheid ' + str(sum(zcandoc['zekerheids']) / len(zcandoc['zekerheids'])) + ' votes' + str(len(zcandoc['zekerheids']) / allfans))
+print('cancan zekerheid ' + str(sum(zcancan['zekerheids']) / len(zcancan['zekerheids'])) + ' votes' + str(len(zcancan['zekerheids']) / allfans))
 #print('zekerheids docdoc ' + str(sum(docs['zekerheids']) / len(docs['zekerheids'])) + ' can ' + str(sum(cans['zekerheids']) / len(cans['zekerheids'])))
 
 print()
@@ -1724,7 +1796,6 @@ print('We find that fans feel are more confident on their chosen system')
 print((4.3 + 4.0) / 2)
 print((3.8421052631578947 + 3.789473684210526) / 2)
 
-piraten
 
 print('lets try non-parametric two-way anova alternative on time ')
 print()
@@ -2364,8 +2435,8 @@ for i, p in enumerate(participants):
 print('lets use some representative candidates for variation')
 sample = []
 saample = []
-
-for i in range(2, 7):
+saaaample = []
+for i in range(0, 4):
     for j in range(8):
         sample.extend([x / 60000 for x in participants[i][j]['times']])
 
@@ -2373,10 +2444,17 @@ for i, p in enumerate(participants):
     if i != 5 and i != 11 and i != 12 and i != 13 and i != 14 and i != 17:
         for j in range(8):
             saample.extend([x / 60000 for x in participants[i][j]['times']])
+    saaaample.extend([x / 60000 for x in participants[i][j]['times']])
 
+saaample = []
+for i in [0, 2, 9]:
+    for j in range(8):
+        saaample.extend([x / 60000 for x in participants[i][j]['times']])
 
-print(math.sqrt(statistics.variance(sample)))
+print('std dev first 5 ' + str(math.sqrt(statistics.variance(sample))))
 print(math.sqrt(statistics.variance(saample)))
+print(math.sqrt(statistics.variance(saaample)))
+print(math.sqrt(statistics.variance(saaaample)))
 
 
 
