@@ -137,7 +137,7 @@ for numdex, log in enumerate(logs):
     participants.append(p)
 
 
-#manually fix some stuff due to bad logging (next page didn't affect logged ranks)
+#manually fix some stuff due to bad logging (we didn't log next page, and hence the button didn't affect logged ranks)
 participants[4][0]['ranks']['Eelko van den Boogaard'] = 13
 participants[5][4]['ranks']['R. van Alfen'] = 27
 participants[7][7]['ranks']['R. Mouktadibillah'] = 10
@@ -1383,7 +1383,7 @@ print()
 print('Lets check out user preferences per interface')
 print('(commented)')
 
-"""
+
 def feedback(cond1, cond2, v=3, ps=preferences):
     i = 3#detault value: system preference description
     if v == 'behaviour':
@@ -1402,7 +1402,7 @@ def feedback(cond1, cond2, v=3, ps=preferences):
         return 'No comparisons available'
 #    return str(count / found)
 
-
+"""
 print()
 feedback('docdoc', 'candoc')
 feedback('candoc', 'docdoc')
@@ -1416,6 +1416,8 @@ feedback('candoc', 'docdoc')
     # hoeft minder goed te zijn in goede trefwoorden kiezen
     # je ziet per auteur wat je nog niet gezien hebt 
     
+    
+    ahoi niraten
     
 print()
 print()
@@ -1432,6 +1434,9 @@ feedback('cancan', 'docdoc')
     # less unrelevant documents
     # other interface makes me assess all documents - i don't need this
     # author info is supplementary
+    
+        # eerst gegevens, dan auteur
+        # niet alle docs candidate nodig 
 
 
 interface_order = ['can', 'doc', 'can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can', 'doc','can']
@@ -1489,6 +1494,8 @@ feedback('docdoc', 'cancan', 'behaviour')
 feedback('cancan', 'docdoc', 'behaviour')
 #1x ja portefeuille eerst
 
+
+
 print()
 print()
 print()
@@ -1497,6 +1504,12 @@ feedback('doccan', 'candoc', 'behaviour')
 # 1x ja: eerst portefeuille 
 # 1x ja: kijk nu eerst doc
 # 1x ja: typte uit wat ik zocht in can interface
+
+
+
+4x ja - andere volgorde
+1x ja - typte wat ik zocht ipv 
+
 
 print()
 print()
@@ -1700,6 +1713,8 @@ zcancan = {'names':[],
 
 nofans = 0
 allfans = 0
+can_strongfans = 0
+doc_strongfans = 0
 
 for i, p in enumerate(preferences):
     if i == 19: # ignore second performance of task 1
@@ -1709,8 +1724,12 @@ for i, p in enumerate(preferences):
         if p[2] == 1 or p[2] == 2:
             if p[0][:3] == 'doc':
                 add_fan(docs, rs[i][1], 1, participants[i])
+                if p[2] == 1:
+                    doc_strongfans += 1
             else:
                 add_fan(cans, rs[i][1], 1, participants[i])
+                if p[2] == 1:
+                    can_strongfans +=1
                 
                 
             if p[0] == 'docdoc':
@@ -1727,8 +1746,12 @@ for i, p in enumerate(preferences):
         elif p[2] == 5 or p[2] == 4:
             if p[1][:3] == 'doc':
                 add_fan(docs, rs[i][1], 2, participants[i])
+                if p[2] == 5:
+                    doc_strongfans += 1
             else:
                 add_fan(cans, rs[i][1], 2, participants[i])
+                if p[2] == 5:
+                    can_strongfans +=1
 
 
 
@@ -2551,3 +2574,116 @@ axR.set_ylabel("Studentized Pearson Residuals")
 plt.show()
 
 """
+print('strong doc fans ' + str(doc_strongfans))
+print('strong can fans ' + str(can_strongfans))
+
+
+print()
+print()
+print()
+#feedback('docdoc', 'candoc')
+#feedback('candoc', 'docdoc')
+# docdoc beter dan candoc omdat
+    # ranking is better
+
+
+#feedback('docdoc', 'cancan')
+#feedback('cancan', 'docdoc')
+# cancan better than docdoc at
+    # i search candidate, documents support choice
+    # better overview of expert, better image of expert
+    # het leek gewoon logischer ... meer consistent beeld van een persoon
+    
+# docdoc better than cancan at
+    # simpler / less unnecessary information
+    # less unrelevant documents
+    #direct gegegevens, auteurs tweede plaats
+    
+    
+print()
+#feedback('cancan', 'doccan', 'behaviour')
+#feedback('doccan', 'cancan', 'behaviour')
+# werd gedwongen in doccan   documenten te openen om te kijken of relevant (omdat slechtere descriptions cancan / maybe minder relevante docs)
+# werd gedwongen in cancan   zelfde hierboven
+
+
+
+print()
+print('we gotta make an overview of all portfolios per task')
+
+#FIRST get a set of candidates per task (x)
+#SECOND get 
+
+true0 = ['C.A. Verbokkem', 'J.W. Tamboer', 'Freek Deuss', 'R. van Alfen', 'W.S. Doornbos', 'A.W. Velthuis', 'S.C.G. Hol', 'P. Stumpel-Vos', 'M. Fleer', 'M. van Teeseling', 'Trix Aarts', 'Martijn Dijkhof', 'J.C. Damoiseaux', 'M.C. Manders']
+false0 = ['M. Braams', 'W.J. van Mierlo', 'Elkie van Ginneke']
+portfolios0 = 'Mobiliteit, Openbare ruimte, Milieu en Emissieloos Vervoer, Openbare Orde en Veiligheid, Jeugd en Jeugdzorg, Sport, Verkeer en Mobiliteit, Ruimtelijke Ontwikkeling, Diversiteit, Organisatie(vernieuwing) en personeel, Werk en inkomen, Prostitutie, Openbare Orde en Veiligheid, Inkoop en aanbestedingen, Personeel en Organisatie'
+
+
+
+#goede portefeuilles voor buurt aantrekkelijk wil maken voor bedrijven: Ruimtelijke Ontwikkeling, economische zaken, vastgoed, ruimtelijke ordening
+#schuilenburg geen port -> maar schrijft wel over vestigen van een bedrijf
+#We rekenen geen portefeuille goed! denk ik?
+true1 = ['W.F. Matser', 'G.J.W. Wanders', 'M. van der Scheer', 'J.W.R. Huurman', 'W.C.F. van Gelder', 'J.M. Offenberg', 'N. Horst', 'M. van Dijk', 'Aldert de Vries', 'Hans Huurman', 'L. Roxs', 'J. Schuilenburg', 'J. Zuidgeest', 'Klaas Beerda', 'W.J.L. Kalfsvel', 'K. Verschoor', 'R. Wierdsma', 'A.M. Eling', 'Bas Akkers', 'Natalie Horning']
+# verkerke is openbare ruimte... note sure on this one!
+false1 = ['A.A.H. Verkerke', 'G.T. Houtman', 'D.C.M. Fiolet', 'J. Jepsen', 'D.S.M. van de Ven', 'Aloys Kersten']
+portfolios1 = 'Milieu en Emissieloos Vervoer, Ruimtelijke ordening, Ruimtelijke Ontwikkeling, Openbare orde, veiligheid, toezicht en handhaving, Sport, Economische Zaken, Vastgoed, Jeugd en Jeugdzorg, Mobiliteit, Economie, Merwedekanaalzone, Energie, Financien, Maatschappelijke Ondersteuning, Bestuursinformatie, Bestuurlijke zaken, Diversiteit, Cultuur, Economie'
+
+
+#speelplek bouwen porto's: ruimtelijke ontwikkelign, wonen, jeugd en jeugdzorg, cultuur, sport, overvecht, Jeugd en Jeugdzorg, wonen
+true2 = ['M.K. Kikkert', 'M.P.J. Daverschot', 'J.A. van Soelen', 'J. Lekkerkerker- Rack', 'W. Brandsen', 'W.M. Hendrix', 'Angela van der Putten', 'C. Aalberts', 'K. van der Goot', 'G.J. Schoonvelde', 'C. van Ommen', 'Marina Slijkerman', 'M.J. van Leeuwen', 'S. Hamimid', 'Manon Moonen', 'J.J. van Luxemburg', 'A.A.G. Timmerman', 'A.E. Postma', 'J.N. Wigboldus', 'W. Westgeest']
+# onderwijs blok, werk en inkomen
+false2 = ['O. Blok', 'J. van Kruijsdijk', 'A.R. Boelens', 'L. Maats', 'E.C. Dekker', 'E.S. Quak', 'C.E. Bac']
+portfolios2 = 'Ruimtelijke Ontwikkeling, Mobiliteit, Openbare Orde en Veiligheid, Verkeer en Mobiliteit, Diversiteit, Wonen, Dierenwelzijn, Economische Zaken, Cultuur,  Jeugd en Jeugdzorg, wijk west, Ruimtelijke Ontwikkeling, Samen voor Overvecht, Circulaire Economie, Sport, wijk overvecht,  Burgerzaken, Jeugd en Jeugdzorg, Onderwijs, welzijn, maatschappelijke ondersteuning, volksgezondheid, werk en inkomen, Asiel en Integratie'
+
+
+#toeristen: economie, 
+true3 = ['V.J. Drost', 'Bram van Grasstek', 'Ank Hendriks', 'A.P.M. Ruis', 'Eelko van den Boogaard', 'AH. Arendsen', 'Oscar Rentinck', 'W.J.L. Kalfsvel']
+false3 = ['M. van Teeseling', 'D.S.M. van de Ven', ]
+portfolios3 = 'economie, economische zaken, openbare ruimte, vastgoed, citymarketing/stadspromotie, ruimtelijke ontwikkeling, mobiliteit, verkeer en mobiliteit, bestuurlijke zaken'
+
+#anti speculatiebeding
+true4 = ['M. Kessels', 'S.M. Draad', 'B.J. Brijder', 'Philippe Thijssen', 'Annette Damen', 'K. Verschoor', 'M.E.J. van Lijden', 'I. van de Klundert', 'R. Koene', 'Trudy Maas', 'J. Lagerweij', 'R. Mouktadibillah', 'E. de Ridder', 'Monique van Kampen', 'D.T. Crabbendam']
+false4 = ['R. van Essen']
+portfolios4 = 'financien, financien en belastingen, wonen, ruimelijke ontwikkeling, leidsche rijn, stationsgebied, bestuurlijke zaken, milieu en emmissieloos vervoer, economische zaken, sport, economie, energie, duurzaamheid, milieu, openbare ruimte, openbare orde en veiligheid'
+
+
+#gezond gedrag
+true5 = ['J.C.D. Hofland', 'Philippe Thijssen', 'Trix Aarts', 'E.S. Hochheimer', 'M. van den Berg', 'P. van der Meer', 'W.M. Hendrix', 'M.P.D.J. van der Horst', 'M. Weber', 'G. Hengeveld', 'Tinja Verkleij', 'K. van der Goot', 'Fabian Mol']
+false5 = ['E.S. Quak', 'Ben Norg', 'F. Douglas', 'M. Kik', 'C.A. Kuin', 'y in de stad Essa', 'C.A. Verbokkem']
+portfolios5 = 'ruimtelijke ontwikkeling, leidsche rijn, mobiliteit, volksgezondheid, samen voor overvecht, groen, openbare orde, werk en inkomen'
+
+
+#tijdlijn uithoflijn
+true6 = ['div. auteurs', 'S.M. Draad', 'R. Tiemersma', 'Marieke Zijp', 'F. van der Zanden', 'De heer J. van Rooijen', 'Rogier Crusio', 'B. Coenen', 'J.H. Greeven', 'S.C. de Gier', 'R. Boot', 'W.J. van Mierlo', 'R. Doedens', 'Marjon van Caspel']
+false6 = ['O.A. James']
+portfolios6 = 'financien, financien en belastingen, mobiliteit, personeel en organisatie, milieu en emissieloos vervoer, stationsgebied, grondzaken, verkeer en mobiliteit, ruimtelijke ontwikkeling, ruimtelijke ordening, onderwijs'
+
+
+#corona rosendael
+true7 = ['W.F. Matser', 'S.B. Beenen', 'Esther van Bladel', 'P. Buisman', 'M.K. Kikkert', 'D.P. Reinking', 'R.J. Evelein', 'Karin Sam Sin-Vos', 'P.H. Meijer', 'B. de Jong']
+false7 = ['A.A.H. Verkerke', 'M.A. van Kooten', 'Antoniek Vermeulen', 'J.M.W. Koolenbrander']
+portfolios7 = 'Milieu en Emissieloos Vervoer, Ruimtelijke ordening, Ruimtelijke Ontwikkeling, Openbare orde, veiligheid, toezicht en handhaving, Sport, leidsche rijn, verkeer en mobiliteit, jeugd en jeugdzorg, wonen, mobiliteit, openbare orde en veiligheid, volksgezondheid, vastgoed, samen voor overvecht, ombudszaken/klachtafhandeling, economische zaken, merwedekanaalzone, openbare ruimte, werk en inkomen, wijkgericht werken en participatie, financien, financien en belastingen'
+
+
+print()
+print()
+print()
+
+portfolios = [portfolios0, portfolios1, portfolios2, portfolios3, portfolios4, portfolios5, portfolios6, portfolios7]
+
+fulltasks = ["Stel dat je onderzoek voorbereid voor een project over fietsgedrag in Utrecht. Is er bij collega's iets bekend over het fietsgebruik van niet-Westerse allochtonen?", 
+	"Stel dat je een buurt aantrekkelijk wil maken voor bedrijven. Hebben collega's data over het aantal bedrijven en het aantal arbeidsplaatsen in de verschillende wijken van Utrecht? Weten we waarom bedrijven voor deze plekken kiezen?", 
+	"Stel dat je een nieuwe speelplek wil laten bouwen, en wil je controleren of er genoeg belangstelling voor is. Is er bij collega's al iets bekend over hoeveel kinderen er zijn in de wijk Overvecht, en of we meer jonge huishoudens kunnen verwachten in de toekomst?", 
+	"Stel dat je Utrecht aantrekkelijk wil maken voor toeristen. Weten collega's hoeveel overnachtigen er jaarlijks in Utrecht zijn door toeristen, en waarom toeristen kiezen voor Utrecht?", 
+	"Als je een woning koopt zit er een anti-speculatiebeding op om te voorkomen dat mensen huizen kopen om ze vervolgens door te verkopen. Welke collega's kunnen helpen onderzoeken in hoeverre deze maatregel helpt om huizen meer betaalbaar te maken?", 
+	"Stel dat je beleid wil maken om gezondheid gedrag in Leidsche Rijn te stimuleren, en je weet dat collega's in een andere wijk hierin succesvol waren. Welke collega's kunnen je helpen onderzoeken hoe de Wijkaanpak Overvecht opgezet is?", 
+	"Stel dat je de tijdlijn wil schetsen van de bouw van de Uithoflijn, vanaf de planning tot de huidige status. Wie kan je hierbij helpen?", 
+	"Stel dat je wil weten of corona invloed gaat hebben een bouwproject in jouw wijk. Wie kan je vertellen of corona invloed heeft op de bouwplannen Zorgcentrum Rosendael?"]
+
+for i, p in enumerate(fulltasks):
+    print()
+    print(p)
+    for j in portfolios[i].split(","):
+        print(j)
+    print()
+    
