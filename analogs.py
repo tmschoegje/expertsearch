@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 #kwijt: marike, peter, robin, petra
-p0_logs = ''
+p0_logs = 'time 1643305719277 task -1 window open?\ntime 1643305720531 task -1 query test numresults 22\ntime 1643305869597 starting task 0\ntime 1643305883862 task 0 window open?\ntime 1643305884404 task 0 query fietsgebruik allochtonen numresults 26\ntime 1643305899842 task 0 toggle on W.S. Doornbos rank 1 numresults 3\ntime 1643305906465 task 0 click 10f4e260-1ba4-48ae-a67d-199747afa9ce\ntime 1643305912870 task 0 click 66092949-5bfe-412d-9ffa-0d3079b4dd93\ntime 1643305927166 task 0 toggle on Freek Deuss rank 3 numresults 2\ntime 1643305936226 stopping task 0\ntime 1643305940484 starting task 1\ntime 1643305950449 task 1 window open?\ntime 1643305951430 task 1 query zorgcentrum rosendael numresults 11\ntime 1643305970957 task 1 toggle on P. Buisman rank 2 numresults 1\ntime 1643305972766 task 1 toggle on R.J. Evelein rank 0 numresults 1\ntime 1643305983610 stopping task 1\ntime 1643305986822 starting task 2\ntime 1643306002913 task 2 window open?\ntime 1643306003319 task 2 query jaarlijkse overnachtingen utrecht numresults 1030\ntime 1643306015449 task 2 window open?\ntime 1643306015715 task 2 query toeristen overnachtingen utrecht numresults 1030\ntime 1643306018980 task 2 window open?\ntime 1643306019169 task 2 query toeristen overnachtingen  numresults 29\ntime 1643306024340 task 2 toggle on V.J. Drost rank 0 numresults 3\ntime 1643306030249 task 2 toggle on A.P.M. Ruis rank 1 numresults 3\ntime 1643306049398 stopping task 2\ntime 1643306051296 starting task 3\ntime 1643306071752 task 3 window open?\ntime 1643306072187 task 3 query bedrijven vestigen numresults 327\ntime 1643306079127 task 3 toggle on Aloys Kersten rank 0 numresults 1\ntime 1643306119046 task 3 window open?\ntime 1643306119528 task 3 query bedrijven vestigen wijk numresults 671\ntime 1643306128426 task 3 toggle on G.J.W. Wanders rank 1 numresults 1\ntime 1643306131162 stopping task 3\ntime 1643306132566 task -1 window open?\ntime 1643306132615 task -1 query bedrijven vestigen wijk numresults 1691\ntime 1643306520764 starting task 4\ntime 1643306528678 task 4 window open?\ntime 1643306529032 task 4 query anti-speculatiebeding numresults 35\ntime 1643306537890 task 4 window open?\ntime 1643306537921 task 4 query antispeculatiebeding numresults 1\ntime 1643306540795 task 4 toggle on Ellen van Beckhoven rank 0 numresults 1\ntime 1643306544157 task 4 window open?\ntime 1643306544184 task 4 query speculatiebeding numresults 1\ntime 1643306548081 task 4 toggle on R. van Essen rank 0 numresults 1\ntime 1643306552702 stopping task 4\ntime 1643306556869 starting task 5\ntime 1643306562342 task 5 window open?\ntime 1643306562386 task 5 query uithoflijn numresults 94\ntime 1643306566304 task 5 toggle on J.H. Greeven rank 0 numresults 1\ntime 1643306568111 task 5 toggle on B. Coenen rank 1 numresults 1\ntime 1643306571391 stopping task 5\ntime 1643306574382 starting task 6\ntime 1643306587441 task 6 window open?\ntime 1643306587489 task 6 query jonge huishoudens overvecht numresults 757\ntime 1643306596018 task 6 window open?\ntime 1643306596073 task 6 query \'jonge huishoudens\' overvecht numresults 757\ntime 1643306603774 task 6 window open?\ntime 1643306603863 task 6 query "jonge huishoudens" overvecht numresults 550\ntime 1643306611561 task 6 toggle on N. Terpstra rank 1 numresults 1\ntime 1643306616802 task 6 window open?\ntime 1643306616857 task 6 query wonen overvecht numresults 1222\ntime 1643306625500 task 6 window open?\ntime 1643306625535 task 6 query overvecht numresults 550\ntime 1643306636698 stopping task 6\ntime 1643306639336 starting task 7\ntime 1643306648654 task 7 window open?\ntime 1643306648701 task 7 query wijkaanpak overvecht numresults 558\ntime 1643306652223 task 7 toggle on W.M. Hendrix rank 0 numresults 1\ntime 1643306655588 task 7 toggle on M. van den Berg rank 1 numresults 1\ntime 1643306662498 stopping task 7\n'
 p1_logs = 'time 1642620759585 task -1 window open?\ntime 1642620760560 task -1 query corona numresults 114\ntime 1642620794968 task -1 window open?\ntime 1642620795435 task -1 query bank numresults 38\ntime 1642621104232 starting task 0\ntime 1642621136688 task 0 window open?\ntime 1642621137535 task 0 query bedrijf vestigen numresults 161\ntime 1642621188534 task 0 toggle on R. Wierdsma rank 2 numresults 1\ntime 1642621225379 task 0 toggle on Natalie Horning rank 6 numresults 1\ntime 1642621232909 task 0 toggle on D.S.M. van de Ven rank 7 numresults 1\ntime 1642621237808 task 0 toggle on W.J.L. Kalfsvel rank 8 numresults 1\ntime 1642621247583 stopping task 0\ntime 1642621270581 starting task 1\ntime 1642621316334 task 1 window open?\ntime 1642621316628 task 1 query wijkaanpak overvecht numresults 287\ntime 1642621322322 task 1 toggle on W.M. Hendrix rank 0 numresults 1\ntime 1642621328525 task 1 toggle on M. van den Berg rank 1 numresults 1\ntime 1642621347307 task 1 toggle off M. van den Berg rank 1 numresults 1\ntime 1642621369119 stopping task 1\ntime 1642621371411 starting task 2\ntime 1642621409394 task 2 window open?\ntime 1642621410370 task 2 query bouw corona numresults 314\ntime 1642621428414 task 2 toggle on D.P. Reinking rank 4 numresults 1\ntime 1642621446270 task 2 window open?\ntime 1642621447029 task 2 query corona invloed  numresults 305\ntime 1642621483301 stopping task 2\ntime 1642621484023 starting task 3\ntime 1642621507806 task 3 window open?\ntime 1642621508034 task 3 query doorverkoop koop  numresults 78\ntime 1642621515337 task 3 window open?\ntime 1642621515874 task 3 query doorverkoop koopwoning numresults 12\ntime 1642621546636 task 3 window open?\ntime 1642621547190 task 3 query koopwoning speculatie numresults 13\ntime 1642621563902 task 3 window open?\ntime 1642621564184 task 3 query koopwoning misbruik numresults 54\ntime 1642621588552 task 3 window open?\ntime 1642621589139 task 3 query koopwoning doorverkoop numresults 12\ntime 1642621604968 stopping task 3\ntime 1642621609652 task -1 window open?\ntime 1642621609686 task -1 query koopwoning doorverkoop numresults 14\ntime 1642621745070 starting task 4\ntime 1642621772134 task 4 window open?\ntime 1642621772186 task 4 query fiesten allochtonen numresults 7\ntime 1642621806903 task 4 window open?\ntime 1642621806945 task 4 query fiesten allochtonen niet westers numresults 3351\ntime 1642621822746 task 4 window open?\ntime 1642621826397 task 4 window open?\ntime 1642621826421 task 4 query fiesters numresults 0\ntime 1642621829641 task 4 window open?\ntime 1642621829664 task 4 query fiesters numresults 0\ntime 1642621834786 task 4 window open?\ntime 1642621834829 task 4 query fietsers numresults 250\ntime 1642621841688 stopping task 4\ntime 1642621843423 starting task 5\ntime 1642621869487 task 5 window open?\ntime 1642621869538 task 5 query aantal kinderen overvecht numresults 2585\ntime 1642621878832 task 5 window open?\ntime 1642621878873 task 5 query geboortecijfers overvecht numresults 550\ntime 1642621890154 task 5 window open?\ntime 1642621890191 task 5 query geboorte overvecht numresults 558\ntime 1642621912108 task 5 window open?\ntime 1642621912157 task 5 query kinderen overvecht numresults 830\ntime 1642621924740 task 5 window open?\ntime 1642621924783 task 5 query jonge ouders overvecht numresults 848\ntime 1642621934235 stopping task 5\ntime 1642621935912 starting task 6\ntime 1642621947319 task 6 window open?\ntime 1642621947365 task 6 query toerisme  numresults 47\ntime 1642621955291 task 6 toggle on V.J. Drost rank 0 numresults 3\ntime 1642621973571 task 6 toggle on Ank Hendriks rank 7 numresults 2\ntime 1642621981664 stopping task 6\ntime 1642621983581 starting task 7\ntime 1642621992721 task 7 window open?\ntime 1642621992765 task 7 query uithoflijn numresults 94\ntime 1642621997493 task 7 toggle on J.H. Greeven rank 0 numresults 3\ntime 1642622002939 task 7 toggle on B. Coenen rank 1 numresults 3\ntime 1642622011172 stopping task 7\ntime 1642624755203 task -1 window open?\n'
 p2_logs = 'time 1639738969038 task -1 window open?\ntime 1639738969131 task -1 query uithoflijn numresults 94\ntime 1639741207966 task -1 window close?\ntime 1640791557459 task -1 window open?\ntime 1640791557506 task -1 query utrecht numresults 4324\ntime 1640792047828 task -1 window open?\ntime 1640792048424 task -1 query banana numresults 0\ntime 1640792067794 task -1 window open?\ntime 1640792068246 task -1 query  numresults 4343\ntime 1640792081724 starting task 0\ntime 1640792110626 task 0 window open?\ntime 1640792111093 task 0 query anti-speculatiebeding numresults 35\ntime 1640792131188 task 0 window open?\ntime 1640792131240 task 0 query anti-speculatiebeding effectief  numresults 226\ntime 1640792149985 task 0 window open?\ntime 1640792150159 task 0 query anti-speculatiebeding effectief huis numresults 455\ntime 1640792196363 task 0 window open?\ntime 1640792196416 task 0 query speculatiebeding effectief huis numresults 427\ntime 1640792213686 task 0 toggle on R. van Essen rank 0 numresults 3\ntime 1640792227425 task 0 window open?\ntime 1640792227471 task 0 query speculatiebeding numresults 1\ntime 1640792236372 stopping task 0\ntime 1640792268107 starting task 1\ntime 1640792293829 task 1 window open?\ntime 1640792293936 task 1 query arbeidsplaatsen utrecht numresults 4324\ntime 1640792312963 task 1 window open?\ntime 1640792313013 task 1 query arbeidsplaatsen  numresults 23\ntime 1640792323136 task 1 toggle on M. Degenkamp rank 0 numresults 1\ntime 1640792337618 task 1 toggle on Aloys Kersten rank 1 numresults 2\ntime 1640792342118 task 1 toggle off M. Degenkamp rank 0 numresults 1\ntime 1640792380681 task 1 toggle on Aldert de Vries rank 6 numresults 3\ntime 1640792383510 stopping task 1\ntime 1640792421306 starting task 2\ntime 1640792438128 task 2 window open?\ntime 1640792438348 task 2 query Uithoflijn numresults 94\ntime 1640792449690 task 2 toggle on J.H. Greeven rank 0 numresults 3\ntime 1640792469500 stopping task 2\ntime 1640792476558 starting task 3\ntime 1640792507377 task 3 window open?\ntime 1640792507501 task 3 query niet-Westerse allochtonen numresults 3352\ntime 1640792536410 task 3 window open?\ntime 1640792536513 task 3 query fietsgebruik numresults 25\ntime 1640792565558 task 3 window open?\ntime 1640792565623 task 3 query fietsgebruik allochtonen numresults 32\ntime 1640792578283 task 3 toggle on M. van Teeseling rank 0 numresults 3\ntime 1640792591068 stopping task 3\ntime 1640792595663 task -1 window open?\ntime 1640792595990 task -1 query fietsgebruik allochtonen numresults 26\ntime 1640792749964 starting task 4\ntime 1640792780952 task 4 window open?\ntime 1640792781276 task 4 query gezond gedrag beleid numresults 514\ntime 1640792817011 task 4 toggle on Ben Norg rank 6 numresults 1\ntime 1640792826434 stopping task 4\ntime 1640792909373 starting task 5\ntime 1640792935933 task 5 window open?\ntime 1640792936242 task 5 query Overvecht gezin numresults 317\ntime 1640792951128 task 5 window open?\ntime 1640792951419 task 5 query Overvecht jonge huishoudens numresults 368\ntime 1640792996495 task 5 window open?\ntime 1640792996768 task 5 query Overvecht jong numresults 319\ntime 1640793009887 task 5 toggle on E.C. Dekker rank 1 numresults 1\ntime 1640793025293 stopping task 5\ntime 1640793069886 starting task 6\ntime 1640793088505 task 6 window open?\ntime 1640793088788 task 6 query bouwplannen Zorgcentrum Rosendael numresults 40\ntime 1640793113389 task 6 window open?\ntime 1640793113957 task 6 query corona Zorgcentrum Rosendael numresults 120\ntime 1640793139196 task 6 toggle on A.A.H. Verkerke rank 4 numresults 1\ntime 1640793142574 stopping task 6\ntime 1640793150963 starting task 7\ntime 1640793166786 task 7 window open?\ntime 1640793167015 task 7 query toeristen  numresults 27\ntime 1640793172502 task 7 toggle on V.J. Drost rank 0 numresults 1\ntime 1640793192074 stopping task 7\n'
 p3_logs = 'time 1640794710452 task -1 window open?\ntime 1640794710882 task -1 query toeristen  numresults 31\ntime 1640794957205 starting task 0\ntime 1640794998054 task 0 window open?\ntime 1640794998260 task 0 query fietsgedrag niet westerse allochtonen numresults 3353\ntime 1640795016931 task 0 window open?\ntime 1640795017135 task 0 query fietsgedrag allochtonen numresults 9\ntime 1640795108666 task 0 click 271eb20c-ec72-49fc-bba4-4715428f748c\ntime 1640795162379 task 0 click 49fd9f34-73dd-424b-9214-288615e2d940\ntime 1640795180335 task 0 toggle on Martijn Dijkhof rank 4 numresults 1\ntime 1640795208302 stopping task 0\ntime 1640795350325 starting task 1\ntime 1640795391903 task 1 window open?\ntime 1640795392506 task 1 query voorkeur bedrijfsvestiging numresults 276\ntime 1640795453501 task 1 window open?\ntime 1640795453713 task 1 query voorkeur wijk bedrijven numresults 1795\ntime 1640795520972 task 1 window open?\ntime 1640795521121 task 1 query aantal arbeidsplaatsen wijk  numresults 2829\ntime 1640795561006 task 1 click b4371e72-d08c-4cd0-b998-7dc116b22bb4\ntime 1640795622748 task 1 click b4371e72-d08c-4cd0-b998-7dc116b22bb4\ntime 1640795636004 task 1 toggle on Hans Huurman rank 8 numresults 1\ntime 1640795676805 task 1 click a00873ad-47cb-4bde-9286-b7296da6f255\ntime 1640795708397 task 1 toggle on A.A.H. Verkerke rank 9 numresults 1\ntime 1640795743335 task 1 click c92dcba9-1761-4baa-b978-ec442539bb64\ntime 1640795776553 stopping task 1\ntime 1640795808679 starting task 2\ntime 1640795829569 task 2 window open?\ntime 1640795829981 task 2 query toeristen utrecht numresults 4324\ntime 1640795893556 task 2 click 07b9c332-ff81-4cf8-baae-0dc6f05e93b1\ntime 1640795948959 task 2 toggle on V.J. Drost rank 7 numresults 1\ntime 1640795983379 task 2 toggle on D.S.M. van de Ven rank 2 numresults 1\ntime 1640796009046 stopping task 2\ntime 1640796021878 starting task 3\ntime 1640796049223 task 3 window open?\ntime 1640796049369 task 3 query overvecht ontwikkelingen numresults 1486\ntime 1640796091658 task 3 click 242a07d0-8c1f-4d02-8b15-a1355fcb441a\ntime 1640796149626 task 3 click c5f456e2-d6b4-47fe-a2d3-2c671f25497c\ntime 1640796192052 task 3 click 7d6de34c-e6d5-4b75-8660-308626bbc76b\ntime 1640796219830 task 3 toggle on C.E. Bac rank 4 numresults 1\ntime 1640796245645 task 3 click c5f456e2-d6b4-47fe-a2d3-2c671f25497c\ntime 1640796268922 stopping task 3\ntime 1640796275172 task -1 window open?\ntime 1640796275736 task -1 query overvecht ontwikkelingen numresults 610\ntime 1640796590967 starting task 4\ntime 1640796615860 task 4 window open?\ntime 1640796616526 task 4 query gezond gedrag stimuleren numresults 431\ntime 1640796695892 task 4 click 899cf2c6-4874-400a-a948-f459fb3cce2b\ntime 1640796748051 task 4 toggle on Tinja Verkleij rank 1 numresults 1\ntime 1640796883814 task 4 toggle on M. Weber rank 7 numresults 3\ntime 1640796925084 stopping task 4\ntime 1640796943455 starting task 5\ntime 1640796967800 task 5 window open?\ntime 1640796968611 task 5 query zorgcentrum rosendael numresults 11\ntime 1640797020341 task 5 click 23a3c634-c7d4-4fa3-a474-80aab55acedb\ntime 1640797098128 task 5 toggle on Antoniek Vermeulen rank 9 numresults 1\ntime 1640797135160 task 5 click 99246f05-1e17-40b8-8ab2-a1f7c6b75ba4\ntime 1640797170942 task 5 click afec48fd-6a47-49b1-9f23-9d859821358c\ntime 1640797218459 task 5 click 64f5a0de-9679-4a0d-a7ca-1c35044c7d64\ntime 1640797239959 stopping task 5\ntime 1640797243042 starting task 6\ntime 1640797261182 task 6 window open?\ntime 1640797261625 task 6 query anti-speculatiebeding numresults 29\ntime 1640797334153 task 6 window open?\ntime 1640797334520 task 6 query anti-speculatie beding numresults 32\ntime 1640797362881 task 6 window open?\ntime 1640797363158 task 6 query anti-speculatiebeding numresults 29\ntime 1640797388650 task 6 window open?\ntime 1640797388807 task 6 query speculatie numresults 1\ntime 1640797407666 task 6 window open?\ntime 1640797407969 task 6 query anti-speculatiebeding numresults 29\ntime 1640797453522 task 6 window open?\ntime 1640797454150 task 6 query huizen doorverkopen numresults 37\ntime 1640797468141 task 6 click f046f0d8-0398-48d0-9f87-005103b1f091\ntime 1640797551233 task 6 toggle on S.M. Draad rank 1 numresults 1\ntime 1640797569873 task 6 window open?\ntime 1640797570040 task 6 query speculatiebeding numresults 1\ntime 1640797577098 task 6 toggle on R. van Essen rank 0 numresults 1\ntime 1640797581145 stopping task 6\ntime 1640797591157 starting task 7\ntime 1640797617463 task 7 window open?\ntime 1640797618008 task 7 query tijdlijn ontwikkelen numresults 371\ntime 1640797633090 task 7 window open?\ntime 1640797633501 task 7 query tijdlijn uithoflijn numresults 53\ntime 1640797642345 task 7 toggle on J.H. Greeven rank 0 numresults 3\ntime 1640797655776 task 7 click 660670a4-7591-417f-9835-ca572fb374e4\ntime 1640797664890 task 7 toggle on S.C. de Gier rank 1 numresults 3\ntime 1640797668657 stopping task 7\ntime 1640797678527 starting task 8\ntime 1640797690564 stopping task 8\n'
@@ -2127,40 +2127,103 @@ print("Total set of candidates for task 0")
 
 #goede portefeuilles voor fietsgedrag allochtonen: mobiliteit, diversiteit
 #Hol geen bekende portefeuille, maar schreef 'Utrecht fietst!'
-true0 = ['C.A. Verbokkem', 'J.W. Tamboer', 'Freek Deuss', 'R. van Alfen', 'W.S. Doornbos', 'A.W. Velthuis', 'S.C.G. Hol', 'P. Stumpel-Vos', 'M. Fleer', 'M. van Teeseling', 'Trix Aarts', 'Martijn Dijkhof', 'J.C. Damoiseaux', 'M.C. Manders']
-false0 = ['M. Braams', 'W.J. van Mierlo', 'Elkie van Ginneke']
+
+#thomas annotation
+#true0 = ['C.A. Verbokkem', 'J.W. Tamboer', 'Freek Deuss', 'R. van Alfen', 'W.S. Doornbos', 'A.W. Velthuis', 'S.C.G. Hol', 'P. Stumpel-Vos', 'M. Fleer', 'M. van Teeseling', 'Trix Aarts', 'Martijn Dijkhof', 'J.C. Damoiseaux', 'M.C. Manders']
+#false0 = ['M. Braams', 'W.J. van Mierlo', 'Elkie van Ginneke']
+
+#M annotation
+# Mobiliteit, Openbare ruimte, Jeugd en Jeugdzorg, Verkeer en Mobiliteit, Ruimtelijke Ontwikkeling, Diversiteit, Werk en inkomen
+true0 = ['C.A. Verbokkem', 'J.W. Tamboer', 'Freek Deuss', 'R. van Alfen', 'W.S. Doornbos', 'A.W. Velthuis', 'S.C.G. Hol', 'P. Stumpel-Vos', 'M. Fleer', 'M. van Teeseling', 'Trix Aarts', 'Martijn Dijkhof', 'J.C. Damoiseaux', 'M.C. Manders', 'M. Braams']
+false0 = ['W.J. van Mierlo', 'Elkie van Ginneke']
+
 
 #goede portefeuilles voor buurt aantrekkelijk wil maken voor bedrijven: Ruimtelijke Ontwikkeling, economische zaken, vastgoed, ruimtelijke ordening
 #schuilenburg geen port -> maar schrijft wel over vestigen van een bedrijf
 #We rekenen geen portefeuille goed! denk ik?
-true1 = ['W.F. Matser', 'G.J.W. Wanders', 'M. van der Scheer', 'J.W.R. Huurman', 'W.C.F. van Gelder', 'J.M. Offenberg', 'N. Horst', 'M. van Dijk', 'Aldert de Vries', 'Hans Huurman', 'L. Roxs', 'J. Schuilenburg', 'J. Zuidgeest', 'Klaas Beerda', 'W.J.L. Kalfsvel', 'K. Verschoor', 'R. Wierdsma', 'A.M. Eling', 'Bas Akkers', 'Natalie Horning']
+
+#thomas annotations
+#true1 = ['W.F. Matser', 'G.J.W. Wanders', 'M. van der Scheer', 'J.W.R. Huurman', 'W.C.F. van Gelder', 'J.M. Offenberg', 'N. Horst', 'M. van Dijk', 'Aldert de Vries', 'Hans Huurman', 'L. Roxs', 'J. Schuilenburg', 'J. Zuidgeest', 'Klaas Beerda', 'W.J.L. Kalfsvel', 'K. Verschoor', 'R. Wierdsma', 'A.M. Eling', 'Bas Akkers', 'Natalie Horning']
 # verkerke is openbare ruimte... note sure on this one!
-false1 = ['A.A.H. Verkerke', 'G.T. Houtman', 'D.C.M. Fiolet', 'J. Jepsen', 'D.S.M. van de Ven', 'Aloys Kersten']
+#false1 = ['A.A.H. Verkerke', 'G.T. Houtman', 'D.C.M. Fiolet', 'J. Jepsen', 'D.S.M. van de Ven', 'Aloys Kersten']
+
+#M annotations
+#Ruimtelijke ordening, Ruimtelijke Ontwikkeling, Economische Zaken, Vastgoed, Economie, Bestuursinformatie, Economie
+true1 = ['W.F. Matser', 'G.J.W. Wanders', 'M. van der Scheer', 'J.W.R. Huurman', 'W.C.F. van Gelder', 'J.M. Offenberg', 'M. van Dijk', 'Aldert de Vries', 'Hans Huurman', 'L. Roxs', 'J. Schuilenburg', 'J. Zuidgeest', 'Klaas Beerda', 'W.J.L. Kalfsvel', 'K. Verschoor', 'R. Wierdsma', 'A.M. Eling', 'Bas Akkers', 'Natalie Horning', 'D.C.M. Fiolet']
+# verkerke is openbare ruimte... note sure on this one!
+false1 = ['A.A.H. Verkerke', 'G.T. Houtman', 'J. Jepsen', 'D.S.M. van de Ven', 'Aloys Kersten', 'N. Horst']
+
 
 #speelplek bouwen porto's: ruimtelijke ontwikkelign, wonen, jeugd en jeugdzorg, cultuur, sport, overvecht, Jeugd en Jeugdzorg, wonen
-true2 = ['M.K. Kikkert', 'M.P.J. Daverschot', 'J.A. van Soelen', 'J. Lekkerkerker- Rack', 'W. Brandsen', 'W.M. Hendrix', 'Angela van der Putten', 'C. Aalberts', 'K. van der Goot', 'G.J. Schoonvelde', 'C. van Ommen', 'Marina Slijkerman', 'M.J. van Leeuwen', 'S. Hamimid', 'Manon Moonen', 'J.J. van Luxemburg', 'A.A.G. Timmerman', 'A.E. Postma', 'J.N. Wigboldus', 'W. Westgeest']
+#Thomas
+#true2 = ['M.K. Kikkert', 'M.P.J. Daverschot', 'J.A. van Soelen', 'J. Lekkerkerker- Rack', 'W. Brandsen', 'W.M. Hendrix', 'Angela van der Putten', 'C. Aalberts', 'K. van der Goot', 'G.J. Schoonvelde', 'C. van Ommen', 'Marina Slijkerman', 'M.J. van Leeuwen', 'S. Hamimid', 'Manon Moonen', 'J.J. van Luxemburg', 'A.A.G. Timmerman', 'A.E. Postma', 'J.N. Wigboldus', 'W. Westgeest']
 # onderwijs blok, werk en inkomen
-false2 = ['O. Blok', 'J. van Kruijsdijk', 'A.R. Boelens', 'L. Maats', 'E.C. Dekker', 'E.S. Quak', 'C.E. Bac']
+#false2 = ['O. Blok', 'J. van Kruijsdijk', 'A.R. Boelens', 'L. Maats', 'E.C. Dekker', 'E.S. Quak', 'C.E. Bac']
 
+#M annotations
+#Ruimtelijke Ontwikkeling, Wonen, Jeugd en Jeugdzorg, Ruimtelijke Ontwikkeling, Samen voor Overvecht, wijk overvecht, Burgerzaken, Jeugd en Jeugdzorg, Onderwijs
+true2 = ['M.K. Kikkert', 'J.A. van Soelen', 'J. Lekkerkerker- Rack', 'W. Brandsen', 'W.M. Hendrix', 'Angela van der Putten', 'C. Aalberts', 'K. van der Goot', 'Marina Slijkerman', 'M.J. van Leeuwen', 'S. Hamimid', 'Manon Moonen', 'J.J. van Luxemburg', 'A.E. Postma', 'J.N. Wigboldus', 'W. Westgeest', 'O. Blok', 'A.A.G. Timmerman']
+# onderwijs blok, werk en inkomen
+false2 = ['J. van Kruijsdijk', 'A.R. Boelens', 'L. Maats', 'E.C. Dekker', 'E.S. Quak', 'C.E. Bac', 'M.P.J. Daverschot', 'G.J. Schoonvelde', 'C. van Ommen']
+
+
+#T annotaties
 #toeristen: economie, 
+#true3 = ['V.J. Drost', 'Bram van Grasstek', 'Ank Hendriks', 'A.P.M. Ruis', 'Eelko van den Boogaard', 'AH. Arendsen', 'Oscar Rentinck', 'W.J.L. Kalfsvel']
+#false3 = ['M. van Teeseling', 'D.S.M. van de Ven', ]
+
+#M annotates
+#economie, economische zaken, citymarketing/stadspromotie
 true3 = ['V.J. Drost', 'Bram van Grasstek', 'Ank Hendriks', 'A.P.M. Ruis', 'Eelko van den Boogaard', 'AH. Arendsen', 'Oscar Rentinck', 'W.J.L. Kalfsvel']
 false3 = ['M. van Teeseling', 'D.S.M. van de Ven', ]
 
-#anti speculatiebeding
-true4 = ['M. Kessels', 'S.M. Draad', 'B.J. Brijder', 'Philippe Thijssen', 'Annette Damen', 'K. Verschoor', 'M.E.J. van Lijden', 'I. van de Klundert', 'R. Koene', 'Trudy Maas', 'J. Lagerweij', 'R. Mouktadibillah', 'E. de Ridder', 'Monique van Kampen', 'D.T. Crabbendam']
-false4 = ['R. van Essen']
 
+
+
+# T annotaties
+#anti speculatiebeding
+#true4 = ['M. Kessels', 'S.M. Draad', 'B.J. Brijder', 'Philippe Thijssen', 'Annette Damen', 'K. Verschoor', 'M.E.J. van Lijden', 'I. van de Klundert', 'R. Koene', 'Trudy Maas', 'J. Lagerweij', 'R. Mouktadibillah', 'E. de Ridder', 'Monique van Kampen', 'D.T. Crabbendam']
+#false4 = ['R. van Essen']
+
+#M annotates
+#wonen
+true4 = ['M. Kessels', 'S.M. Draad', 'B.J. Brijder', 'M.E.J. van Lijden', 'R. Koene', 'Trudy Maas', 'J. Lagerweij', 'R. Mouktadibillah', 'E. de Ridder', 'Monique van Kampen', 'D.T. Crabbendam']
+false4 = ['R. van Essen', 'Philippe Thijssen', 'Annette Damen', 'K. Verschoor', 'I. van de Klundert']
+
+
+#T annotates
 #gezond gedrag
+#true5 = ['J.C.D. Hofland', 'Philippe Thijssen', 'Trix Aarts', 'E.S. Hochheimer', 'M. van den Berg', 'P. van der Meer', 'W.M. Hendrix', 'M.P.D.J. van der Horst', 'M. Weber', 'G. Hengeveld', 'Tinja Verkleij', 'K. van der Goot', 'Fabian Mol']
+#false5 = ['E.S. Quak', 'Ben Norg', 'F. Douglas', 'M. Kik', 'C.A. Kuin', 'y in de stad Essa', 'C.A. Verbokkem']
+
+#M annotaties
+#ruimtelijke ontwikkeling, volksgezondheid, samen voor overvecht
 true5 = ['J.C.D. Hofland', 'Philippe Thijssen', 'Trix Aarts', 'E.S. Hochheimer', 'M. van den Berg', 'P. van der Meer', 'W.M. Hendrix', 'M.P.D.J. van der Horst', 'M. Weber', 'G. Hengeveld', 'Tinja Verkleij', 'K. van der Goot', 'Fabian Mol']
 false5 = ['E.S. Quak', 'Ben Norg', 'F. Douglas', 'M. Kik', 'C.A. Kuin', 'y in de stad Essa', 'C.A. Verbokkem']
 
+
+
+#T annotes
 #tijdlijn uithoflijn
-true6 = ['div. auteurs', 'S.M. Draad', 'R. Tiemersma', 'Marieke Zijp', 'F. van der Zanden', 'De heer J. van Rooijen', 'Rogier Crusio', 'B. Coenen', 'J.H. Greeven', 'S.C. de Gier', 'R. Boot', 'W.J. van Mierlo', 'R. Doedens', 'Marjon van Caspel']
-false6 = ['O.A. James']
+#true6 = ['div. auteurs', 'S.M. Draad', 'R. Tiemersma', 'Marieke Zijp', 'F. van der Zanden', 'De heer J. van Rooijen', 'Rogier Crusio', 'B. Coenen', 'J.H. Greeven', 'S.C. de Gier', 'R. Boot', 'W.J. van Mierlo', 'R. Doedens', 'Marjon van Caspel']
+#false6 = ['O.A. James']
+
+#M annotes
+# mobiliteit, stationsgebied, verkeer en mobiliteit, ruimtelijke ontwikkeling
+true6 = ['div. auteurs', 'R. Tiemersma', 'Marieke Zijp', 'Rogier Crusio', 'B. Coenen', 'J.H. Greeven', 'S.C. de Gier', 'R. Boot', 'R. Doedens', 'Marjon van Caspel']
+false6 = ['O.A. James', 'S.M. Draad', 'F. van der Zanden', 'De heer J. van Rooijen', 'W.J. van Mierlo']
+
+
+#T annos
 
 #corona rosendael
-true7 = ['W.F. Matser', 'S.B. Beenen', 'Esther van Bladel', 'P. Buisman', 'M.K. Kikkert', 'D.P. Reinking', 'R.J. Evelein', 'Karin Sam Sin-Vos', 'P.H. Meijer', 'B. de Jong']
-false7 = ['A.A.H. Verkerke', 'M.A. van Kooten', 'Antoniek Vermeulen', 'J.M.W. Koolenbrander']
+#true7 = ['W.F. Matser', 'S.B. Beenen', 'Esther van Bladel', 'P. Buisman', 'M.K. Kikkert', 'D.P. Reinking', 'R.J. Evelein', 'Karin Sam Sin-Vos', 'P.H. Meijer', 'B. de Jong']
+#false7 = ['A.A.H. Verkerke', 'M.A. van Kooten', 'Antoniek Vermeulen', 'J.M.W. Koolenbrander']
+
+#M 
+#Ruimtelijke ordening, Ruimtelijke Ontwikkeling, wonen, vastgoed, openbare ruimte
+true7 = ['W.F. Matser', 'S.B. Beenen', 'Esther van Bladel', 'P. Buisman', 'M.K. Kikkert', 'D.P. Reinking', 'Karin Sam Sin-Vos', 'P.H. Meijer', 'B. de Jong', 'A.A.H. Verkerke']
+false7 = ['M.A. van Kooten', 'Antoniek Vermeulen', 'J.M.W. Koolenbrander', 'R.J. Evelein']
 
 gt_manual = [true0, true1, true2, true3, true4, true5, true6, true7]
 
@@ -2214,7 +2277,7 @@ def gt_print(condition):
         #TODO second print for at least 1 relevant candidate/task
         
                     
-    print(condition + ' ' + str(truth / (truth + fail)))
+    print(condition + '  precision  ' + str(truth / (truth + fail)))
     print('and task completion ' + str(numcorrect / numtasks))
 
 
@@ -2248,11 +2311,12 @@ def gt_interrator(cond1, cond2):
 gt_interrator('docdoc', 'doccan')
 gt_interrator('candoc', 'cancan')
 
-
+print('EFFECTIVENESS AND PRECISION')
 gt_print('docdoc')
 gt_print('doccan')
 gt_print('candoc')
 gt_print('cancan')
+
 
 import collections
 
@@ -2538,6 +2602,8 @@ df3 = pd.DataFrame(data=dataset_log, columns=['interface','ranking','condition',
 
 print(np.array(df3).shape)
 
+
+print('Effectiveness logistic test')
 model = smf.logit("completion ~ C(interface) * C(ranking)", data = df3).fit()
 print(model)
 print()
